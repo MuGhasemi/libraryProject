@@ -2,16 +2,16 @@
 
 To start a Django project, you need to create a virtual environment first.
 You can do this by running the following command in your terminal:
-    python -m venv yourVenvName
+    `python -m venv yourVenvName`
 
 Replace "yourVenvName" with the name you want to give to your virtual environment.
 
 Once your virtual environment is created, activate it by running:
-    yourVenvName/Scripts/activate
+    `yourVenvName/Scripts/activate`
 
 Now, you can install all the required packages for your project using the pip package manager. 
 To do this, navigate to the directory where your project is located and run the following command:
-    pip install -r requirements.txt
+    `pip install -r requirements.txt`
 
 Make sure that the "requirements.txt" file is present in the directory. This command will install all the packages listed in the file and make them available for use in your project.
 
