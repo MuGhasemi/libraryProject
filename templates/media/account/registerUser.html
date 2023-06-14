@@ -1,0 +1,20 @@
+{% extends 'parents/main.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+    <h1 class="text-center" style="color: red;">Register Page</h1>
+    <br><br>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6"  style="border: 5px; border-style: double;">
+            <form class="text-center" style="color: black; margin-top: 5px;" action="" method="post" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                {{ registerform.as_p }}
+                <input style="margin-bottom: 10px;" type="submit" value="SignUp" class="btn btn-outline-success">
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>  
+{% endblock %}

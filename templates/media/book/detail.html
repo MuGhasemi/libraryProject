@@ -1,0 +1,19 @@
+{% extends 'parents/main.html' %}
+
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+    <h6>Name: <strong>{{ bookDetail.name }}</strong></h6>
+    <small>ID: <strong>{{ bookDetail.pk }}</strong></small><br>
+    <small>Author: <strong>{{ bookDetail.author }}</strong></small><br>
+    <small>Genre: <strong>{{ display_genre }}</strong></small><br>
+    <small>Summary: <strong style="direction: ltr !important;">{{ bookDetail.summry }}</strong></small><br>
+    <a class="btn btn-outline-primary" href="{% url 'book:addinstance' bookDetail.pk %}">Borrower</a>
+    {% if request.user.is_authenticated %}
+    {% if request.user.is_superuser %}
+    <a href="{% url 'book:editBook' bookDetail.pk %}" class="btn btn-outline-success">Edit</a>
+    <a href="{% url 'book:deleteBook' bookDetail.pk %}" class="btn btn-outline-danger">Delete</a>
+    {% endif %}
+    {% endif %}
+    <a href="{% url 'book:home' %}" class="btn btn-outline-warning">Back</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'parents/main.html' %}
+
+{% block title %}All-Genres{% endblock %}
+
+{% block content %}
+
+    <a href="{% url 'book:home' %}" class="btn btn-outline-warning">Go To Home</a>
+    <br><br>
+    {% for genre in genres %}
+        <small>Name: <strong>{{ genre.title }}</strong></small><br>
+        <hr>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'parents/main.html' %}
+
+{% block title %}All-Book-Instance{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'book:home' %}" class="btn btn-warning" style="color: black; ">Add Instance</a>
+
+    <form action="" method="get">
+        {% csrf_token %}
+        {{ search.search }}
+        <button class="btn btn-outline-primary">Search</button>
+    </form>    
+    {% if bookInstances.count == 0 %}
+        <h3> don't have instance </h3>
+    {% else %}
+        {% for bookInstance in bookInstances %}
+            <h6>Name: <strong>{{ bookInstance.book }}</strong></h6>
+            <h6>Borrower: <strong>{{ bookInstance.borrower }}</strong></h6>
+            <small>Due Back: <strong style="color: tomato;">{{ bookInstance.due_back }}</strong></small>
+            <hr>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

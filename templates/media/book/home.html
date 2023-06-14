@@ -1,0 +1,26 @@
+{% extends 'parents/main.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+        {% if request.user.is_staff %}
+            <a href="{% url 'book:addBook' %}" class="btn btn-warning" style="color: black; ">Add Book</a>
+        {% endif %}
+    {% endif %}
+
+    <form action="" method="get">
+        {% csrf_token %}
+        {{ search.search }}
+        <button class="btn btn-outline-primary">Search</button>
+    </form>
+
+    {% for book in books %}
+        <h6>Name: <a style="color: #333333 ; text-decoration: none;" href="{% url 'book:detail' book.pk %}">
+            <strong>{{ book.name }}</strong></a></h6>
+        <small>Author: <strong style="color: tomato;">{{ book.author }}</strong></small>
+        <hr>
+    {% endfor %}
+
+{% endblock %}

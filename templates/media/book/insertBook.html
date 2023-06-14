@@ -1,0 +1,12 @@
+{% extends 'parents/main.html' %}
+
+{% block title %}Insert-Book{% endblock %}
+
+{% block content %}
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success">ADD</button>
+        <a href="{% url 'book:home' %}" class="btn btn-danger">Cancel</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'parents/main.html' %}
+
+{% block title %}Add-Book-Instance{% endblock %}
+
+{% block content %}
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        Book: <input type="text" name="book" disabled value="{{ book }}" ><br>
+        Borrower: <input type="text" name="borrower" disabled value="{{ user }}" ><br>
+        {{ form.as_p }}
+        <button class="btn btn-success">ADD</button>
+        <a href="{% url 'book:home' %}" class="btn btn-danger">Cancel</a>
+    </form>
+    
+    {{ request.POST.get }}
+{% endblock %}

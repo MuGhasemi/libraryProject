@@ -1,0 +1,12 @@
+{% extends 'parents/main.html' %}
+
+{% block title %}Edit-Detail-Book{% endblock %}
+
+{% block content %}
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ editForm.as_p }}
+        <button class="btn btn-success">Edit</button>
+        <a href="{% url 'book:detail' pk %}" class="btn btn-danger">Cancel</a>
+    </form>
+{% endblock %}
