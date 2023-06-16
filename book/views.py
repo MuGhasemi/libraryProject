@@ -32,13 +32,13 @@ def home(request):
     }
     return render(request, 'book/home.html', context)
 
-def detail(requset, pk):
+def detail(request, pk):
     bookDetail = Book.objects.get(id=pk)
     def display_genre():
         return ', '.join([genre.title for genre in bookDetail.genre.all()])
     context = {'bookDetail': bookDetail,
                'display_genre':display_genre}
-    return render(requset, 'book/detail.html', context)
+    return render(request, 'book/detail.html', context)
 
 @login_required
 def addBook(request):
@@ -102,24 +102,9 @@ def showAuthors(request):
 
 @login_required
 def showBookInstance(request):
-    bookInstances = BookInstance.objects.filter(borrower=request.user)
-    if request.method == 'GET' and 'search' in request.GET:
-        search = SearchBoxForm(request.GET)
-        if search.is_valid():
-            cd = search.cleaned_data['search']
-            if cd != '':
-                bookInstances = BookInstance.objects.filter(Q(book__name__icontains=cd))
-            else:
-                messages.error(request, 'No instances found for this search.', 'danger')
-                bookInstances = BookInstance.objects.filter(borrower=request.user)
-        else:
-            bookInstances = BookInstance.objects.filter(borrower=request.user)
-    else:
-        search = SearchBoxForm()
-    context = {
-        'bookInstances': bookInstances,
-        'search': search
-    }
+    bookInstances = BookInstance.objects.filter(borrower = request.user)
+    context = {'bookInstances': bookInstances
+                }
     return render(request, 'book/showBookInstance.html', context)
 
 
