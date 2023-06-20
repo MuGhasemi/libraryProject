@@ -28,7 +28,7 @@ DEBUG = True
 LOGIN_URL = '/account/login'
 LOGIN_REDIRECT_URL = '/book/'
 LOGOUT_URL = '/account/login'
-SIGN_UP_URL = '/accountsign-up/'
+SIGN_UP_URL = '/account/sign-up/'
 
 ALLOWED_HOSTS = []
 
@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'book.apps.BookConfig',
     'account.apps.AccountConfig',
-    'django_cron',
 ]
 
 MIDDLEWARE = [
