@@ -5,12 +5,7 @@
 {% block content %}
 
 <a href="{% url 'book:home' %}" class="btn btn-warning" style="color: black; ">Add Instance</a>
-
-    <form action="" method="get">
-        {% csrf_token %}
-        {{ search.search }}
-        <button class="btn btn-outline-primary">Search</button>
-    </form>    
+  
     {% if bookInstances.count == 0 %}
         <h3> don't have instance </h3>
     {% else %}
