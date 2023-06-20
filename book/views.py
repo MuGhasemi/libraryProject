@@ -1,5 +1,5 @@
-from datetime import date
-from django.shortcuts import render, redirect, get_object_or_404
+from datetime import date, datetime
+from django.shortcuts import render, redirect
 from .models import Book, Genre, Author, BookInstance
 from .forms import InsertBookForm, EditBookForm, SearchBoxForm, AddBookInstanceForm
 from django.contrib import messages
@@ -102,6 +102,16 @@ def showAuthors(request):
 
 @login_required
 def showBookInstance(request):
+    today = date.today()
+    time = 23
+    book_instances = BookInstance.objects.filter(borrower = request.user)
+    for instance in book_instances:
+        if instance.due_back <= today and time == datetime.now().hour:
+            instance.delete()
+            book = Book.objects.get(id=instance.book.id)
+            messages.success(request,  f'{instance.book} book was deleted due to timeout.', 'warning')
+            book.status = 'a'
+            book.save()
     bookInstances = BookInstance.objects.filter(borrower = request.user)
     context = {'bookInstances': bookInstances
                 }
@@ -133,13 +143,3 @@ def addBookInstance(request, pk):
                 'user': request.user,
                 'book': bookTitle}
     return render(request, 'book/addBookInstance.html', context)
-
-def check_due_back():
-    today = date.today()
-    book_instances = BookInstance.objects.all()
-    for instance in book_instances:
-        if instance.due_back == today:
-            instance.delete()
-            book = get_object_or_404(Book, id=instance.book.id)
-            book.status = 'a'
-            book.save()
