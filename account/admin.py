@@ -3,5 +3,6 @@ from .models import Profile
 # Register your models here.
 
 @admin.register(Profile)
-class PofileAdmin(admin.ModelAdmin):
-    list_display = ('gender',)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('user',
+                    'gender',)

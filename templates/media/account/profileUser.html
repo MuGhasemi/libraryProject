@@ -13,7 +13,12 @@
             <h6>Firstname:<strong> {{ profile.user.first_name }}</strong></h6>
             <h6>Lastname:<strong> {{ profile.user.last_name }}</strong></h6>
             <h6>Gender:<strong> {{ profile.get_gender_display }}</strong></h6>
-            <a href="#" class="btn btn-success" style="margin-left: 130px; width: 200px;">Edit</a>
+            {% if profile.profileImage %}
+                <h6>Photo:<strong> <img style="width: 100px; height: 100px; margin-left: 20px;" 
+                             src="{{ profile.profileImage.url }}" alt=""></strong></h6> 
+            {% endif %}
+            <a href="{% url 'account:editProfile' %}" class="btn btn-success" 
+                        style="margin-left: 130px; width: 200px;">Edit</a>
         </div>
         <div class="col-md-2"></div>
     </div>  
