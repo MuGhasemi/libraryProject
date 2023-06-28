@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('book/', include('book.urls')),
     path('account/', include('account.urls')),
-    path('', views.goHome, name = 'goHome')
+    path('', views.goHome, name = 'goHome'),
+    path('<str:text>', views.notFound1)
 ]
 
 if settings.DEBUG:

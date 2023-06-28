@@ -18,4 +18,6 @@ urlpatterns = [
     path('add-instance/<int:pk>', views.addBookInstance, name = 'addinstance'),
 
     path('about/', views.about, name = 'about'),
+
+    path('<str:text>', views.notFound2)
 ]

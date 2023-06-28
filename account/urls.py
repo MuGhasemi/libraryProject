@@ -8,4 +8,5 @@ urlpatterns = [
     path('logout/', views.logoutUser, name = 'logout'),
     path('profile/', views.profileUser, name = 'profile'),
     path('edit-profile/', views.profileEdit, name = 'editProfile'),
+    path('<str:text>', views.notFound3)
 ]

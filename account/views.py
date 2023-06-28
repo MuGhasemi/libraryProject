@@ -1,4 +1,5 @@
 import os
+from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect
 from .forms import EditProfileFrom, EditUserForm, RegisterUserForm, LoginUserForm
 from django.contrib.auth.models import User
@@ -104,3 +105,6 @@ def profileEdit(request):
             'profileImage':request.user.profile.profileImage
             }
         return render(request, 'account/editProfile.html', context)
+    
+def notFound3(request,text):
+    return HttpResponseNotFound(f'{text} page not found')
