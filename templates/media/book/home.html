@@ -20,6 +20,10 @@
         <h6>Name: <a style="color: #333333 ; text-decoration: none;" href="{% url 'book:detail' book.pk %}">
             <strong>{{ book.name }}</strong></a></h6>
         <small>Author: <strong style="color: tomato;">{{ book.author }}</strong></small>
+        {% if book.bookImage %}
+            <h6>Photo:<strong> <img style="width: 100px; height: 100px; margin-left: 20px;" 
+                src="{{ book.bookImage.url }}" alt=""></strong></h6> 
+        {% endif %}
         <hr>
     {% endfor %}
 

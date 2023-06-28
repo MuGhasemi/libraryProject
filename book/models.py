@@ -42,6 +42,9 @@ class Book(models.Model):
                               default = 'a',
                               blank = False,
                               null = False)
+    bookImage = models.ImageField(upload_to = 'bookImage/',
+                                    null = True,
+                                    blank = True)
     def __str__(self):
         return self.name
 

@@ -3,9 +3,15 @@
 {% block title %}Edit-Detail-Book{% endblock %}
 
 {% block content %}
-    <form action="" method="post" novalidate>
+    <form action="" method="post" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
         {{ editForm.as_p }}
+        {% if bookImage %}
+            <h6>Photo:<strong> <img style="width: 100px; height: 100px; margin-left: 20px;" 
+                src="{{ bookImage.url  }}" alt=""></strong></h6>
+        {% else %}
+                
+        {% endif %}
         <button class="btn btn-success">Edit</button>
         <a href="{% url 'book:detail' pk %}" class="btn btn-danger">Cancel</a>
     </form>

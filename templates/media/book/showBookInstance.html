@@ -13,6 +13,10 @@
             <h6>Name: <strong>{{ bookInstance.book }}</strong></h6>
             <h6>Borrower: <strong>{{ bookInstance.borrower }}</strong></h6>
             <small>Due Back: <strong style="color: tomato;">{{ bookInstance.due_back }}</strong></small>
+            {% if bookInstance.book.bookImage %}
+                <h6>Photo:<strong> <img style="width: 100px; height: 100px; margin-left: 20px;" 
+                            src="{{ bookInstance.book.bookImage.url }}" alt=""></strong></h6> 
+            {% endif %}
             <hr>
         {% endfor %}
     {% endif %}

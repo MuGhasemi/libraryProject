@@ -1,9 +1,11 @@
 from datetime import date ,datetime
+import os
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect
 from .models import Book, Genre, Author, BookInstance
 from .forms import InsertBookForm, EditBookForm, SearchBoxForm, AddBookInstanceForm
 from django.contrib import messages
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -42,11 +44,11 @@ def detail(request, pk):
 @login_required
 def addBook(request):
     if request.method == 'POST':
-        book = InsertBookForm(request.POST)
+        book = InsertBookForm(request.POST, request.FILES)
         if book.is_valid():
             book.save()
             messages.success(request, 'Book add successfully.', 'success')
-            return redirect('/book')
+            return redirect(settings.LOGIN_REDIRECT_URL)
         else:
             messages.success(request, 'Book add failed.', 'danger')
             return redirect('/book/insert-book')
@@ -61,8 +63,18 @@ def addBook(request):
 def editBook(request, pk):
     book = Book.objects.get(id=pk)
     if request.method == 'POST':
-        edit_book = EditBookForm(request.POST, instance = book)
+        old_photo_name = None
+        if book.bookImage.name:
+            old_photo_path = book.bookImage.path
+            old_photo_name = book.bookImage.name
+        edit_book = EditBookForm(request.POST,request.FILES ,instance = book)
         if edit_book.is_valid():
+            new_book_image = edit_book.cleaned_data.get('bookImage')
+            if new_book_image and new_book_image.name != old_photo_name:
+                if old_photo_name:
+                    os.remove(old_photo_path)
+            else:
+                edit_book.cleaned_data['bookImage'] = None
             edit_book.save()
             messages.success(request, 'Book edit successfully.', 'success')
             return redirect(f'/book/detail/{pk}')
@@ -73,15 +85,19 @@ def editBook(request, pk):
         edit_book = EditBookForm(instance = book)
         context = {
             'editForm': edit_book,
-            'pk': pk
+            'pk': pk,
+            'bookImage': edit_book.instance.bookImage
             }
         return render(request, 'book/editDetailBook.html', context)
 
 @login_required
 def deleteBook(request, pk):
-    Book.objects.get(id=pk).delete()
+    book = Book.objects.get(id=pk)
+    bookImage = book.bookImage.path
+    book.delete()
+    os.remove(bookImage)
     messages.success(request, 'Book deleted successfully.', 'success')
-    return redirect('/book')
+    return redirect(settings.LOGIN_REDIRECT_URL)
 
 # --- All function for Genre model---
 

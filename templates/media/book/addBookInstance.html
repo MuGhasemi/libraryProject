@@ -8,6 +8,10 @@
         Book: <input type="text" name="book" disabled value="{{ book }}" ><br>
         Borrower: <input type="text" name="borrower" disabled value="{{ user }}" ><br>
         {{ form.as_p }}
+        {% if form.book.bookImage %}
+            <h6>Photo:<strong> <img style="width: 100px; height: 100px; margin-left: 20px;" 
+                        src="{{ form.book.bookImage.url }}" alt=""></strong></h6> 
+        {% endif %}
         <button class="btn btn-success">ADD</button>
         <a href="{% url 'book:home' %}" class="btn btn-danger">Cancel</a>
     </form>
