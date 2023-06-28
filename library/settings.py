@@ -25,9 +25,9 @@ SECRET_KEY = 'django-insecure-1!55xdb=3!bwwr+^ugtpq#g)a24f$=3j4idvf5=hrlw)^o31ri
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-LOGIN_URL = '/account/login'
+LOGIN_URL = '/account/login/'
 LOGIN_REDIRECT_URL = '/book/'
-LOGOUT_URL = '/account/login'
+LOGOUT_URL = '/account/login/'
 SIGN_UP_URL = '/account/sign-up/'
 
 ALLOWED_HOSTS = []
