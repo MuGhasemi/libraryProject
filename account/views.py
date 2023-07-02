@@ -68,8 +68,7 @@ def logoutUser(request):
 
 @login_required
 def profileUser(request):
-    user = Profile.objects.get(user = request.user)
-    profile = user
+    profile = Profile.objects.get(user = request.user)
     context = {'profile':profile}
     return render(request, 'account/profileUser.html', context)
 

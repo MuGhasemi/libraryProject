@@ -11,9 +11,9 @@
         <div class="col-md-6"  style="border: 5px; border-style: double;">
             <form action="" method="post" enctype="multipart/form-data" novalidate>
                 {% csrf_token %}
-                <h6>Username:<strong> {{ editUser.username }}</strong></h6>
                 <h6>Firstname:<strong> {{ editUser.first_name }}</strong></h6>
                 <h6>Lastname:<strong> {{ editUser.last_name }}</strong></h6>
+                <h6>Email:<strong> {{ editUser.email }}</strong></h6>
                 {% if profileImage %}
                     <h6>Photo:<strong> <img style="width: 100px; height: 100px; margin-left: 20px;" 
                                 src="{{ profileImage.url }}" alt=""></strong></h6> 

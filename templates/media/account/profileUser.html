@@ -12,6 +12,7 @@
             <h6>Username:<strong> {{ profile.user.username }}</strong></h6>
             <h6>Firstname:<strong> {{ profile.user.first_name }}</strong></h6>
             <h6>Lastname:<strong> {{ profile.user.last_name }}</strong></h6>
+            <h6>Email:<strong> {{ profile.user.email }}</strong></h6>
             {% if profile.profileImage %}
                 <h6>Photo:<strong> <img style="width: 100px; height: 100px; margin-left: 20px;" 
                              src="{{ profile.profileImage.url }}" alt=""></strong></h6> 

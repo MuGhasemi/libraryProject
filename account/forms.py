@@ -18,7 +18,7 @@ class LoginUserForm(forms.Form):
 # for edit user information
 class EditUserForm(UserChangeForm):
     class Meta(UserChangeForm.Meta):
-        fields = ('first_name', 'last_name', 'username', 'email')
+        fields = ('first_name', 'last_name', 'email')
     password = None
 
 class EditProfileFrom(forms.ModelForm):
