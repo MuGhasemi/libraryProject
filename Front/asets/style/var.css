@@ -4,6 +4,7 @@
     --primary-white :#fff ;
     --primary-gray:#ccc ;
     --primary-red : #FF6A6A;
+    --primary-red-hover: #af4848;
     --primary-text : #080a38; 
     --hover-blue : #3b82f6;
     --active-blue : #2563eb;
@@ -16,7 +17,9 @@
     /* shadow */
     --shadow-header-filter: drop-shadow(8px 8px 15px rgba(0, 0, 0, 0.39));
     --shadow-pro-box:0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
+    --shadow-product:0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
     --border-blue:1px solid var(--primary-blue);
+
+    
 }
