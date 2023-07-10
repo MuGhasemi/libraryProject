@@ -296,16 +296,14 @@ main {
    position: relative;
    overflow: hidden;
    cursor: pointer;
-   transition: background-size .2s ease-in;
-   -moz-transition: background-size .2s ease-in;
-   -ms-transition: background-size .2s ease-in;
-   -o-transition: background-size .2s ease-in;
-   -webkit-transition: background-size .2s ease-in;
-   
+   transition: background-size 0.2s ease-in;
+   -moz-transition: background-size 0.2s ease-in;
+   -ms-transition: background-size 0.2s ease-in;
+   -o-transition: background-size 0.2s ease-in;
+   -webkit-transition: background-size 0.2s ease-in;
 }
 .product:hover {
    background-size: 120%;
-   
 }
 .product-content {
    background: linear-gradient(
@@ -362,4 +360,120 @@ main {
    width: 85%;
    height: 1px;
    margin: 10px auto;
+}
+
+/* log in  */
+
+.login {
+   display: flex;
+   width: 100vw;
+   height: 100vh;
+}
+
+.login-content {
+   width: 50%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   /* background-color: brown; */
+}
+
+.log {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-evenly;
+   height: 100%;
+   width: 100%;
+   /* background-color: aquamarine; */
+}
+
+.login-content h2 {
+   font-size: 2.3rem;
+   font-family: Vazirmatn700;
+   color: var(--primary-blue);
+}
+
+.login-content h4 {
+   font-size: 1.5rem;
+   font-family: Vazirmatn500;
+   color: var(--primary-blue);
+}
+
+.login-inputs {
+   display: flex;
+   flex-direction: column;
+}
+
+.login-inputs input {
+   outline: none;
+   width: 480px;
+   height: 60px;
+   border-radius: 15px;
+   padding: 8px 60px;
+   font-family: inherit;
+   font-size: 1.2rem;
+   border: var(--border-blue);
+   margin-bottom: 20px;
+}
+
+.login-inputs svg {
+   width: 30px;
+}
+.userName,
+.password {
+   position: relative;
+}
+.userName svg,
+.password svg {
+   position: absolute;
+   right: 10px;
+   top: 10px;
+   z-index: 10;
+}
+
+#userName:focus,
+#password:focus {
+   border: 2px solid var(--primary-blue);
+}
+
+#to-signin {
+   font-size: 1.2rem;
+   font-family: Vazirmatn500;
+   color: var(--primary-blue);
+}
+#to-signin:hover {
+   color: var(--hover-blue);
+}
+#login-btn {
+   width: 165px;
+   height: 45px;
+   border-radius: 15px;
+   background-color: var(--primary-white);
+   outline: none;
+   border: var(--border-blue);
+   font-family: inherit;
+   font-size: 1.5rem;
+   color: var(--primary-blue);
+   font-family: Vazirmatn500;
+   cursor: pointer;
+   transition: 0.1s linear;
+}
+
+#login-btn:hover {
+   background-color: var(--primary-blue);
+   color: var(--primary-white);
+}
+#login-btn:active {
+   background-color: var(--hover-blue);
+}
+.login-background {
+   width: 50%;
+   height: 100%;
+   background: url(../img/login.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
 }
