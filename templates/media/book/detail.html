@@ -1,23 +1,32 @@
 {% extends 'parents/main.html' %}
-
+{% load static %}
 {% block title %}Detail{% endblock %}
 
 {% block content %}
-    <h6>Name: <strong>{{ bookDetail.name }}</strong></h6>
-    <small>ID: <strong>{{ bookDetail.pk }}</strong></small><br>
-    <small>Author: <strong>{{ bookDetail.author }}</strong></small><br>
-    <small>Genre: <strong>{{ display_genre }}</strong></small><br>
-    <small>Summary: <strong style="direction: ltr !important;">{{ bookDetail.summry }}</strong></small><br>
-    {% if bookDetail.bookImage %}
-        <h6>Photo:<strong> <img style="width: 100px; height: 100px; margin-left: 20px;" 
-            src="{{ bookDetail.bookImage.url }}" alt=""></strong></h6>
-    {% endif %}
-    <a class="btn btn-outline-primary" href="{% url 'book:addinstance' bookDetail.pk %}">Borrower</a>
-    {% if request.user.is_authenticated %}
-        {% if request.user.is_superuser %}
-            <a href="{% url 'book:editBook' bookDetail.pk %}" class="btn btn-outline-success">Edit</a>
-            <a href="{% url 'book:deleteBook' bookDetail.pk %}" class="btn btn-outline-danger">Delete</a>
+<main class="main-book container">
+    <div class="book-img">
+        {% if bookDetail.bookImage %}
+            <img src="{{ bookDetail.bookImage.url }}" alt="image/png" />
+        {% else %}
+            <img src="{% static 'asets/img/book1.jpg' %}" alt="image/png" />
         {% endif %}
-    {% endif %}
-    <a href="{% url 'book:home' %}" class="btn btn-outline-warning">Back</a>
+    </div>
+    <div class="detail-book">
+        <h3>{{ bookDetail.name }}</h3>
+
+        <div class="book-genaut">
+            <span class="book-aut">{{ bookDetail.author }}</span>
+            <span class="book-gen">{{ display_genre }}</span>
+        </div>
+
+        <div class="book-sum">
+            <h4>خلاصه:</h4>
+            <p>{{ bookDetail.summry }}</p>
+        </div>
+        <div class="book-btns">
+            <a href="{% url 'book:addinstance' bookDetail.pk %}" class="book-borrow-btn">قرض گرفتن</a>
+            <a href="{% url 'book:home' %}" class="book-back-btn">بازگشت</a>
+        </div>
+    </div>
+</main>
 {% endblock %}
