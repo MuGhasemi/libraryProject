@@ -1,118 +1,133 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="asets/style/main-style.css" />
-      <link rel="stylesheet" href="asets/style/var.css" />
-      <link rel="stylesheet" href="asets/style/fonts.css" />
-      <link rel="shortcut icon" href="asets/img/logo.png" type="image/png" />
-      <title>Document</title>
-   </head>
-   <body>
-      <!-- header -->
-      <header>
-         <!-- navbar -->
-         <nav>
-            <div class="nav">
-               <ul class="nav-ul">
-                  <li><a href="#">خانه</a></li>
-                  <li><a href="#">نویسندگان</a></li>
-                  <li><a href="#">ژانر</a></li>
-                  <li><a href="#">درباره ما</a></li>
-               </ul>
-            </div>
-            <a href="#">
-               <img src="./asets/img/logo.png" alt="logo" class="logo" />
-            </a>
-            <div class="navBtns">
-               <a href="#" class="sign-in">ثبت نام</a>
-               <a href="#" class="login">ورود</a>
-            </div>
-         </nav>
-         <div class="header-main">
-            <div class="search-box">
-               <button id="search-btn">
-                  <svg
-                     viewBox="0 0 48 48"
-                     fill="none"
-                     xmlns="http://www.w3.org/2000/svg"
-                  >
-                     <path
-                        d="M21.6821 41.5262C33.1046 41.5262 42.3642 32.4615 42.3642 21.2794C42.3642 10.0975 33.1046 1.03271 21.6821 1.03271C10.2597 1.03271 1 10.0975 1 21.2794C1 32.4615 10.2597 41.5262 21.6821 41.5262Z"
-                        stroke="#F0FDFA"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                     />
-                     <path
-                        d="M39.9054 43.078C41.1233 46.6774 43.9039 47.0373 46.0411 43.8878C47.9944 41.0083 46.7075 38.6462 43.1685 38.6462C40.5488 38.6237 39.0781 40.6259 39.9054 43.078Z"
-                        stroke="#F0FDFA"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                     />
-                  </svg>
-               </button>
-               <input type="text" placeholder="جستجو...." />
-            </div>
-         </div>
-      </header>
-      <main>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="asets/style/main-style.css" />
+        <link rel="stylesheet" href="asets/style/var.css" />
+        <link rel="stylesheet" href="asets/style/fonts.css" />
+        <link rel="shortcut icon" href="asets/img/logo.png" type="image/png" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- header -->
+        <header>
+            <!-- navbar -->
+            <nav>
+                <div class="nav">
+                    <ul class="nav-ul">
+                        <li><a href="#">خانه</a></li>
+                        <li><a href="#">نویسندگان</a></li>
+                        <li><a href="#">ژانر</a></li>
+                        <li><a href="#">درباره ما</a></li>
+                    </ul>
+                </div>
+                <a href="#">
+                    <img src="./asets/img/logo.png" alt="logo" class="logo" />
+                </a>
+                <div class="navBtns">
+                    <div class="log-sin-btns">
+                        <a href="#" class="sign-in">ثبت نام</a>
+                        <a href="#" class="login">ورود</a>
+                    </div>
 
+                    <!-- REVIEW  profile view btn -->
+                    <!-- <div class="profile-view">
+                        <a href="#">
+                            سلام <span>سپیده</span>!
+                            <span
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="36"
+                                    height="36"
+                                    viewBox="0 0 36 36"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M36 18C36 8.082 27.918 0 18 0C8.082 0 0 8.082 0 18C0 23.22 2.25 27.918 5.814 31.212C5.814 31.23 5.814 31.23 5.796 31.248C5.976 31.428 6.192 31.572 6.372 31.734C6.48 31.824 6.57 31.914 6.678 31.986C7.002 32.256 7.362 32.508 7.704 32.76C7.83 32.85 7.938 32.922 8.064 33.012C8.406 33.246 8.766 33.462 9.144 33.66C9.27 33.732 9.414 33.822 9.54 33.894C9.9 34.092 10.278 34.272 10.674 34.434C10.818 34.506 10.962 34.578 11.106 34.632C11.502 34.794 11.898 34.938 12.294 35.064C12.438 35.118 12.582 35.172 12.726 35.208C13.158 35.334 13.59 35.442 14.022 35.55C14.148 35.586 14.274 35.622 14.418 35.64C14.922 35.748 15.426 35.82 15.948 35.874C16.02 35.874 16.092 35.892 16.164 35.91C16.776 35.964 17.388 36 18 36C18.612 36 19.224 35.964 19.818 35.91C19.89 35.91 19.962 35.892 20.034 35.874C20.556 35.82 21.06 35.748 21.564 35.64C21.69 35.622 21.816 35.568 21.96 35.55C22.392 35.442 22.842 35.352 23.256 35.208C23.4 35.154 23.544 35.1 23.688 35.064C24.084 34.92 24.498 34.794 24.876 34.632C25.02 34.578 25.164 34.506 25.308 34.434C25.686 34.272 26.064 34.092 26.442 33.894C26.586 33.822 26.712 33.732 26.838 33.66C27.198 33.444 27.558 33.246 27.918 33.012C28.044 32.94 28.152 32.85 28.278 32.76C28.638 32.508 28.98 32.256 29.304 31.986C29.412 31.896 29.502 31.806 29.61 31.734C29.808 31.572 30.006 31.41 30.186 31.248C30.186 31.23 30.186 31.23 30.168 31.212C33.75 27.918 36 23.22 36 18ZM26.892 26.946C22.014 23.67 14.022 23.67 9.108 26.946C8.316 27.468 7.668 28.08 7.128 28.746C4.392 25.974 2.7 22.176 2.7 18C2.7 9.558 9.558 2.7 18 2.7C26.442 2.7 33.3 9.558 33.3 18C33.3 22.176 31.608 25.974 28.872 28.746C28.35 28.08 27.684 27.468 26.892 26.946Z"
+                                    />
+                                    <path
+                                        d="M18 8.87354C14.274 8.87354 11.25 11.8975 11.25 15.6236C11.25 19.2776 14.112 22.2476 17.91 22.3556H18.072H18.198H18.234C21.87 22.2296 24.732 19.2776 24.75 15.6236C24.75 11.8975 21.726 8.87354 18 8.87354Z"
+                                    /></svg></span
+                        ></a>
+                    </div> -->
 
-         
+                    <!-- REVIEW  end of profile view btn -->
+                </div>
+            </nav>
+            <div class="header-main">
+                <div class="search-box">
+                    <button id="search-btn">
+                        <svg
+                            viewBox="0 0 48 48"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M21.6821 41.5262C33.1046 41.5262 42.3642 32.4615 42.3642 21.2794C42.3642 10.0975 33.1046 1.03271 21.6821 1.03271C10.2597 1.03271 1 10.0975 1 21.2794C1 32.4615 10.2597 41.5262 21.6821 41.5262Z"
+                                stroke="#F0FDFA"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M39.9054 43.078C41.1233 46.6774 43.9039 47.0373 46.0411 43.8878C47.9944 41.0083 46.7075 38.6462 43.1685 38.6462C40.5488 38.6237 39.0781 40.6259 39.9054 43.078Z"
+                                stroke="#F0FDFA"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </button>
+                    <input type="text" placeholder="جستجو...." />
+                </div>
+            </div>
+        </header>
+        <main class="main-home">
             <div class="product">
-               <div class="product-content">
-                  <h3>عنوان</h3>
-                  <div class="gen-aut">
-                     <a href="#" class="aut">نویسنده</a>
-                     <a href="#" class="gen">ژانر</a>
-                  </div>
-                  <div class="line"></div>
-                  <p class="about-book">
-                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                     با استفاده از طراحان گرافیک است.
-                  </p>
-               </div>
+                <div class="product-content">
+                    <h3>عنوان</h3>
+                    <div class="gen-aut">
+                        <a href="#" class="aut">نویسنده</a>
+                        <a href="#" class="gen">ژانر</a>
+                    </div>
+                    <div class="line"></div>
+                    <p class="about-book">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                        چاپ و با استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
             </div>
-
-
 
             <div class="product">
-               <div class="product-content">
-                  <h3>عنوان</h3>
-                  <div class="gen-aut">
-                     <a href="#" class="aut">نویسنده</a>
-                     <a href="#" class="gen">ژانر</a>
-                  </div>
-                  <div class="line"></div>
-                  <p class="about-book">
-                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                     با استفاده از طراحان گرافیک است.
-                  </p>
-               </div>
+                <div class="product-content">
+                    <h3>عنوان</h3>
+                    <div class="gen-aut">
+                        <a href="#" class="aut">نویسنده</a>
+                        <a href="#" class="gen">ژانر</a>
+                    </div>
+                    <div class="line"></div>
+                    <p class="about-book">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                        چاپ و با استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
             </div>
-
-
 
             <div class="product">
-               <div class="product-content">
-                  <h3>عنوان</h3>
-                  <div class="gen-aut">
-                     <a href="#" class="aut">نویسنده</a>
-                     <a href="#" class="gen">ژانر</a>
-                  </div>
-                  <div class="line"></div>
-                  <p class="about-book">
-                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                     با استفاده از طراحان گرافیک است.
-                  </p>
-               </div>
+                <div class="product-content">
+                    <h3>عنوان</h3>
+                    <div class="gen-aut">
+                        <a href="#" class="aut">نویسنده</a>
+                        <a href="#" class="gen">ژانر</a>
+                    </div>
+                    <div class="line"></div>
+                    <p class="about-book">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                        چاپ و با استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
             </div>
-         
-
-
-      </main>
-   </body>
+        </main>
+    </body>
 </html>
