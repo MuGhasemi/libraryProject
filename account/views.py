@@ -15,18 +15,22 @@ def register(request):
         dataForm = RegisterUserForm(request.POST)
         if dataForm.is_valid():
             cd = dataForm.cleaned_data
-            user = User.objects.create_user(username = cd['username'],
-                                            first_name = cd['first_name'],
-                                            last_name = cd['last_name'],
-                                            email = cd['email'],
-                                            password = cd['password'])
-            user.save()
-            Profile.objects.create(user=user)
-            messages.success(request, 'create account successfully', 'success')
-            if request.GET.get('next'):
-                return redirect(request.GET.get('next'))
+            if cd['password'] == cd['confirm_password']:
+                user = User.objects.create_user(username = cd['username'],
+                                                first_name = cd['first_name'],
+                                                last_name = cd['last_name'],
+                                                email = cd['email'],
+                                                password = cd['password'])
+                user.save()
+                Profile.objects.create(user=user)
+                messages.success(request, 'create account successfully', 'success')
+                if request.GET.get('next'):
+                    return redirect(request.GET.get('next'))
+                else:
+                    return redirect(settings.LOGIN_URL)
             else:
-                return redirect(settings.LOGIN_URL)
+                messages.success(request, 'password not match!', 'danger')
+                return redirect(settings.SIGN_UP_URL)
         else:
             messages.success(request, 'create account failed', 'danger')
             return redirect(settings.SIGN_UP_URL)
