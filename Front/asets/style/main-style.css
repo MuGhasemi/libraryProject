@@ -167,7 +167,7 @@ nav .navBtns a {
     color: var(--primary-blue);
 }
 
-.navBtns {
+.navBtns ,.log-sin-btns{
     display: flex;
 }
 
@@ -205,6 +205,37 @@ nav .navBtns .login:hover {
 nav .navBtns .login:active {
     background-color: var(--active-blue);
 }
+
+
+/* REVIEW profile view  */
+
+
+.navBtns .profile-view > a{
+    border: var(--border-blue);
+    border-radius: 24px;
+    color: #fff;
+    background-color: var(--primary-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 170px;
+
+
+}
+.navBtns .profile-view > a span{
+    margin: 0 5px;
+    color: inherit;
+}
+.navBtns .profile-view svg{
+    fill: #fff;
+    margin-top: 8px;
+    margin-right: 5px;
+    margin-left: 0 !important;
+
+}
+
+/* REVIEW end of profile view  */
 
 /* main of header  */
 
