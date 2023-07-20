@@ -9,7 +9,9 @@
       <title>{% block title %}{% endblock %}</title>
    </head>
    <body>
-      {% include 'partials/navigations.html' %}
+      {% if not request.path == '/account/login/' and not request.path == '/account/sign-up/' %}
+         {% include 'partials/navigations.html' %}
+      {% endif %}
       {% include 'partials/message.html' %}
       {% block content%}{% endblock %}
    </body>
