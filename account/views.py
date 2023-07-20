@@ -21,6 +21,7 @@ def register(request):
                                             email = cd['email'],
                                             password = cd['password'])
             user.save()
+            Profile.objects.create(user=user)
             messages.success(request, 'create account successfully', 'success')
             if request.GET.get('next'):
                 return redirect(request.GET.get('next'))
