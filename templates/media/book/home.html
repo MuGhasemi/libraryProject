@@ -1,5 +1,5 @@
 {% extends 'parents/main.html' %}
-
+{% load static %}
 {% block title %}Home{% endblock %}
 
 {% block content %}
@@ -10,21 +10,53 @@
         {% endif %}
     {% endif %}
 
-    <form action="" method="get">
-        {% csrf_token %}
-        {{ search.search }}
-        <button class="btn btn-outline-primary">Search</button>
-    </form>
+    <header>
+        <div class="header-main">
+           <div class="search-box">
+              <button id="search-btn">
+                 <svg
+                    viewBox="0 0 48 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                 >
+                    <path
+                       d="M21.6821 41.5262C33.1046 41.5262 42.3642 32.4615 42.3642 21.2794C42.3642 10.0975 33.1046 1.03271 21.6821 1.03271C10.2597 1.03271 1 10.0975 1 21.2794C1 32.4615 10.2597 41.5262 21.6821 41.5262Z"
+                       stroke="#F0FDFA"
+                       stroke-width="2"
+                       stroke-linecap="round"
+                       stroke-linejoin="round"
+                    />
+                    <path
+                       d="M39.9054 43.078C41.1233 46.6774 43.9039 47.0373 46.0411 43.8878C47.9944 41.0083 46.7075 38.6462 43.1685 38.6462C40.5488 38.6237 39.0781 40.6259 39.9054 43.078Z"
+                       stroke="#F0FDFA"
+                       stroke-width="2"
+                       stroke-linecap="round"
+                       stroke-linejoin="round"
+                    />
+                 </svg>
+              </button>
+              <input type="text" placeholder="جستجو...." />
+           </div>
+        </div>
+     </header>
 
     {% for book in books %}
-        <h6>Name: <a style="color: #333333 ; text-decoration: none;" href="{% url 'book:detail' book.pk %}">
-            <strong>{{ book.name }}</strong></a></h6>
-        <small>Author: <strong style="color: tomato;">{{ book.author }}</strong></small>
-        {% if book.bookImage %}
-            <h6>Photo:<strong> <img style="width: 100px; height: 100px; margin-left: 20px;" 
-                src="{{ book.bookImage.url }}" alt=""></strong></h6> 
-        {% endif %}
-        <hr>
+        <main>
+            <div class="product">
+            <div class="product-content">
+                <h3>{{ book.name }}</h3>
+                <div class="gen-aut">
+                    <a href="#" class="aut">{{ book.author }}</a>
+                    {% for genre in book.genres %}
+                        <a href="#" class="gen">{{ genre.title }}</a>
+                    {% endfor %}
+                </div>
+                <div class="line"></div>
+                <p class="about-book">
+                    {{ book.summry }}
+                </p>
+            </div>
+            </div>
+        </main>
     {% endfor %}
-
 {% endblock %}
