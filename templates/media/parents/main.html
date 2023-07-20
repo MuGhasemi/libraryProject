@@ -1,18 +1,16 @@
-{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <title>{% block title %}{% endblock %}</title>
-</head>
-<body style="background-color:#F5F5DC  ;">
-    {% include 'partials/navigations.html' %}
-    {% include 'partials/message.html' %}
-    <div style="margin: 10px;">
-        {% block content%}{% endblock %}
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    </div>
-</body>
+<html lang="fa" dir="rtl">
+   {% include 'partials/header.html' %}
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <title>{% block title %}{% endblock %}</title>
+   </head>
+   <body>
+      {% include 'partials/navigations.html' %}
+      {% include 'partials/message.html' %}
+      {% block content%}{% endblock %}
+   </body>
 </html>

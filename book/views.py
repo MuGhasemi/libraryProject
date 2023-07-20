@@ -27,6 +27,9 @@ def home(request):
             messages.error(request, 'Book not exist.', 'danger')
     else:
         books = Book.objects.filter(status = 'a')
+    for book in books:
+        genres = book.genre.all()
+        book.genres = genres
     context = {
         'books': books,
         'search': search,

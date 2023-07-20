@@ -1,0 +1,365 @@
+/* css rest  */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font-size: 100%;
+   font: inherit;
+   vertical-align: baseline;
+}
+
+* {
+   box-sizing: border-box;
+}
+
+ol,
+ul {
+   list-style: none;
+}
+
+/* set font for document */
+body {
+   font-family: Vazirmatn300;
+}
+
+html {
+   scale: smooth;
+}
+
+/* header */
+
+header {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+/* navigation */
+nav {
+   width: 100%;
+   max-width: 1300px;
+   margin: 20px 0;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 1.2rem;
+   height: auto;
+}
+nav .nav ul {
+   display: flex;
+}
+
+nav .nav ul li {
+   margin-left: 20px;
+   width: auto;
+   height: auto;
+}
+nav .nav ul li:last-child {
+   margin-left: 0px;
+}
+
+nav .nav ul li a {
+   text-decoration: none;
+   color: var(--primary-blue);
+   transition: linear 0.2s;
+}
+nav .nav ul li a:hover {
+   color: var(--primary-text);
+}
+
+.logo {
+   width: 80px;
+}
+
+nav .navBtns a {
+   text-decoration: none;
+   color: var(--primary-blue);
+}
+
+.navBtns {
+   display: flex;
+}
+
+/* nav btns  */
+nav .navBtns .sign-in {
+   border: var(--border-blue);
+   padding: 5px 20px;
+   border-radius: 0px 20px 20px 0px;
+   color: var(--primary-white);
+   background-color: var(--primary-blue);
+   transition: linear 0.1s;
+}
+
+nav .navBtns .sign-in:hover {
+   background-color: var(--hover-blue);
+   border: 1px solid var(--hover-blue);
+}
+
+nav .navBtns .sign-in:active {
+   background-color: var(--active-blue);
+}
+
+nav .navBtns .login {
+   border: var(--border-blue);
+   border-radius: 20px 0px 0px 20px;
+   padding: 5px 32px;
+   transition: linear 0.1s;
+}
+
+nav .navBtns .login:hover {
+   background-color: var(--primary-blue);
+   color: var(--primary-white);
+}
+
+nav .navBtns .login:active {
+   background-color: var(--active-blue);
+}
+
+/* main of header  */
+
+header .header-main {
+   width: 100%;
+   max-width: 1300px;
+   margin: 20px 0;
+   margin: auto;
+   height: 600px;
+   border-radius: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-image: url(../img/header-main.jpg);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   backdrop-filter: blur(2px);
+   box-shadow: var(--shadow-pro-box);
+}
+
+/* header main blur  */
+
+/* header .header-main::before{
+   content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url(../img/header-main.jpg);
+  background-size: cover;
+   background-position: center;
+  filter: blur(4px);
+  border-radius: 50px;
+} */
+
+header .search-box {
+   display: flex;
+   justify-content: center;
+   align-self: center;
+}
+#search-btn {
+   width: 75px;
+   height: 70px;
+   border: var(--border-blue);
+   background-color: var(--primary-blue);
+   border-radius: 0px 15px 15px 0px;
+   cursor: pointer;
+   transition: linear 0.1s;
+}
+#search-btn:hover {
+   background-color: var(--active-blue);
+   border: 1px solid var(--active-blue);
+}
+
+#search-btn svg {
+   width: 80%;
+   height: 80%;
+}
+
+header .search-box input {
+   border-radius: 15px 0px 0px 15px;
+   border: var(--border-blue);
+   width: 600px;
+   outline: 0;
+   font-size: 1.8rem;
+   font-family: inherit;
+   padding: 5px 10px;
+}
+
+/* main  */
+
+main {
+   /* background-color: aqua; */
+   max-width: 1300px;
+   margin: 50px auto;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-gap: 235px;
+   justify-content: space-between;
+}
+
+/* product card */
+.product-link {
+   color: var(--primary-white);
+   text-decoration: none;
+}
+.product {
+   /* background-color: blueviolet; */
+   width: 275px;
+   height: 445px;
+   border-radius: 8px;
+   box-shadow: var(--shadow-product);
+   background-image: url(../img/book1.jpg);
+   background-size: 100%;
+   background-position: center;
+   background-repeat: no-repeat;
+   position: relative;
+   overflow: hidden;
+   cursor: pointer;
+   transition: background-size .2s ease-in;
+   -moz-transition: background-size .2s ease-in;
+   -ms-transition: background-size .2s ease-in;
+   -o-transition: background-size .2s ease-in;
+   -webkit-transition: background-size .2s ease-in;
+   
+}
+.product:hover {
+   background-size: 120%;
+   
+}
+.product-content {
+   background: linear-gradient(
+      359deg,
+      rgba(0, 0, 0, 0.89) 2.56%,
+      rgba(0, 0, 0, 0.438) 47.34%,
+      rgba(0, 0, 0, 0) 100%
+   );
+   height: 250px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   color: var(--primary-white);
+   position: absolute;
+   bottom: 0;
+   left: 0px;
+   padding: 20px;
+}
+
+.product-content h3 {
+   font-size: 1.8rem;
+   font-family: "Vazirmatn500";
+}
+
+.product-content .gen-aut {
+   display: flex;
+   align-items: center;
+}
+.product-content .gen-aut a {
+   color: var(--primary-white);
+   text-decoration: none;
+   margin-left: 20px;
+}
+
+.product-content .gen-aut .aut {
+   width: 90px;
+   height: 25px;
+   background-color: var(--primary-red);
+   border-radius: 5px;
+   text-align: center;
+   line-height: 25px;
+   transition: linear 0.1s;
+}
+.product-content .gen-aut .aut:hover {
+   background-color: var(--primary-red-hover);
+}
+
+.product-content .gen-aut .gen {
+   padding: 5px 10px;
+}
+
+.product-content .line {
+   background-color: var(--primary-white);
+   width: 85%;
+   height: 1px;
+   margin: 10px auto;
+}

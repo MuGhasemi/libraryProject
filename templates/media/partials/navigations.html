@@ -1,61 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <h3 class="navbar-brand">Local Library</h3>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          
-          {% if request.path == '/book/' %}
-            <a class="nav-link active" aria-current="page" href="{% url 'book:home' %}">Home</a>
-          {% else %}
-            <a class="nav-link" href="{% url 'book:home' %}">Home</a>
-          {% endif %}
-
-          {% if request.path == '/book/about/' %}
-            <a class="nav-link active" aria-current="page" href="{% url 'book:about' %}">about</a>
-          {% else %}
-            <a class="nav-link" href="{% url 'book:about' %}">about</a>
-          {% endif %}
-          
-          {% if request.path == '/book/all-genres/' %}
-            <a class="nav-link active" aria-current="page" href="{% url 'book:allGenres' %}">Genres</a>
-          {% else %}
-            <a class="nav-link" href="{% url 'book:allGenres' %}">Genres</a>
-          {% endif %}
-          
-          {% if request.path == '/book/all-authors/' %}
-            <a class="nav-link active" aria-current="page" href="{% url 'book:allAuthors' %}">Authors</a>
-          {% else %}
-            <a class="nav-link" href="{% url 'book:allAuthors' %}">Authors</a>
-          {% endif %}
-          
-          {% if request.user.is_authenticated %}
-
-            {% if request.path == '/book/all-instances/' %}
-              <a class="nav-link active" aria-current="page" href="{% url 'book:allInstances' %}">Instances</a>
-            {% else %}
-              <a class="nav-link" href="{% url 'book:allInstances' %}">Instances</a>
-            {% endif %}
-            
-            <a class="btn btn-info" href="{% url 'account:logout' %}">Logout</a>
-            <a class="btn btn-info" aria-current="page" href="{% url 'account:profile' %}">Profile</a>
-            <h5 style="color: white; margin-left: 10px; margin-top: 5px;">{{ request.user.username }}</h4>
-          
-          {% else %}
-          
-            {% if request.path == '/account/login/' %}
-              <a class="btn btn-info" aria-current="page" href="{% url 'account:register' %}">sign-up</a>
-            {% elif request.path == '/account/sign-up/' %}  
-              <a class="btn btn-info" aria-current="page" href="{% url 'account:login' %}">login</a>
-            {% else %}
-            <a class="btn btn-info" aria-current="page" href="{% url 'account:login' %}">login</a>
-            <a class="btn btn-info" aria-current="page" href="{% url 'account:register' %}">sign-up</a>
-            {% endif %}
-
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </nav>
+{% load static %}
+<!-- navbar -->
+<nav>
+  <div class="nav">
+     <ul class="nav-ul">
+        <li><a href="{% url 'book:home' %}">خانه</a></li>
+        <li><a href="{% url 'book:allAuthors' %}">نویسندگان</a></li>
+        <li><a href="{% url 'book:allGenres' %}">ژانر</a></li>
+        <li><a href="{% url 'book:about' %}">درباره ما</a></li>
+     </ul>
+  </div>
+  <a href="{% url 'book:home' %}">
+     <img src="{% static 'asets/img/logo.png' %}" alt="logo" class="logo" />
+  </a>
+  <div class="navBtns">
+     <a href="{% url 'account:register' %}" class="sign-in">ثبت نام</a>
+     <a href="{% url 'account:login' %}" class="login">ورود</a>
+  </div>
+</nav>
