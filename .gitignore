@@ -88,3 +88,7 @@ __pycache__/
 local_settings.py
 **/__pycache__/
 .env
+**/migrations
+
+# down names in the end of project removed
+**/old*
