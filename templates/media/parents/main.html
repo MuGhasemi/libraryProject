@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-   {% include 'partials/header.html' %}
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+      {% include 'partials/header.html' %}
       <title>{% block title %}{% endblock %}</title>
    </head>
    <body>
@@ -14,5 +12,6 @@
       {% endif %}
       {% include 'partials/message.html' %}
       {% block content%}{% endblock %}
+      {% include 'partials/footer.html' %}
    </body>
 </html>
