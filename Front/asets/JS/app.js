@@ -1,13 +1,10 @@
-document
-    .querySelector("#sin-btn-form")
-    .addEventListener("click", function (event) {
-        event.preventDefault();
-    });
+const profileViewModel = document.querySelector(".profile-view");
 
-//   login-btn-form
-
-document
-    .querySelector("#login-btn-form")
-    .addEventListener("click", function (event) {
-        event.preventDefault();
-    });
+profileViewModel.addEventListener("mouseenter", (e) => {
+    const modulePro = document.querySelector(".profile-view-module");
+    modulePro.style.display = "flex";
+});
+profileViewModel.addEventListener("mouseleave", (e) => {
+    const modulePro = document.querySelector(".profile-view-module");
+    modulePro.style.display = "none";
+});
