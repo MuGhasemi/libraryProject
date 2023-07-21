@@ -124,7 +124,7 @@ def showBookInstance(request):
     time = 23
     book_instances = BookInstance.objects.filter(borrower = request.user)
     for instance in book_instances:
-        if instance.due_back <= today and time == datetime.now().hour:
+        if instance.due_back <= today and time <= datetime.now().hour:
             instance.delete()
             book = Book.objects.get(id=instance.book.id)
             messages.success(request,  f'{instance.book} book was deleted due to timeout.', 'warning')
