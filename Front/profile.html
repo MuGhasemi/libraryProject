@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="asets/style/main-style.css" />
+        <link rel="stylesheet" href="asets/style/var.css" />
+        <link rel="stylesheet" href="asets/style/fonts.css" />
+        <link rel="shortcut icon" href="asets/img/logo.png" type="image/png" />
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <!-- navbar -->
+            <nav>
+                <div class="nav">
+                    <ul class="nav-ul">
+                        <li><a href="#">خانه</a></li>
+                        <li><a href="#">نویسندگان</a></li>
+                        <li><a href="#">ژانر</a></li>
+                        <li><a href="#">درباره ما</a></li>
+                    </ul>
+                </div>
+                <a href="#">
+                    <img src="./asets/img/logo.png" alt="logo" class="logo" />
+                </a>
+                <div class="navBtns">
+                    <a href="#" class="sign-in">ثبت نام</a>
+                    <a href="#" class="login">ورود</a>
+                </div>
+            </nav>
+        </header>
+
+
+
+        <!-- edit profile  -->
+        <main class="profile-to-show container">
+            <img src="" alt="" class="profile-photo" />
+
+            <form action="" class="profile-toshow-form">
+                <table class="profile-table">
+                    <tr>
+                        <td><label for="">نام:</label></td>
+                        <td><input type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">نام خانوادگی:</label></td>
+                        <td><input type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">ایمیل:</label></td>
+                        <td><input type="email" name="" id=""  value=""/></td>
+                    </tr>
+                    <tr class="change-profile-img">
+                        <td><label for="">عکس پروفایل:</label></td>
+                        <td class="change-profile-img-input">
+                            <input
+                                accept=".gif,.jpg,.jpeg,.GIF,.png,.PNG,.JPG,.JPEG,.bmp,.BMP"
+                                type="file"
+                                name="profile-img"
+                                id="profile-img"
+                                class="profile-img"
+                                
+                            />
+                            <a href="#" class="delete-img">حذف عکس</a>
+                        </td>
+                    </tr>
+                </table>
+                <div class="profile-edit-btns">
+                    <button class="profile-edit-edit-btn">ویرایش</button>
+                    <button class="profile-edit-done-btn">اعمال تغییرات</button>
+                    <button class="profile-edit-cancel-btn">لغو</button>
+                </div>
+            </form>
+        </main>
+
+        <script type="module" src="asets/JS/app.js"></script>
+    </body>
+</html>
