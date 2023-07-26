@@ -18,7 +18,7 @@
          </div>
       {% else %}
          <div class="profile-view">
-            <a href="">
+            <a href="{% url 'account:profile' %}">
                سلام <span>{{ request.user.first_name }}</span>!
                   <span
                      ><svg
