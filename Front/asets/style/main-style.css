@@ -885,3 +885,75 @@ header .search-box input {
     background-color: var(--primary-red);
     color: #fff;
 }
+
+
+
+/* instans page  */
+
+/* 1300px */
+.instans{
+    width: 1300px;
+    margin: 30px auto;
+}
+.instans h3{
+    text-align: center;
+    font-family: Vazirmatn500;
+    font-size: 1.2rem;
+}
+.instans-books{
+   
+    padding: 20px 40px;
+}
+
+.ins-book{
+    display: flex;
+    width: 450px;
+    height: 230px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #f3f4f6;
+    box-shadow: var(--shadow-product);
+    
+}
+.ins-book-img > img{
+    /* width: 100px; */
+    height: 100%;
+    margin-left: 10px;
+}
+.ins-book-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.ins-book-detail h4{
+    font-size: 1.7rem;
+    font-family:Vazirmatn500 ;
+}
+.ins-aut {
+    text-align: center;
+    min-width: 90px;
+    max-width: 120px;
+    height: 35px;
+    border-radius: 8px;
+    background-color: var(--primary-red);
+    color: #fff;
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 35px;
+    overflow: hidden;
+}
+.ins-gen{
+    text-align: center;
+    min-width: 90px;
+    max-width: 120px;
+    height: 35px;
+    border-radius: 8px;
+    background-color: var(--primary-blue);
+    color: #fff;
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 35px;
+    overflow: hidden;
+
+}
