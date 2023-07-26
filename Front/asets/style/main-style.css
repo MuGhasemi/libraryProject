@@ -102,6 +102,12 @@ ul {
 /* set font for document */
 body {
     font-family: Vazirmatn300;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 html {
@@ -116,6 +122,93 @@ html {
 .display-none {
     display: none !important;
 }
+
+
+/* NOTE  modal  */
+.backdrop-book-det{
+    background-color:rgba(0, 0, 0, 0.4) ;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 5;
+}
+
+
+.modal-book-det{
+    width: 500px;
+    height: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1.3rem;
+    opacity: 0;
+    transition: all 0.5s ease-in-out ;
+    transform: translateY(-100vh);  
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+    justify-content: space-around;
+    /* left: 42%; */
+}
+.modal-book-det h4 {
+    font-size: 1.5rem;
+    font-family: Vazirmatn600;
+}
+.mod-date-lable{
+
+    font-size: 1.3rem;
+}
+#mod-date-return{
+    font-family: inherit;
+    outline: none;
+    border: var(--border-blue);
+    padding: 5px 15px;
+    color: var(--primary-blue);
+    font-weight: 400;
+    font-size: .9rem;
+    border-radius: 8px;
+}
+.modal-book-det div {
+    width: 100%;
+}
+.confirm-modal-det , .close-modal-det {
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: Vazirmatn500;
+    font-size: 1rem;
+    cursor: pointer;
+    
+}
+.confirm-modal-det{
+    border: var(--border-blue);
+    background-color: var(--primary-blue);
+    color: #fff;
+    margin-bottom: 10px;
+    transition: 0.1s linear;
+}
+.confirm-modal-det:hover{
+    background-color: var(--hover-blue);
+    
+}
+.close-modal-det{
+    border: 1px solid var(--primary-red);
+    color: var(--primary-red);
+    transition: 0.1s linear;
+}
+.close-modal-det:hover{
+    color: #fff;
+    background-color: var(--primary-red);
+}
+
+
 
 /* header */
 
