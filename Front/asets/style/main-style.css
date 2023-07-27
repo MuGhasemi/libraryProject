@@ -857,6 +857,38 @@ header .search-box input {
     background-color: var(--primary-red);
     color: #fff;
 }
+.book-btns-edit{
+    margin-top: 10px;
+    display: flex;
+    width: 475px;
+}
+.book-btn-edit {
+    height: 55px;
+    width: 50%;
+    background-color: #eab308;
+    margin-left: 20px;
+    text-align: center;
+    line-height: 55px;
+    color: #fff;
+    border-radius: 20px;
+    transition: 0.1s linear;
+}
+.book-btn-edit:hover{
+    background-color: #ca8a04;
+}
+.book-btn-delete{
+    height: 55px;
+    width: 50%;
+    background-color: var(--primary-red);
+    text-align: center;
+    line-height: 55px;
+    color: #fff;
+    border-radius: 20px;
+}
+.book-btn-delete:hover{
+    background-color: var(--primary-red-hover);
+}
+
 
 /* profile page  */
 
