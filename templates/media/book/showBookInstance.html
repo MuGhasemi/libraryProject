@@ -1,23 +1,42 @@
 {% extends 'parents/main.html' %}
-
+{% load static %}
 {% block title %}All-Book-Instance{% endblock %}
 
 {% block content %}
 
-<a href="{% url 'book:home' %}" class="btn btn-warning" style="color: black; ">Add Instance</a>
-  
-    {% if bookInstances.count == 0 %}
-        <h3> don't have instance </h3>
-    {% else %}
+<main class="instans">
+    <h3>کتاب های قرض گرفته شده</h3>
+
+    <!-- container  -->
+    <div class="instans-books">
+
         {% for bookInstance in bookInstances %}
-            <h6>Name: <strong>{{ bookInstance.book }}</strong></h6>
-            <h6>Borrower: <strong>{{ bookInstance.borrower }}</strong></h6>
-            <small>Due Back: <strong style="color: tomato;">{{ bookInstance.due_back }}</strong></small>
-            {% if bookInstance.book.bookImage %}
-                <h6>Photo:<strong> <img style="width: 100px; height: 100px; margin-left: 20px;" 
-                            src="{{ bookInstance.book.bookImage.url }}" alt=""></strong></h6> 
-            {% endif %}
-            <hr>
+        <!-- each books  -->
+        <div class="ins-book">
+            <div class="ins-book-img">
+                {% if bookInstance.book.bookImage %}
+                    <img src="{{ bookInstance.book.bookImage.url }}" alt="" />
+                {% else %}
+                    <img src="{% static 'asets/img/book1.jpg' %}" alt="" />
+                {% endif %}
+            </div>
+            <div class="ins-book-detail">
+                <h4>{{ bookInstance.book }}</h4>
+                <div class="ins-gen-aut">
+                    <span class="ins-aut">{{ bookInstance.book.author.first_name|first }}. {{ bookInstance.book.author.last_name }}</span>
+                    <span class="ins-gen">{{ bookInstance.book.genre.first }}</span>
+                </div>
+                <div class="instans-return">
+                    <span class="instans-return-text"
+                        >تاریخ برگرداندن:
+                    </span>
+                    <span class="instans-return-date">{{ bookInstance.due_back }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- end of each books  -->
         {% endfor %}
-    {% endif %}
+    </div>
+    <!-- end of container  -->
+</main>
 {% endblock %}
