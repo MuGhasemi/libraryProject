@@ -38,10 +38,7 @@ def home(request):
 
 def detail(request, pk):
     bookDetail = Book.objects.get(id=pk)
-    def display_genre():
-        return ', '.join([genre.title for genre in bookDetail.genre.all()])
-    context = {'bookDetail': bookDetail,
-               'display_genre':display_genre}
+    context = {'bookDetail': bookDetail}
     return render(request, 'book/detail.html', context)
 
 @login_required
@@ -122,15 +119,14 @@ def showAuthors(request):
 def showBookInstance(request):
     today = date.today()
     time = 23
-    book_instances = BookInstance.objects.filter(borrower = request.user)
-    for instance in book_instances:
+    bookInstances = BookInstance.objects.filter(borrower = request.user)
+    for instance in bookInstances:
         if instance.due_back <= today and time <= datetime.now().hour:
             instance.delete()
             book = Book.objects.get(id=instance.book.id)
             messages.success(request,  f'{instance.book} book was deleted due to timeout.', 'warning')
             book.status = 'a'
             book.save()
-    bookInstances = BookInstance.objects.filter(borrower = request.user)
     context = {'bookInstances': bookInstances
                 }
     return render(request, 'book/showBookInstance.html', context)
