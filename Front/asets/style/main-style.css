@@ -123,10 +123,9 @@ html {
     display: none !important;
 }
 
-
 /* NOTE  modal  */
-.backdrop-book-det{
-    background-color:rgba(0, 0, 0, 0.4) ;
+.backdrop-book-det {
+    background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
     top: 0;
     left: 0;
@@ -136,8 +135,7 @@ html {
     z-index: 5;
 }
 
-
-.modal-book-det{
+.modal-book-det {
     width: 500px;
     height: 300px;
     background-color: #fff;
@@ -145,13 +143,13 @@ html {
     border-radius: 8px;
     padding: 1.3rem;
     opacity: 0;
-    transition: all 0.5s ease-in-out ;
-    transform: translateY(-100vh);  
+    transition: all 0.5s ease-in-out;
+    transform: translateY(-100vh);
     z-index: 10;
     position: absolute;
     display: flex;
     flex-direction: column;
-    align-items:center ;
+    align-items: center;
     justify-content: space-around;
     /* left: 42%; */
 }
@@ -159,24 +157,24 @@ html {
     font-size: 1.5rem;
     font-family: Vazirmatn600;
 }
-.mod-date-lable{
-
+.mod-date-lable {
     font-size: 1.3rem;
 }
-#mod-date-return{
+#mod-date-return {
     font-family: inherit;
     outline: none;
     border: var(--border-blue);
     padding: 5px 15px;
     color: var(--primary-blue);
     font-weight: 400;
-    font-size: .9rem;
+    font-size: 0.9rem;
     border-radius: 8px;
 }
 .modal-book-det div {
     width: 100%;
 }
-.confirm-modal-det , .close-modal-det {
+.confirm-modal-det,
+.close-modal-det {
     width: 100%;
     height: 40px;
     background-color: #fff;
@@ -185,30 +183,26 @@ html {
     font-family: Vazirmatn500;
     font-size: 1rem;
     cursor: pointer;
-    
 }
-.confirm-modal-det{
+.confirm-modal-det {
     border: var(--border-blue);
     background-color: var(--primary-blue);
     color: #fff;
     margin-bottom: 10px;
     transition: 0.1s linear;
 }
-.confirm-modal-det:hover{
+.confirm-modal-det:hover {
     background-color: var(--hover-blue);
-    
 }
-.close-modal-det{
+.close-modal-det {
     border: 1px solid var(--primary-red);
     color: var(--primary-red);
     transition: 0.1s linear;
 }
-.close-modal-det:hover{
+.close-modal-det:hover {
     color: #fff;
     background-color: var(--primary-red);
 }
-
-
 
 /* header */
 
@@ -877,8 +871,7 @@ header .search-box input {
     justify-content: center;
     width: 1000px;
     border-radius: 60px;
-    box-shadow:4px 4px 4px 0px rgba(0, 0, 0, 0.055);
-
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.055);
 }
 
 .profile-photo {
@@ -888,11 +881,10 @@ header .search-box input {
     border-radius: 50%;
     position: absolute;
     top: -100px;
-    box-shadow:4px 4px 4px 0px rgba(0, 0, 0, 0.055);
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.055);
     border: var(--border-blue);
-
 }
-.profile-toshow-form{
+.profile-toshow-form {
     /* background-color: aqua; */
     height: 300px;
     display: flex;
@@ -902,7 +894,7 @@ header .search-box input {
     font-size: 1.3rem;
     font-family: Vazirmatn500;
 }
-.profile-toshow-form input{
+.profile-toshow-form input {
     outline: none;
     width: 350px;
     height: 40px;
@@ -914,48 +906,44 @@ header .search-box input {
     background-color: #fff;
     margin-bottom: 20px;
 }
-.profile-toshow-form input:disabled{
+.profile-toshow-form input:disabled {
     background-color: transparent;
     border: none;
 }
 
-.profile-img{
+.profile-img {
     border: none !important;
     background-color: transparent !important;
     height: 50px !important;
 }
 
-.profile-img::-webkit-file-upload-button{
-    
+.profile-img::-webkit-file-upload-button {
     border: var(--border-blue);
     padding: 5px 20px;
     border-radius: 8px;
-    color:  #fff;
+    color: #fff;
     background-color: var(--primary-blue);
     display: inline-block;
     margin-bottom: 60px;
     cursor: pointer;
 }
 
-.delete-img{
+.delete-img {
     text-decoration: none;
     font-family: Vazirmatn300;
     border: 1px solid var(--primary-red);
     color: var(--primary-red);
     padding: 3px 15px;
     border-radius: 8px;
-    
 }
 
-.profile-edit-btns{
-    
+.profile-edit-btns {
     display: flex;
     justify-content: space-evenly;
     width: 500px;
     margin: auto;
-
 }
-.profile-edit-btns button{
+.profile-edit-btns button {
     margin-top: 30px;
     padding: 8px 30px;
     font-size: 1.2rem;
@@ -966,7 +954,7 @@ header .search-box input {
     border-radius: 10px;
     cursor: pointer;
 }
-.profile-edit-btns button:hover{
+.profile-edit-btns button:hover {
     background-color: var(--hover-blue);
 }
 .profile-edit-btns button[class="profile-edit-cancel-btn"] {
@@ -974,31 +962,28 @@ header .search-box input {
     color: var(--primary-red);
     border: 1px solid var(--primary-red);
 }
-.profile-edit-btns button[class="profile-edit-cancel-btn"]:hover{
+.profile-edit-btns button[class="profile-edit-cancel-btn"]:hover {
     background-color: var(--primary-red);
     color: #fff;
 }
 
-
-
 /* instans page  */
 
 /* 1300px */
-.instans{
+.instans {
     width: 1300px;
     margin: 30px auto;
 }
-.instans h3{
+.instans h3 {
     text-align: center;
     font-family: Vazirmatn500;
     font-size: 1.2rem;
 }
-.instans-books{
-   
+.instans-books {
     padding: 20px 40px;
 }
 
-.ins-book{
+.ins-book {
     display: flex;
     width: 450px;
     height: 230px;
@@ -1006,9 +991,8 @@ header .search-box input {
     border-radius: 15px;
     background-color: #f3f4f6;
     box-shadow: var(--shadow-product);
-    
 }
-.ins-book-img > img{
+.ins-book-img > img {
     /* width: 100px; */
     height: 100%;
     margin-left: 10px;
@@ -1019,9 +1003,9 @@ header .search-box input {
     justify-content: space-around;
 }
 
-.ins-book-detail h4{
+.ins-book-detail h4 {
     font-size: 1.7rem;
-    font-family:Vazirmatn500 ;
+    font-family: Vazirmatn500;
 }
 .ins-aut {
     text-align: center;
@@ -1036,7 +1020,7 @@ header .search-box input {
     line-height: 35px;
     overflow: hidden;
 }
-.ins-gen{
+.ins-gen {
     text-align: center;
     min-width: 90px;
     max-width: 120px;
@@ -1048,5 +1032,116 @@ header .search-box input {
     font-size: 1rem;
     line-height: 35px;
     overflow: hidden;
+}
 
+/* NOTE add book in admin panel  */
+.admin-add-book {
+    /* background-color: aqua; */
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-add-book h3 {
+    text-align: center;
+    font-family: Vazirmatn500;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.admin-add-book-container {
+    background-color: #f3f4f6;
+    width: 900px;
+    border-radius: 12px;
+    padding: 40px;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-product);
+}
+.add-book-det,
+.add-book-btns-det {
+    /* background-color: coral; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#add-book-sumery {
+    resize: none;
+    width: 100%;
+}
+.table-add-book-admin td {
+    /* background-color: aqua; */
+    padding: 10px;
+    /* text-align: center; */
+    vertical-align: middle;
+}
+
+#add-book-name {
+    width: 100%;
+    height: 35px;
+}
+.table-add-book-admin input,
+.table-add-book-admin textarea,
+.table-add-book-admin select {
+    outline: none;
+    border: var(--border-blue);
+    border-radius: 8px;
+
+    font-family: inherit;
+}
+.table-add-book-admin input,
+.table-add-book-admin textarea {
+    padding: 15px 25px;
+}
+.table-add-book-admin input[type="file"] {
+    border: none;
+}
+
+.table-add-book-admin select {
+    border-radius: 5px;
+    padding: 3px 10px;
+}
+.add-book-img::-webkit-file-upload-button {
+    border: var(--border-blue);
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: var(--primary-blue);
+    cursor: pointer;
+    transition: 0.1s linear;
+}
+.add-book-img::-webkit-file-upload-button:hover {
+    background-color: var(--hover-blue);
+}
+
+.add-book-btns-det button {
+    margin-top: 20px;
+    margin-right: 5px;
+    padding: 10px 30px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-family: Vazirmatn400;
+}
+.add-book-btns-add {
+    border: var(--border-blue);
+    background-color: var(--primary-blue);
+    color: #fff;
+    transition: 0.1s linear;
+}
+.add-book-btns-add:hover {
+    background-color: var(--hover-blue);
+}
+.add-book-btns-cancel {
+    border: 1px solid var(--primary-red);
+    color: var(--primary-red);
+    background-color: #fff;
+    transition: 0.1s linear;
+}
+.add-book-btns-cancel:hover {
+    background-color: var(--primary-red);
+    color: #fff;
 }
