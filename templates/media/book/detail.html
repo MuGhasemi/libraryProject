@@ -15,8 +15,8 @@
         <h3>{{ bookDetail.name }}</h3>
 
         <div class="book-genaut">
-            <span class="book-aut">{{ bookDetail.author }}</span>
-            <span class="book-gen">{{ display_genre }}</span>
+            <span class="book-aut">{{ bookDetail.author.first_name|first }}. {{ bookDetail.author.last_name }}</span>
+            <span class="book-gen">{{ bookDetail.genre.first }}</span>
         </div>
 
         <div class="book-sum">

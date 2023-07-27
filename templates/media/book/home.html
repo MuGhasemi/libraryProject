@@ -34,23 +34,23 @@
            </div>
         </div>
      </header>
-    {% for book in books %}
         <main>
-            <div class="product">
-            <div class="product-content">
-                <h3>{{ book.name }}</h3>
-                <div class="gen-aut">
-                    <a href="#" class="aut">{{ book.author }}</a>
-                    {% for genre in book.genres %}
-                        <a href="#" class="gen">{{ genre.title }}</a>
-                    {% endfor %}
-                </div>
-                <div class="line"></div>
-                <p class="about-book">
-                    {{ book.summry }}
-                </p>
-            </div>
-            </div>
+            {% for book in books %}
+                <a href="{% url 'book:detail' book.pk %}">
+                    <div class="product">
+                    <div class="product-content">
+                        <h3>{{ book.name }}</h3>
+                        <div class="gen-aut">
+                            <span class="aut">{{ book.author.first_name|first }}. {{ book.author.last_name }}</span>
+                            <span class="gen">{{ book.genres.first }}</span>
+                        </div>
+                        <div class="line"></div>
+                        <p class="about-book">
+                            {{ book.summry }}
+                        </p>
+                    </div>
+                    </div>
+                </a>
+            {% endfor %}
         </main>
-    {% endfor %}
 {% endblock %}
