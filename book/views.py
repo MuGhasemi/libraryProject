@@ -1,6 +1,5 @@
 from datetime import date ,datetime
 import os
-from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect
 from .models import Book, Genre, Author, BookInstance
 from .forms import InsertBookForm, EditBookForm, SearchBoxForm, AddBookInstanceForm
@@ -159,5 +158,5 @@ def addBookInstance(request, pk):
                 'book': bookTitle}
     return render(request, 'book/addBookInstance.html', context)
 
-def notFound2(request,text):
-    return HttpResponseNotFound(f'{text} page not found')
+def notFound2(request, text):
+    return render(request, 'partials/404.html', {'exception': text})

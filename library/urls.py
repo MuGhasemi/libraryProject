@@ -24,7 +24,7 @@ urlpatterns = [
     path('book/', include('book.urls')),
     path('account/', include('account.urls')),
     path('', views.goHome, name = 'goHome'),
-    path('<str:text>', views.notFound1)
+    path('<str:text>/', views.notFound1)
 ]
 
 if settings.DEBUG:
