@@ -26,6 +26,10 @@
         <div class="book-btns">
             <a href="{% url 'book:addinstance' bookDetail.pk %}" class="book-borrow-btn">قرض گرفتن</a>
             <a href="{% url 'book:home' %}" class="book-back-btn">بازگشت</a>
+            <div class="book-btns-edit">
+                <a href="{% url 'book:editBook' bookDetail.pk %}" class="book-btn-edit">ویرایش</a>
+                <a href="{% url 'book:deleteBook' bookDetail.pk %}" class="book-btn-delete">پاک کردن</a>
+            </div>
         </div>
     </div>
 </main>
