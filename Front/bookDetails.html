@@ -10,6 +10,24 @@
         <title>Document</title>
     </head>
     <body>
+        <!-- NOTE back drop  -->
+        <div class="backdrop-book-det"></div>
+
+        <!-- NOTE  modal  -->
+        <div class="modal-book-det">
+            <h4 class="modal-book-name">عنوان</h4>
+            <form action="">
+                <label for="mod-date-return-lable" class="mod-date-lable"
+                    >تاریخ برگرداندن:</label
+                >
+                <input type="date" name="" id="mod-date-return" />
+            </form>
+            <div>
+                <button class="confirm-modal-det">قرض گرفتن</button>
+                <button class="close-modal-det">بازگشت</button>
+            </div>
+        </div>
+
         <header>
             <!-- navbar -->
             <nav>
@@ -54,12 +72,17 @@
                     </p>
                 </div>
                 <div class="book-btns">
-                    <a href="" class="book-borrow-btn">قرض گرفتن</a>
-                    <a href="" class="book-back-btn">بازگشت</a>
+                    <a href="#" class="book-borrow-btn">قرض گرفتن</a>
+                    <a href="#" class="book-back-btn">بازگشت</a>
+                    <div class="book-btns-edit">
+                        <a href="#" class="book-btn-edit">ویرایش</a>
+                        <a href="#" class="book-btn-delete">پاک کردن</a>
+                    </div>
                 </div>
             </div>
         </main>
 
         <footer></footer>
+        <script type="module" src="asets/JS/bookDetail.js"></script>
     </body>
 </html>
