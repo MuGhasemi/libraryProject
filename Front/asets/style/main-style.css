@@ -701,12 +701,13 @@ header .search-box input {
     border: 2px solid var(--primary-blue);
 }
 
-#to-signin {
+#to-signin, #to-home {
     font-size: 1.2rem;
     font-family: Vazirmatn500;
     color: var(--primary-blue);
+    text-decoration: none;
 }
-#to-signin:hover {
+#to-signin:hover , #to-home:hover  {
     color: var(--hover-blue);
 }
 #login-btn-form {
@@ -824,7 +825,7 @@ header .search-box input {
     font-size: 1.2rem;
     font-family: Vazirmatn500;
     color: var(--primary-blue);
-    margin-bottom: 30px;
+    text-decoration: none;
 }
 
 #to-login:hover {
