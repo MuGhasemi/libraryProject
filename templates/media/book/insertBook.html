@@ -3,10 +3,96 @@
 {% block title %}Insert-Book{% endblock %}
 
 {% block content %}
-    <form action="" method="post" enctype="multipart/form-data" novalidate>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-success">ADD</button>
-        <a href="{% url 'book:home' %}" class="btn btn-danger">Cancel</a>
-    </form>
+    <main class="admin-add-book container">
+            <h3>اضافه کردن کتاب</h3>
+            <div class="admin-add-book-container">
+                <div class="add-book-det">
+                    <form action="" method="post" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        <table class="table-add-book-admin">
+                            <tr>
+                                <td>
+                                    <label for="add-book-name">نام کتاب:</label>
+                                </td>
+                                <td>
+                                    {% comment %} <input
+                                        type="text"
+                                        name=""
+                                        id="add-book-name" 
+                                    />{% endcomment %}
+                                    {{ form.name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="add-book-sumery"
+                                        >خلاصه کتاب :
+                                    </label>
+                                </td>
+                                <td>
+                                    {% comment %} <textarea
+                                        name=""
+                                        id="add-book-sumery"
+                                        cols="30"
+                                        rows="10"
+                                    ></textarea> {% endcomment %}
+                                    {{ form.summry }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="add-book-gen">ژانر:</label></td>
+                                <td>
+                                    {% comment %} <select
+                                        name="add-book-gen"
+                                        id="add-book-gen"
+                                    >
+                                        <option value="val1">مقدار 1</option>
+                                        <option value="val2">مقدار 2</option>
+                                        <option value="val3">مقدار 3</option>
+                                    </select> {% endcomment %}
+                                    {{ form.genre }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="add-book-aut">نویسنده:</label>
+                                </td>
+                                <td>
+                                    {% comment %} <select
+                                        name="add-book-aut"
+                                        id="add-book-aut"
+                                    >
+                                        <option value="val1">مقدار 1</option>
+                                        <option value="val2">مقدار 2</option>
+                                        <option value="val3">مقدار 3</option>
+                                    </select> {% endcomment %}
+                                    {{ form.author }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="add-book-img">عکس کتاب:</label>
+                                </td>
+                                <td>
+                                    {% comment %} <input
+                                        accept=".jpg,.jpeg,.png,.PNG,.JPG,.JPEG"
+                                        type="file"
+                                        name="add-book-img"
+                                        id="add-book-img"
+                                        class="add-book-img"
+                                    /> {% endcomment %}
+                                    {{ form.bookImage }}
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="add-book-btns-det">
+                            <button class="add-book-btns-add">
+                                اضافه کردن کتاب
+                            </button>
+                            <button class="add-book-btns-cancel">لغو</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
 {% endblock %}

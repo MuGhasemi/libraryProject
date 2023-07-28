@@ -51,7 +51,7 @@ def addBook(request):
             return redirect(settings.LOGIN_REDIRECT_URL)
         else:
             messages.success(request, 'Book add failed.', 'danger')
-            return redirect('/book/insert-book')
+            return redirect('/book/insert-book/')
     else:
         book = InsertBookForm()
         context = {

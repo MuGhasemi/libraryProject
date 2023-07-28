@@ -11,7 +11,21 @@ class SearchBoxForm(forms.Form):
 class InsertBookForm(forms.ModelForm):
     class Meta:
         model = Book
-        fields = '__all__'
+        fields = {'name', 'summry', 'genre', 'author', 'bookImage'}
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'id': 'add-book-name',
+                'type': 'text',
+            }),
+            'summry': forms.Textarea(attrs={
+                'id':'add-book-sumery',
+            }),
+            'bookImage': forms.FileInput(attrs={
+                'id': 'add-book-img',
+                'accept': '.jpg,.jpeg,.png,.PNG,.JPG,.JPEG',
+                'class':'add-book-img'
+            })
+        }
 
 class EditBookForm(forms.ModelForm):
     class Meta:
