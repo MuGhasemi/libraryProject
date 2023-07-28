@@ -69,7 +69,7 @@ def loginUser(request):
 def logoutUser(request):
     messages.success(request, f'{ request.user }, thank your for visiting us site', 'success')
     logout(request)
-    return redirect(settings.LOGOUT_URL)
+    return redirect(settings.LOGIN_REDIRECT_URL)
 
 @login_required
 def profileUser(request):
