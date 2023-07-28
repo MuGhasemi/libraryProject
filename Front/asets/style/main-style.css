@@ -455,10 +455,10 @@ header .search-box input {
     height: 445px;
     border-radius: 8px;
     box-shadow: var(--shadow-product);
-    background-image: url(../img/book1.jpg);
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+    /* background-image: url(../img/book1.jpg); */
+    background-size: 100% !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -857,7 +857,7 @@ header .search-box input {
     background-color: var(--primary-red);
     color: #fff;
 }
-.book-btns-edit{
+.book-btns-edit {
     margin-top: 10px;
     display: flex;
     width: 475px;
@@ -873,10 +873,10 @@ header .search-box input {
     border-radius: 20px;
     transition: 0.1s linear;
 }
-.book-btn-edit:hover{
+.book-btn-edit:hover {
     background-color: #ca8a04;
 }
-.book-btn-delete{
+.book-btn-delete {
     height: 55px;
     width: 50%;
     background-color: var(--primary-red);
@@ -885,10 +885,9 @@ header .search-box input {
     color: #fff;
     border-radius: 20px;
 }
-.book-btn-delete:hover{
+.book-btn-delete:hover {
     background-color: var(--primary-red-hover);
 }
-
 
 /* profile page  */
 
