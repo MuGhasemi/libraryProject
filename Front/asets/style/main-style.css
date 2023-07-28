@@ -538,7 +538,7 @@ header .search-box input {
     width: 100%;
     margin: 50px auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-template-rows: auto;
     grid-gap: 40px;
     height: auto;
@@ -600,7 +600,7 @@ header .search-box input {
     display: flex;
     align-items: center;
 }
-.product-content .gen-aut a {
+.product-content .gen-aut span {
     color: var(--primary-white);
     text-decoration: none;
     margin-left: 20px;
