@@ -31,15 +31,15 @@
            </div>
         </div>
      </header>
-        <main>
+        <main class="main-home">
             {% for book in books %}
                 <a href="{% url 'book:detail' book.pk %}">
                     <div class="product" style="background:
-                    {% if book.bookImage %} 
-                        url('{{ book.bookImage.url }}');
-                    {% else %}
-                        url('{% static 'asets/img/book1.jpg' %}');
-                    {% endif %}">
+                                                {% if book.bookImage %} 
+                                                    url('{{ book.bookImage.url }}');
+                                                {% else %}
+                                                    url('{% static 'asets/img/book1.jpg' %}');
+                                                {% endif %}">
                     <div class="product-content">
                         <h3>{{ book.name }}</h3>
                         <div class="gen-aut">
