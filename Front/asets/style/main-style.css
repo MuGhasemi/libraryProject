@@ -1116,7 +1116,8 @@ header .search-box input {
 
 /* 1300px */
 .instans {
-    width: 1300px;
+    max-width: 1300px;
+    width: 100%;
     margin: 30px auto;
 }
 .instans h3 {
@@ -1125,12 +1126,16 @@ header .search-box input {
     font-size: 1.2rem;
 }
 .instans-books {
+    width: 100%;
     padding: 20px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px , 1fr));
+    gap: 30px;
 }
 
 .ins-book {
     display: flex;
-    width: 450px;
+    /* width: 450px; */
     height: 230px;
     padding: 10px;
     border-radius: 15px;
