@@ -3,14 +3,12 @@
          <div class="nav">
             <ul class="nav-ul">
                <li><a href="{% url 'book:home' %}">خانه</a></li>
-               <li><a href="{% url 'book:allAuthors' %}">نویسندگان</a></li>
-               <li><a href="{% url 'book:allGenres' %}">ژانر</a></li>
                <li><a href="{% url 'book:about' %}">درباره ما</a></li>
+               {% if request.user.is_authenticated and request.user.is_staff %}
+                  <li><a href="{% url 'book:addBook' %}">اضافه کردن کتاب</a></li>
+               {% endif %}
             </ul>
          </div>
-         <a href="{% url 'book:home' %}">
-            <img src="{% static 'asets/img/logo.png' %}" alt="logo" class="logo" />
-         </a>
       {% if not request.user.is_authenticated %}
          <div class="navBtns">
             <a href="{% url 'account:register' %}" class="sign-in">ثبت نام</a>
