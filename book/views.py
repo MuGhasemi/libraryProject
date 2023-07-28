@@ -93,9 +93,10 @@ def editBook(request, pk):
 @login_required
 def deleteBook(request, pk):
     book = Book.objects.get(id=pk)
-    bookImage = book.bookImage.path
+    if book.bookImage:
+        bookImage = book.bookImage.path
+        os.remove(bookImage)
     book.delete()
-    os.remove(bookImage)
     messages.success(request, 'Book deleted successfully.', 'success')
     return redirect(settings.LOGIN_REDIRECT_URL)
 
