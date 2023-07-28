@@ -327,6 +327,102 @@ nav .navBtns .login:active {
 
 /* REVIEW end of profile view  */
 
+/* NOTE 404 page  */
+
+.four-O-four svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -400px;
+}
+.message-box {
+    height: 200px;
+    width: 380px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: 50px;
+    color: #fff;
+    font-family: Roboto;
+    font-weight: 300;
+}
+.message-box h1 {
+    font-size: 6rem;
+    line-height: 46px;
+    margin-bottom: 40px;
+    font-family: Vazirmatn500;
+}
+.message-box > p {
+    font-family: Vazirmatn400;
+    font-size: 3rem;
+}
+.buttons-con .action-link-wrap {
+    margin-top: 40px;
+}
+.buttons-con .action-link-wrap a {
+    background: var(--primary-blue);
+    padding: 8px 25px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px;
+    font-family: Vazirmatn400;
+}
+.buttons-con .action-link-wrap a:hover {
+    background: #5a5c6c;
+    color: #fff;
+}
+
+#Polygon-1,
+#Polygon-2,
+#Polygon-3,
+#Polygon-4,
+#Polygon-4,
+#Polygon-5 {
+    animation: float 1s infinite ease-in-out alternate;
+}
+#Polygon-2 {
+    animation-delay: 0.2s;
+}
+#Polygon-3 {
+    animation-delay: 0.4s;
+}
+#Polygon-4 {
+    animation-delay: 0.6s;
+}
+#Polygon-5 {
+    animation-delay: 0.8s;
+}
+
+@keyframes float {
+    100% {
+        transform: translateY(20px);
+    }
+}
+@media (max-width: 450px) {
+    .four-O-four svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -250px;
+        margin-left: -190px;
+    }
+    .message-box {
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -190px;
+        text-align: center;
+    }
+}
+/*NOTE end of 404 page  */
+
 /* profile view module  */
 
 .profile-view-module {
@@ -436,13 +532,15 @@ header .search-box input {
 
 .main-home {
     /* background-color: aqua; */
+    padding: 30px;
     max-width: 1300px;
+    width: 100%;
     margin: 50px auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* grid-gap: 235px;
-   justify-content: space-between;
- */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
+    grid-gap: 40px;
+    height: auto;
 }
 /* product card */
 .product-link {
@@ -451,12 +549,12 @@ header .search-box input {
 }
 .product {
     /* background-color: blueviolet; */
-    width: 275px;
+    width: 100%;
     height: 445px;
     border-radius: 8px;
     box-shadow: var(--shadow-product);
-    /* background-image: url(../img/book1.jpg); */
-    background-size: 100% !important;
+    background-image: url(../img/book1.jpg);
+    background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     position: relative;
@@ -467,11 +565,13 @@ header .search-box input {
     -ms-transition: background-size 0.2s ease-in;
     -o-transition: background-size 0.2s ease-in;
     -webkit-transition: background-size 0.2s ease-in;
+    /* color:#fff; */
 }
 .product:hover {
     background-size: 120%;
 }
 .product-content {
+    
     background: linear-gradient(
         359deg,
         rgba(0, 0, 0, 0.89) 2.56%,
@@ -487,11 +587,13 @@ header .search-box input {
     bottom: 0;
     left: 0px;
     padding: 20px;
+    
 }
 
 .product-content h3 {
     font-size: 1.8rem;
     font-family: "Vazirmatn500";
+    color: #fff;
 }
 
 .product-content .gen-aut {
@@ -526,6 +628,15 @@ header .search-box input {
     width: 85%;
     height: 1px;
     margin: 10px auto;
+}
+.about-book{
+    color: #fff;
+    height: 60px;
+    overflow:hidden ;
+    width: 100%;
+    /* white-space: nowrap; */
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
 }
 
 /* log in  */
@@ -605,12 +716,15 @@ header .search-box input {
     border: 2px solid var(--primary-blue);
 }
 
-#to-signin {
+#to-signin,
+#to-home {
     font-size: 1.2rem;
     font-family: Vazirmatn500;
     color: var(--primary-blue);
+    text-decoration: none;
 }
-#to-signin:hover {
+#to-signin:hover,
+#to-home:hover {
     color: var(--hover-blue);
 }
 #login-btn-form {
@@ -728,7 +842,7 @@ header .search-box input {
     font-size: 1.2rem;
     font-family: Vazirmatn500;
     color: var(--primary-blue);
-    margin-bottom: 30px;
+    text-decoration: none;
 }
 
 #to-login:hover {
@@ -1002,7 +1116,8 @@ header .search-box input {
 
 /* 1300px */
 .instans {
-    width: 1300px;
+    max-width: 1300px;
+    width: 100%;
     margin: 30px auto;
 }
 .instans h3 {
@@ -1011,22 +1126,28 @@ header .search-box input {
     font-size: 1.2rem;
 }
 .instans-books {
+    width: 100%;
     padding: 20px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px , 1fr));
+    gap: 30px;
 }
 
 .ins-book {
     display: flex;
-    width: 450px;
+    /* width: 450px; */
     height: 230px;
     padding: 10px;
     border-radius: 15px;
     background-color: #f3f4f6;
     box-shadow: var(--shadow-product);
 }
-.ins-book-img > img {
-    /* width: 100px; */
-    height: 100%;
+.ins-book-img {
+    width: 130px;
     margin-left: 10px;
+}
+.ins-book-img > img {
+    width: 100%;
 }
 .ins-book-detail {
     display: flex;
