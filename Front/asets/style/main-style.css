@@ -1120,10 +1120,13 @@ header .search-box input {
     background-color: #f3f4f6;
     box-shadow: var(--shadow-product);
 }
-.ins-book-img > img {
-    /* width: 100px; */
-    height: 100%;
+.ins-book-img {
+    width: 130px;
     margin-left: 10px;
+
+}
+.ins-book-img > img {
+    width: 100%;
 }
 .ins-book-detail {
     display: flex;
