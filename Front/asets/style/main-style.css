@@ -362,7 +362,7 @@ nav .navBtns .login:active {
     margin-top: 40px;
 }
 .buttons-con .action-link-wrap a {
-    background:var(--primary-blue);
+    background: var(--primary-blue);
     padding: 8px 25px;
     border-radius: 4px;
     color: #fff;
@@ -532,13 +532,15 @@ header .search-box input {
 
 .main-home {
     /* background-color: aqua; */
+    padding: 30px;
     max-width: 1300px;
+    width: 100%;
     margin: 50px auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* grid-gap: 235px;
-   justify-content: space-between;
- */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
+    grid-gap: 40px;
+    height: auto;
 }
 /* product card */
 .product-link {
@@ -547,12 +549,12 @@ header .search-box input {
 }
 .product {
     /* background-color: blueviolet; */
-    width: 275px;
+    width: 100%;
     height: 445px;
     border-radius: 8px;
     box-shadow: var(--shadow-product);
-    /* background-image: url(../img/book1.jpg); */
-    background-size: 100% !important;
+    background-image: url(../img/book1.jpg);
+    background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     position: relative;
@@ -563,11 +565,13 @@ header .search-box input {
     -ms-transition: background-size 0.2s ease-in;
     -o-transition: background-size 0.2s ease-in;
     -webkit-transition: background-size 0.2s ease-in;
+    /* color:#fff; */
 }
 .product:hover {
     background-size: 120%;
 }
 .product-content {
+    
     background: linear-gradient(
         359deg,
         rgba(0, 0, 0, 0.89) 2.56%,
@@ -583,11 +587,13 @@ header .search-box input {
     bottom: 0;
     left: 0px;
     padding: 20px;
+    
 }
 
 .product-content h3 {
     font-size: 1.8rem;
     font-family: "Vazirmatn500";
+    color: #fff;
 }
 
 .product-content .gen-aut {
@@ -622,6 +628,15 @@ header .search-box input {
     width: 85%;
     height: 1px;
     margin: 10px auto;
+}
+.about-book{
+    color: #fff;
+    height: 60px;
+    overflow:hidden ;
+    width: 100%;
+    /* white-space: nowrap; */
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
 }
 
 /* log in  */
@@ -701,13 +716,15 @@ header .search-box input {
     border: 2px solid var(--primary-blue);
 }
 
-#to-signin, #to-home {
+#to-signin,
+#to-home {
     font-size: 1.2rem;
     font-family: Vazirmatn500;
     color: var(--primary-blue);
     text-decoration: none;
 }
-#to-signin:hover , #to-home:hover  {
+#to-signin:hover,
+#to-home:hover {
     color: var(--hover-blue);
 }
 #login-btn-form {
@@ -1123,7 +1140,6 @@ header .search-box input {
 .ins-book-img {
     width: 130px;
     margin-left: 10px;
-
 }
 .ins-book-img > img {
     width: 100%;
