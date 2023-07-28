@@ -69,8 +69,9 @@ def editBook(request, pk):
             old_photo_name = book.bookImage.name
         edit_book = EditBookForm(request.POST,request.FILES ,instance = book)
         if edit_book.is_valid():
-            new_book_image = edit_book.cleaned_data.get('bookImage')
+            new_book_image = request.FILES.get('add-book-img')
             if new_book_image and new_book_image.name != old_photo_name:
+                book.bookImage = new_book_image
                 if old_photo_name:
                     os.remove(old_photo_path)
             else:

@@ -30,7 +30,7 @@ class InsertBookForm(forms.ModelForm):
 class EditBookForm(forms.ModelForm):
     class Meta:
         model = Book
-        fields = '__all__'
+        fields = {'name', 'summry', 'genre', 'author', 'bookImage'}
     
 # --- All Class for Book Instance model ---
 
