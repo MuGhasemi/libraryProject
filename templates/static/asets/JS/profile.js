@@ -25,8 +25,3 @@ cancelBTN.addEventListener("click", (e) => {
     e.preventDefault();
     window.location.reload();
 });
-
-document.querySelector('.delete-img').addEventListener('click', function() {
-    window.location.href = 'http://127.0.0.1:8000/account/profile/delete-photo/'
-}
-);

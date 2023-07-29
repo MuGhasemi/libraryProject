@@ -922,7 +922,6 @@ header .search-box input {
     display: inline-block;
     font-size: 1rem;
     padding: 8px 15px;
-
 }
 
 .detail-book .book-sum h4 {
@@ -1058,7 +1057,7 @@ header .search-box input {
     background-color: transparent;
     border: none;
 }
-.change-profile-img{
+.change-profile-img {
     visibility: hidden;
 }
 .profile-img {
@@ -1117,10 +1116,10 @@ header .search-box input {
     color: #fff;
 }
 
-.profile-edit-done-btn{
+.profile-edit-done-btn {
     display: none;
 }
-.profile-edit-cancel-btn{
+.profile-edit-cancel-btn {
     display: none;
 }
 /* instans page  */
@@ -1309,11 +1308,13 @@ header .search-box input {
     color: #fff;
 }
 
-
 /* responsive */
 
-
-@media (max-width: 1200px){}
-@media (max-width: 990px){}
-@media (max-width: 768px){}
-@media (max-width: 575px){}
+@media (max-width: 1200px) {
+}
+@media (max-width: 990px) {
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 575px) {
+}
