@@ -42,7 +42,7 @@ def detail(request, pk):
         if instance.is_valid():
             cd = instance.cleaned_data
             borrower = request.user
-            if bookDetail.status == 'a':
+            if bookDetail.status == 'a' and cd['due_back'] > date.today():
                 BookInstance.objects.create(book=bookDetail,
                                             due_back=cd['due_back'],
                                             borrower=borrower,

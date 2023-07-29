@@ -38,3 +38,9 @@ class AddBookInstanceForm(forms.ModelForm):
     class Meta:
         model = BookInstance
         fields = ('due_back',)
+        widgets = {
+            'due_back': forms.DateInput(attrs={
+                'id': 'mod-date-return',
+                'type':'date'
+            }),
+        }
