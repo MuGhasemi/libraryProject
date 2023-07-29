@@ -37,7 +37,31 @@ def home(request):
 
 def detail(request, pk):
     bookDetail = Book.objects.get(id=pk)
-    context = {'bookDetail': bookDetail}
+    if request.method == 'POST':
+        instance = AddBookInstanceForm(request.POST)
+        if instance.is_valid():
+            cd = instance.cleaned_data
+            borrower = request.user
+            if bookDetail.status == 'a':
+                BookInstance.objects.create(book=bookDetail,
+                                            due_back=cd['due_back'],
+                                            borrower=borrower,
+                                            status= 'o')
+                bookDetail.status = 'o'
+                bookDetail.save()
+                messages.success(request, 'Instance add successfully.', 'success')
+                return redirect('/book/all-instances/')
+            else:
+                messages.success(request, 'Instance add failed.', 'danger')
+                return redirect(f'/book/detail/{pk}')
+        else:
+            messages.success(request, 'Instance add failed.', 'danger')
+            return redirect(f'/book/detail/{pk}')
+    else:
+        instance = AddBookInstanceForm()
+    context = {'bookDetail': bookDetail,
+               'form': instance,
+               'pk': pk}
     return render(request, 'book/detail.html', context)
 
 @login_required
@@ -131,33 +155,6 @@ def showBookInstance(request):
     context = {'bookInstances': bookInstances
                 }
     return render(request, 'book/showBookInstance.html', context)
-
-
-@login_required
-def addBookInstance(request, pk):
-    bookTitle = Book.objects.get(id=pk)
-    if request.method == 'POST':
-        instance = AddBookInstanceForm(request.POST)
-        if instance.is_valid():
-            cd = instance.cleaned_data
-            borrower = request.user
-            BookInstance.objects.create(book=bookTitle,
-                                        due_back=cd['due_back'],
-                                        borrower=borrower,
-                                        status= 'o')
-            bookTitle.status = 'o'
-            bookTitle.save()
-            messages.success(request, 'Instance add successfully.', 'success')
-            return redirect('/book/all-instances/')
-        else:
-            messages.success(request, 'Instance add failed.', 'danger')
-            return redirect(f'/book/add-instance/{pk}')
-    else:
-        instance = AddBookInstanceForm()
-    context = {'form': instance,
-                'user': request.user,
-                'book': bookTitle}
-    return render(request, 'book/addBookInstance.html', context)
 
 def notFound2(request, text):
     return render(request, 'partials/404.html', {'exception': text})

@@ -3,6 +3,23 @@
 {% block title %}Detail{% endblock %}
 
 {% block content %}
+<div class="backdrop-book-det"></div>
+    <div class="modal-book-det">
+        <h4 class="modal-book-name">عنوان</h4>
+        <form action="{% url 'book:detail' pk %}" method="post" novalidate>
+            {% csrf_token %}
+            <label for="mod-date-return-lable" class="mod-date-lable"
+                >تاریخ برگرداندن:</label
+            >
+            {% comment %} <input type="date" name="" id="mod-date-return" /> {% endcomment %}
+            {{ form.due_back }}
+            <div style="margin-top:10px">
+                {% csrf_token %}
+                <button class="confirm-modal-det">قرض گرفتن</button>
+                <button class="close-modal-det">بازگشت</button>
+            </div>
+        </form>
+</div>
 <main class="main-book container">
     <div class="book-img">
         {% if bookDetail.bookImage %}
@@ -24,7 +41,7 @@
             <p>{{ bookDetail.summry }}</p>
         </div>
         <div class="book-btns">
-            <a href="{% url 'book:addinstance' bookDetail.pk %}" class="book-borrow-btn">قرض گرفتن</a>
+            <a class="book-borrow-btn">قرض گرفتن</a>
             <a href="{% url 'book:home' %}" class="book-back-btn">بازگشت</a>
             <div class="book-btns-edit">
                 <a href="{% url 'book:editBook' bookDetail.pk %}" class="book-btn-edit">ویرایش</a>
@@ -33,4 +50,5 @@
         </div>
     </div>
 </main>
+<script type="module" src="{% static 'asets/JS/bookDetail.js' %}"></script>
 {% endblock %}

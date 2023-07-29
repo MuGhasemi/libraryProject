@@ -18,10 +18,12 @@ function closeM() {
    backdrop.style.display = "none";
 }
 
-close.addEventListener("click", closeM);
+close.addEventListener("click", (e)=>{
+   e.preventDefault();
+   closeM();
+});
 backdrop.addEventListener("click", closeM);
 confirm.addEventListener("click", () => {
    closeM();
-   alert("confirmed");
 });
 
