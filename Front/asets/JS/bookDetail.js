@@ -22,6 +22,5 @@ close.addEventListener("click", closeM);
 backdrop.addEventListener("click", closeM);
 confirm.addEventListener("click", () => {
    closeM();
-   alert("confirmed");
 });
 
