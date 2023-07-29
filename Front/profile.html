@@ -41,15 +41,15 @@
                 <table class="profile-table">
                     <tr>
                         <td><label for="">نام:</label></td>
-                        <td><input type="text" /></td>
+                        <td><input type="text" id="profileNameInput" disabled/></td>
                     </tr>
                     <tr>
                         <td><label for="">نام خانوادگی:</label></td>
-                        <td><input type="text" /></td>
+                        <td><input type="text" id="profileLastNameInput" disabled/></td>
                     </tr>
                     <tr>
                         <td><label for="">ایمیل:</label></td>
-                        <td><input type="email" name="" id=""  value=""/></td>
+                        <td><input type="email" name="" id="profileEmailInput"  value="" disabled/></td>
                     </tr>
                     <tr class="change-profile-img">
                         <td><label for="">عکس پروفایل:</label></td>
@@ -69,11 +69,11 @@
                 <div class="profile-edit-btns">
                     <button class="profile-edit-edit-btn">ویرایش</button>
                     <button class="profile-edit-done-btn">اعمال تغییرات</button>
-                    <button class="profile-edit-cancel-btn">لغو</button>
+                    <button class="profile-edit-cancel-btn" id="cancel">لغو</button>
                 </div>
             </form>
         </main>
 
-        <script type="module" src="asets/JS/app.js"></script>
+        <script type="module" src="asets/JS/profile.js"></script>
     </body>
 </html>
