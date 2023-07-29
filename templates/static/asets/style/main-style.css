@@ -115,7 +115,7 @@ html {
 }
 
 .container {
-    max-width: 1300px;
+    max-width: 1170px;
     margin: auto;
 }
 
@@ -216,9 +216,10 @@ header {
 
 /* navigation */
 nav {
+    padding: 5px 10px;
+    max-width: 1170px;
     width: 100%;
-    max-width: 1300px;
-    margin: 20px 0;
+    margin: 20px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -242,7 +243,7 @@ nav .nav ul li a {
     text-decoration: none;
     color: var(--primary-blue);
     transition: linear 0.2s;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-family: Vazirmatn600;
 }
 nav .nav ul li a:hover {
@@ -464,7 +465,7 @@ nav .navBtns .login:active {
 
 header .header-main {
     width: 100%;
-    max-width: 1300px;
+    max-width: 1170px;
     margin: 20px 0;
     margin: auto;
     height: 600px;
@@ -533,11 +534,11 @@ header .search-box input {
 .main-home {
     /* background-color: aqua; */
     padding: 30px;
-    max-width: 1300px;
+    max-width: 1170px;
     width: 100%;
     margin: 50px auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-template-rows: auto;
     grid-gap: 40px;
     height: auto;
@@ -571,7 +572,6 @@ header .search-box input {
     background-size: 120%;
 }
 .product-content {
-    
     background: linear-gradient(
         359deg,
         rgba(0, 0, 0, 0.89) 2.56%,
@@ -586,8 +586,8 @@ header .search-box input {
     position: absolute;
     bottom: 0;
     left: 0px;
+    right: 0px;
     padding: 20px;
-    
 }
 
 .product-content h3 {
@@ -600,7 +600,7 @@ header .search-box input {
     display: flex;
     align-items: center;
 }
-.product-content .gen-aut a {
+.product-content .gen-aut span {
     color: var(--primary-white);
     text-decoration: none;
     margin-left: 20px;
@@ -629,10 +629,10 @@ header .search-box input {
     height: 1px;
     margin: 10px auto;
 }
-.about-book{
+.about-book {
     color: #fff;
     height: 60px;
-    overflow:hidden ;
+    overflow: hidden;
     width: 100%;
     /* white-space: nowrap; */
     /* overflow: hidden;
@@ -902,24 +902,27 @@ header .search-box input {
 
 .detail-book .book-genaut .book-aut {
     text-align: center;
-    width: 95px;
-    height: 35px;
+    width: auto;
+    height: auto;
     border-radius: 8px;
     background-color: var(--primary-red);
     color: #fff;
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    padding: 8px 15px;
 }
 
 .detail-book .book-genaut .book-gen {
     text-align: center;
-    width: 95px;
-    height: 35px;
+    width: auto;
+    height: auto;
     border-radius: 8px;
     background-color: var(--primary-blue);
     color: #fff;
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    padding: 8px 15px;
+
 }
 
 .detail-book .book-sum h4 {
@@ -1055,7 +1058,9 @@ header .search-box input {
     background-color: transparent;
     border: none;
 }
-
+.change-profile-img{
+    visibility: hidden;
+}
 .profile-img {
     border: none !important;
     background-color: transparent !important;
@@ -1112,11 +1117,17 @@ header .search-box input {
     color: #fff;
 }
 
+.profile-edit-done-btn{
+    display: none;
+}
+.profile-edit-cancel-btn{
+    display: none;
+}
 /* instans page  */
 
-/* 1300px */
+/* 1170px */
 .instans {
-    max-width: 1300px;
+    max-width: 1170px;
     width: 100%;
     margin: 30px auto;
 }
@@ -1129,7 +1140,7 @@ header .search-box input {
     width: 100%;
     padding: 20px 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px , 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 30px;
 }
 
@@ -1297,3 +1308,12 @@ header .search-box input {
     background-color: var(--primary-red);
     color: #fff;
 }
+
+
+/* responsive */
+
+
+@media (max-width: 1200px){}
+@media (max-width: 990px){}
+@media (max-width: 768px){}
+@media (max-width: 575px){}
