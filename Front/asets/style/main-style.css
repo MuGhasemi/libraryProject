@@ -1058,7 +1058,9 @@ header .search-box input {
     background-color: transparent;
     border: none;
 }
-
+.change-profile-img{
+    visibility: hidden;
+}
 .profile-img {
     border: none !important;
     background-color: transparent !important;
@@ -1115,6 +1117,12 @@ header .search-box input {
     color: #fff;
 }
 
+.profile-edit-done-btn{
+    display: none;
+}
+.profile-edit-cancel-btn{
+    display: none;
+}
 /* instans page  */
 
 /* 1170px */
