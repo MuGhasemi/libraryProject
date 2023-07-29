@@ -72,17 +72,12 @@ def logoutUser(request):
 
 @login_required
 def profileUser(request):
-    profile = Profile.objects.get(user = request.user)
-    context = {'profile':profile}
-    return render(request, 'account/profileUser.html', context)
-
-@login_required
-def profileEdit(request):
     if request.method == 'POST':
         old_photo_name = None
-        if request.user.profile.profileImage.name:
-            old_photo_path = request.user.profile.profileImage.path
-            old_photo_name = request.user.profile.profileImage.name
+        profileImage = request.user.profile.profileImage
+        if profileImage.name:
+            old_photo_path = profileImage.path
+            old_photo_name = profileImage.name
         editUser = EditUserForm(request.POST, instance = request.user)
         editProfile = EditProfileFrom(request.POST, request.FILES, instance = request.user.profile)
         if editUser.is_valid() and editProfile.is_valid():
@@ -91,10 +86,9 @@ def profileEdit(request):
                 if old_photo_name:  # only delete old photo if it exists
                     os.remove(old_photo_path)
             else:
-                editProfile.cleaned_data['profileImage'] = None  # set to None to prevent deletion
+                editProfile.cleaned_data['profileImage'] = None
             editUser.save()
             editProfile.save()
-                
             messages.success(request, 'Edit successfully', 'success')
         else:
             messages.success(request, 'Edit failed', 'warning')
@@ -105,9 +99,26 @@ def profileEdit(request):
         context = {
             'editUser': editUser,
             'editProfile': editProfile,
-            'profileImage':request.user.profile.profileImage
+            'profileImage':request.user.profile.profileImage,
             }
-        return render(request, 'account/editProfile.html', context)
-    
+        return render(request, 'account/profileUser.html', context)
+
+def delete_photo(request):
+    profile = request.user.profile
+    if request.method == 'GET':
+        if profile.profileImage:
+            profile.profileImage.delete()
+            profile.profileImage = None
+            profile.save()
+            messages.success(request, 'image profile deleted', 'success')
+            return redirect('/account/profile/')
+        else:
+            messages.success(request, "don't have image profile", 'warning')
+            return redirect('/account/profile/')
+    else:
+        messages.success(request, 'image profile failed', 'warning')
+        return redirect('/account/profile/')
+
+
 def notFound3(request, text):
     return render(request, 'partials/404.html', {'exception': text})

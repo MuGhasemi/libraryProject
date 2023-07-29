@@ -1,25 +1,51 @@
 {% extends 'parents/main.html' %}
-
+{% load static %}
 {% block title %}Profile{% endblock %}
 
 {% block content %}
-    <h1 class="text-center" style="color: red;">PROFILE</h1>
-    <br><br>
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-1"></div>
-        <div class="col-md-6"  style="border: 5px; border-style: double;">
-            <h6>Username:<strong> {{ profile.user.username }}</strong></h6>
-            <h6>Firstname:<strong> {{ profile.user.first_name }}</strong></h6>
-            <h6>Lastname:<strong> {{ profile.user.last_name }}</strong></h6>
-            <h6>Email:<strong> {{ profile.user.email }}</strong></h6>
-            {% if profile.profileImage %}
-                <h6>Photo:<strong> <img style="width: 100px; height: 100px; margin-left: 20px;" 
-                             src="{{ profile.profileImage.url }}" alt=""></strong></h6> 
-            {% endif %}
-            <a href="{% url 'account:editProfile' %}" class="btn btn-success" 
-                        style="margin-left: 130px; width: 200px;">Edit</a>
+<main class="profile-to-show container">
+    {% if profileImage %}
+        <img src="{{ profileImage.url }}" alt="" class="profile-photo" />
+    {% else %}
+        <img src="{% static 'asets/img/userProfile.png' %}" alt="" class="profile-photo" />
+    {% endif %}
+
+    <form action="" class="profile-toshow-form" method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <table class="profile-table">
+            <tr>
+                <td><label for="">نام:</label></td>
+                <td>{{ editUser.first_name }}</td>
+            </tr>
+            <tr>
+                <td><label for="">نام خانوادگی:</label></td>
+                <td>{{ editUser.last_name }}</td>
+            </tr>
+            <tr>
+                <td><label for="">ایمیل:</label></td>
+                <td>{{ editUser.email }}</td>
+            </tr>
+            <tr class="change-profile-img">
+                <td><label for="">عکس پروفایل:</label></td>
+                <td class="change-profile-img-input">
+                    {% comment %} <input
+                        accept=".jpg,.jpeg,.png,.PNG,.JPG,.JPEG"
+                        type="file"
+                        name="profile-img"
+                        id="profile-img"
+                        class="profile-img"
+                    /> {% endcomment %}
+                    {{ editProfile.profileImage }}
+                    <a href="{% url 'account:delete_photo' %}" class="delete-img">حذف عکس</a>
+                </td>
+            </tr>
+        </table>
+        <div class="profile-edit-btns">
+            <button class="profile-edit-edit-btn">ویرایش</button>
+            <button class="profile-edit-done-btn">اعمال تغییرات</button>
+            <button class="profile-edit-cancel-btn">لغو</button>
         </div>
-        <div class="col-md-2"></div>
-    </div>  
+    </form>
+</main>
+<script type="module" src="{% static 'asets/JS/profile.js' %}"></script>
 {% endblock %}
