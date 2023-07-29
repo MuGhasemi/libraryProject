@@ -1,6 +1,7 @@
 from django import forms
 from .models import Profile
 from django.contrib.auth.forms import UserChangeForm
+from django.forms import ImageField, FileInput
 
 # form for register user
 class RegisterUserForm(forms.Form):
@@ -20,10 +21,26 @@ class LoginUserForm(forms.Form):
 class EditUserForm(UserChangeForm):
     class Meta(UserChangeForm.Meta):
         fields = ('first_name', 'last_name', 'email')
+        widgets = {
+            'first_name': forms.TextInput(attrs={'disabled': 'disabled',
+                                                'id': 'profileNameInput',}),
+            'last_name': forms.TextInput(attrs={'disabled': 'disabled',
+                                                'id': 'profileLastNameInput',}),
+            'email': forms.TextInput(attrs={'disabled': 'disabled',
+                                            'id': 'profileEmailInput',}),
+
+        }
     password = None
 
 class EditProfileFrom(forms.ModelForm):
+    profileImage= ImageField(widget=FileInput(attrs={
+        'class':'profile-img',
+        'id':'profile-img',
+    }))
     class Meta():
         model = Profile
         fields = ('profileImage',)
-        
+        widgets = {
+            'profileImage': FileInput(attrs={
+                'accept': '.jpg,.jpeg,.png,.PNG,.JPG,.JPEG',
+                })}
