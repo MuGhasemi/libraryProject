@@ -10,8 +10,9 @@
       {% if not request.path == '/account/login/' and not request.path == '/account/sign-up/' %}
          {% include 'partials/navigations.html' %}
       {% endif %}
-      {% include 'partials/message.html' %}
       {% block content%}{% endblock %}
       {% include 'partials/footer.html' %}
+      {% load sweetify %}
+      {% sweetify %}
    </body>
 </html>

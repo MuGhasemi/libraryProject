@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'book.apps.BookConfig',
     'account.apps.AccountConfig',
+    'sweetify',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'library.urls'
+
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 
 MEDIA_URL = 'templates/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'templates/media/')
