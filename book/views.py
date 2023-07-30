@@ -1,9 +1,9 @@
 from datetime import date ,datetime
+import sweetify
 import os
 from django.shortcuts import render, redirect
 from .models import Book, Genre, Author, BookInstance
 from .forms import InsertBookForm, EditBookForm, SearchBoxForm, AddBookInstanceForm
-from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -23,7 +23,7 @@ def home(request):
         books = Book.objects.filter(name__icontains = cd, status = 'a')
         if not books.exists():
             books = Book.objects.filter(status = 'a')
-            messages.error(request, 'Book not exist.', 'danger')
+            sweetify.error(request, 'Book not exist.')
     else:
         books = Book.objects.filter(status = 'a')
     for book in books:
@@ -49,13 +49,13 @@ def detail(request, pk):
                                             status= 'o')
                 bookDetail.status = 'o'
                 bookDetail.save()
-                messages.success(request, 'Instance add successfully.', 'success')
+                sweetify.success(request, 'Instance add successfully.')
                 return redirect('/book/all-instances/')
             else:
-                messages.success(request, 'Instance add failed.', 'danger')
+                sweetify.error(request, 'Instance add failed.')
                 return redirect(f'/book/detail/{pk}')
         else:
-            messages.success(request, 'Instance add failed.', 'danger')
+            sweetify.error(request, 'Instance add failed.')
             return redirect(f'/book/detail/{pk}')
     else:
         instance = AddBookInstanceForm()
@@ -70,10 +70,10 @@ def addBook(request):
         book = InsertBookForm(request.POST, request.FILES)
         if book.is_valid():
             book.save()
-            messages.success(request, 'Book add successfully.', 'success')
+            sweetify.success(request, 'Book add successfully.')
             return redirect(settings.LOGIN_REDIRECT_URL)
         else:
-            messages.success(request, 'Book add failed.', 'danger')
+            sweetify.error(request, 'Book add failed.')
             return redirect('/book/insert-book/')
     else:
         book = InsertBookForm()
@@ -100,10 +100,10 @@ def editBook(request, pk):
             else:
                 edit_book.cleaned_data['bookImage'] = None
             edit_book.save()
-            messages.success(request, 'Book edit successfully.', 'success')
+            sweetify.success(request, 'Book edit successfully.')
             return redirect(f'/book/detail/{pk}')
         else:
-            messages.success(request, 'Book edit failed.', 'danger')
+            sweetify.error(request, 'Book edit failed.')
             return redirect(f'/book/detail/{pk}')
     else:
         edit_book = EditBookForm(instance = book)
@@ -121,7 +121,7 @@ def deleteBook(request, pk):
         bookImage = book.bookImage.path
         os.remove(bookImage)
     book.delete()
-    messages.success(request, 'Book deleted successfully.', 'success')
+    sweetify.success(request, 'Book deleted successfully.')
     return redirect(settings.LOGIN_REDIRECT_URL)
 
 # --- All function for Genre model---
@@ -149,9 +149,10 @@ def showBookInstance(request):
         if instance.due_back <= today and time <= datetime.now().hour:
             instance.delete()
             book = Book.objects.get(id=instance.book.id)
-            messages.success(request,  f'{instance.book} book was deleted due to timeout.', 'warning')
+            sweetify.warning(request,  f'{ instance.book }, book was deleted due to timeout.', button='Ok', timer=3000)
             book.status = 'a'
             book.save()
+            return redirect('/book/all-instances/')
     context = {'bookInstances': bookInstances
                 }
     return render(request, 'book/showBookInstance.html', context)

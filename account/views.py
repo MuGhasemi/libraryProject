@@ -1,9 +1,9 @@
 import os
+import sweetify
 from django.shortcuts import render, redirect
 from .forms import EditProfileFrom, EditUserForm, RegisterUserForm, LoginUserForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
 from .models import Profile
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -22,16 +22,16 @@ def register(request):
                                                 password = cd['password'])
                 user.save()
                 Profile.objects.create(user=user)
-                messages.success(request, 'create account successfully', 'success')
+                sweetify.success(request, 'create account successfully')
                 if request.GET.get('next'):
                     return redirect(request.GET.get('next'))
                 else:
                     return redirect(settings.LOGIN_URL)
             else:
-                messages.success(request, 'password not match!', 'danger')
+                sweetify.error(request, 'password not match!')
                 return redirect(settings.SIGN_UP_URL)
         else:
-            messages.success(request, 'create account failed', 'danger')
+            sweetify.error(request, 'create account failed')
             return redirect(settings.SIGN_UP_URL)
     else:
         registerForm = RegisterUserForm()
@@ -48,16 +48,16 @@ def loginUser(request):
                                 password = cd['password'])
             if user is not None:
                 login(request, user)
-                messages.success(request, 'login successfully', 'success')
+                sweetify.success(request, 'login successfully')
                 if request.GET.get('next'):
                     return redirect(request.GET.get('next'))
                 else:
                     return redirect(settings.LOGIN_REDIRECT_URL)
             else:
-                messages.success(request, 'username or password incorrect', 'danger')
+                sweetify.error(request, 'username or password incorrect')
                 return redirect(settings.LOGIN_URL)
         else:
-            messages.success(request, 'login failed', 'danger')
+            sweetify.error(request, 'login failed')
             return redirect(settings.LOGIN_URL)    
     else:
         loginForm = LoginUserForm()
@@ -66,7 +66,6 @@ def loginUser(request):
 
 @login_required
 def logoutUser(request):
-    messages.success(request, f'{ request.user }, thank your for visiting us site', 'success')
     logout(request)
     return redirect(settings.LOGIN_REDIRECT_URL)
 
@@ -89,9 +88,9 @@ def profileUser(request):
                 editProfile.cleaned_data['profileImage'] = None
             editUser.save()
             editProfile.save()
-            messages.success(request, 'Edit successfully', 'success')
+            sweetify.success(request, 'Edit successfully')
         else:
-            messages.success(request, 'Edit failed', 'warning')
+            sweetify.error(request, 'Edit failed')
         return redirect('/account/profile/')
     else:
         editUser = EditUserForm(instance = request.user)
@@ -110,15 +109,15 @@ def delete_photo(request):
             profile.profileImage.delete()
             profile.profileImage = None
             profile.save()
-            messages.success(request, 'image profile deleted', 'success')
+            sweetify.success(request, 'image profile deleted')
             return redirect('/account/profile/')
         else:
-            messages.success(request, "don't have image profile", 'warning')
+            sweetify.error(request, "don't have image profile")
             return redirect('/account/profile/')
     else:
-        messages.success(request, 'image profile failed', 'warning')
+        sweetify.error(request, 'image profile failed')
         return redirect('/account/profile/')
-
+    
 
 def notFound3(request, text):
     return render(request, 'partials/404.html', {'exception': text})
