@@ -204,8 +204,6 @@ html {
     background-color: var(--primary-red);
 }
 
-
-
 /* NOTE 404 page  */
 
 .four-O-four svg {
@@ -301,7 +299,6 @@ html {
     }
 }
 /*NOTE end of 404 page  */
-
 
 /* header */
 
@@ -424,6 +421,8 @@ nav .navBtns .login:active {
     margin-top: 8px;
     margin-right: 5px;
     margin-left: 0 !important;
+    width: 36px;
+    height: 36px;
 }
 
 /* REVIEW end of profile view  */
@@ -1328,21 +1327,47 @@ header .search-box input {
         max-width: 890px;
         height: 400px;
     }
-    header .search-box{
+    header .search-box {
         width: 450px;
         height: 50px;
     }
-    header .search-box input{
+    header .search-box input {
         font-size: 1.2rem;
     }
-    .main-home{
+    .main-home {
         max-width: 890px;
         padding: 5px 25px;
     }
 }
 @media (max-width: 990px) {
+    /* index page  */
+    nav{
+        max-width: 700px;
+    }
+    .profile-view {
+        font-size: 1rem;
+    }
+    .navBtns .profile-view svg{
+        width: 25px;
+        height: 25px;
+    }
+    header .header-main{
+        max-width: 700px;
+    }
+    .main-home {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        max-width: 700px;
+    }
+    .product {
+        width: 250px;
+        height: 400px;
+    }
 }
 @media (max-width: 768px) {
+    /* index page  */
+    /*FIXME ham menu must be add */
 }
 @media (max-width: 575px) {
+    /* index page  */
 }
