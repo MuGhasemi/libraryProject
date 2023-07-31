@@ -204,6 +204,105 @@ html {
     background-color: var(--primary-red);
 }
 
+
+
+/* NOTE 404 page  */
+
+.four-O-four svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -400px;
+}
+.message-box {
+    height: 200px;
+    width: 380px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: 50px;
+    color: #fff;
+    font-family: Roboto;
+    font-weight: 300;
+}
+.message-box h1 {
+    font-size: 6rem;
+    line-height: 46px;
+    margin-bottom: 40px;
+    font-family: Vazirmatn500;
+}
+.message-box > p {
+    font-family: Vazirmatn400;
+    font-size: 3rem;
+}
+.buttons-con .action-link-wrap {
+    margin-top: 40px;
+}
+.buttons-con .action-link-wrap a {
+    background: var(--primary-blue);
+    padding: 8px 25px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px;
+    font-family: Vazirmatn400;
+}
+.buttons-con .action-link-wrap a:hover {
+    background: #5a5c6c;
+    color: #fff;
+}
+
+#Polygon-1,
+#Polygon-2,
+#Polygon-3,
+#Polygon-4,
+#Polygon-4,
+#Polygon-5 {
+    animation: float 1s infinite ease-in-out alternate;
+}
+#Polygon-2 {
+    animation-delay: 0.2s;
+}
+#Polygon-3 {
+    animation-delay: 0.4s;
+}
+#Polygon-4 {
+    animation-delay: 0.6s;
+}
+#Polygon-5 {
+    animation-delay: 0.8s;
+}
+
+@keyframes float {
+    100% {
+        transform: translateY(20px);
+    }
+}
+@media (max-width: 450px) {
+    .four-O-four svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -250px;
+        margin-left: -190px;
+    }
+    .message-box {
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -190px;
+        text-align: center;
+    }
+}
+/*NOTE end of 404 page  */
+
+
 /* header */
 
 header {
@@ -312,8 +411,9 @@ nav .navBtns .login:active {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    width: 170px;
+    height: auto;
+    width: auto;
+    padding: 0px 13px;
 }
 .navBtns .profile-view > a span {
     margin: 0 5px;
@@ -327,102 +427,6 @@ nav .navBtns .login:active {
 }
 
 /* REVIEW end of profile view  */
-
-/* NOTE 404 page  */
-
-.four-O-four svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -250px;
-    margin-left: -400px;
-}
-.message-box {
-    height: 200px;
-    width: 380px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -100px;
-    margin-left: 50px;
-    color: #fff;
-    font-family: Roboto;
-    font-weight: 300;
-}
-.message-box h1 {
-    font-size: 6rem;
-    line-height: 46px;
-    margin-bottom: 40px;
-    font-family: Vazirmatn500;
-}
-.message-box > p {
-    font-family: Vazirmatn400;
-    font-size: 3rem;
-}
-.buttons-con .action-link-wrap {
-    margin-top: 40px;
-}
-.buttons-con .action-link-wrap a {
-    background: var(--primary-blue);
-    padding: 8px 25px;
-    border-radius: 4px;
-    color: #fff;
-    font-weight: bold;
-    font-size: 14px;
-    transition: all 0.3s linear;
-    cursor: pointer;
-    text-decoration: none;
-    margin-right: 10px;
-    font-family: Vazirmatn400;
-}
-.buttons-con .action-link-wrap a:hover {
-    background: #5a5c6c;
-    color: #fff;
-}
-
-#Polygon-1,
-#Polygon-2,
-#Polygon-3,
-#Polygon-4,
-#Polygon-4,
-#Polygon-5 {
-    animation: float 1s infinite ease-in-out alternate;
-}
-#Polygon-2 {
-    animation-delay: 0.2s;
-}
-#Polygon-3 {
-    animation-delay: 0.4s;
-}
-#Polygon-4 {
-    animation-delay: 0.6s;
-}
-#Polygon-5 {
-    animation-delay: 0.8s;
-}
-
-@keyframes float {
-    100% {
-        transform: translateY(20px);
-    }
-}
-@media (max-width: 450px) {
-    .four-O-four svg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -250px;
-        margin-left: -190px;
-    }
-    .message-box {
-        top: 50%;
-        left: 50%;
-        margin-top: -100px;
-        margin-left: -190px;
-        text-align: center;
-    }
-}
-/*NOTE end of 404 page  */
 
 /* profile view module  */
 
@@ -447,7 +451,6 @@ nav .navBtns .login:active {
 
 .profile-view-module a {
     padding: 5px;
-
     margin-bottom: 15px;
 }
 .view-pro-line {
@@ -499,10 +502,10 @@ header .search-box {
     display: flex;
     justify-content: center;
     align-self: center;
+    height: 70px;
 }
 #search-btn {
     width: 75px;
-    height: 70px;
     border: var(--border-blue);
     background-color: var(--primary-blue);
     border-radius: 0px 15px 15px 0px;
@@ -524,7 +527,7 @@ header .search-box input {
     border: var(--border-blue);
     width: 600px;
     outline: 0;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-family: inherit;
     padding: 5px 10px;
 }
@@ -532,7 +535,6 @@ header .search-box input {
 /* main  */
 
 .main-home {
-
     padding: 15px;
     max-width: 1170px;
     width: 100%;
@@ -947,11 +949,15 @@ header .search-box input {
     height: 55px;
     width: 300px;
     text-align: center;
+    border: var(--border-blue);
+    font-family: inherit;
+    font-size: 1.2rem;
     background-color: var(--primary-blue);
     color: #fff;
     line-height: 55px;
     border-radius: 20px;
     transition: 0.1s linear;
+    cursor: pointer;
 }
 
 .detail-book .book-btns .book-borrow-btn:hover {
@@ -1313,6 +1319,26 @@ header .search-box input {
 /* responsive */
 
 @media (max-width: 1200px) {
+    /* index page  */
+    nav {
+        max-width: 890px;
+        padding: 5px 25px;
+    }
+    header .header-main {
+        max-width: 890px;
+        height: 400px;
+    }
+    header .search-box{
+        width: 450px;
+        height: 50px;
+    }
+    header .search-box input{
+        font-size: 1.2rem;
+    }
+    .main-home{
+        max-width: 890px;
+        padding: 5px 25px;
+    }
 }
 @media (max-width: 990px) {
 }
