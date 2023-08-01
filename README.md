@@ -23,3 +23,7 @@ After installing all the required packages, you can run your Django project usin
 
 Once the command is executed, the development server will start running at http://127.0.0.1:8000/.
     You can open this URL in your web browser to see the homepage of your Django project.
+
+Contributors:
+- Backend Developer: [Muhammad Ghasemi](https://github.com/MuGhasemi)
+- Frontend Developer: [Reza Mohammadzade](https://github.com/reza-sdo)
