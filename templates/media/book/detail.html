@@ -45,7 +45,7 @@
             <p>{{ bookDetail.summry }}</p>
         </div>
         <div class="book-btns">
-            <a class="book-borrow-btn">قرض گرفتن</a>
+            <button class="book-borrow-btn">قرض گرفتن</button>
             <a href="{% url 'book:home' %}" class="book-back-btn">بازگشت</a>
             <div class="book-btns-edit">
                 <a href="{% url 'book:editBook' bookDetail.pk %}" class="book-btn-edit">ویرایش</a>
