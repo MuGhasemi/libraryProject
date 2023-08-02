@@ -345,6 +345,14 @@ nav .nav ul li a {
 nav .nav ul li a:hover {
     color: var(--primary-text);
 }
+.ham-menu {
+    display: none;
+    cursor: pointer;
+}
+.ham-menu svg {
+    fill: var(--primary-blue);
+    width: 35px;
+}
 
 .logo {
     width: 80px;
@@ -1315,6 +1323,55 @@ header .search-box input {
     color: #fff;
 }
 
+.ham-menu-item {
+    cursor: default;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #fafafa;
+    z-index: 100;
+    width: 100%;
+    box-shadow: var(--shadow-pro-box);
+    transform: translateY(-100%);
+}
+
+.close-ham-menu-icon {
+    margin: 20px;
+    margin-bottom: 0;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.ham-menu-item ul {
+    flex-direction: column;
+    padding: 10px 30px;
+}
+
+/* .add-animation { 
+    animation : fadeInDown 0.25s forwards ;
+} */
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+
 /* responsive */
 
 @media (max-width: 1200px) {
@@ -1341,17 +1398,17 @@ header .search-box input {
 }
 @media (max-width: 990px) {
     /* index page  */
-    nav{
+    nav {
         max-width: 700px;
     }
     .profile-view {
         font-size: 1rem;
     }
-    .navBtns .profile-view svg{
+    .navBtns .profile-view svg {
         width: 25px;
         height: 25px;
     }
-    header .header-main{
+    header .header-main {
         max-width: 700px;
     }
     .main-home {
@@ -1367,7 +1424,42 @@ header .search-box input {
 @media (max-width: 768px) {
     /* index page  */
     /*FIXME ham menu must be add */
+    nav {
+        max-width: 650px;
+        margin: 20px 30px;
+    }
+    .nav-ul {
+        display: none !important;
+    }
+    .ham-menu {
+        display: block;
+    }
+    header .header-main {
+        max-width: 650px;
+        width: calc(100% - 40px);
+        height: 300px;
+        border-radius: 20px;
+        margin: 0px 20px;
+    }
+    .profile-view-module {
+        width: 200px;
+        text-align: center;
+        left: -20px;
+    }
 }
 @media (max-width: 575px) {
     /* index page  */
+    .main-home {
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+        max-width: 450px;
+    }
+    header .search-box input {
+        max-width: 270px;
+    }
+    .profile-view-module {
+        width: 200px;
+        text-align: center;
+        left: -20px;
+    }
 }
