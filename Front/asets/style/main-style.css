@@ -282,22 +282,7 @@ html {
         transform: translateY(20px);
     }
 }
-@media (max-width: 450px) {
-    .four-O-four svg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -250px;
-        margin-left: -190px;
-    }
-    .message-box {
-        top: 50%;
-        left: 50%;
-        margin-top: -100px;
-        margin-left: -190px;
-        text-align: center;
-    }
-}
+
 /*NOTE end of 404 page  */
 
 /* header */
@@ -1421,9 +1406,25 @@ header .search-box input {
         height: 400px;
     }
 }
+@media (max-width: 880px) {
+    /* 404 page  */
+    .four-O-four svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -250px;
+        margin-left: -190px;
+    }
+    .message-box {
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -190px;
+        text-align: center;
+    }
+}
 @media (max-width: 768px) {
     /* index page  */
-    /*FIXME ham menu must be add */
     nav {
         max-width: 650px;
         margin: 20px 30px;
