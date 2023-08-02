@@ -20,7 +20,7 @@ function closeM() {
 
 close.addEventListener("click", (e)=>{
    e.preventDefault();
-   closeM()
+   closeM();
 });
 backdrop.addEventListener("click", closeM);
 confirm.addEventListener("click", () => {
