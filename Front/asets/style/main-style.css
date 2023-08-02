@@ -1206,18 +1206,20 @@ header .search-box input {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 1170px;
+    margin: auto;
 }
 
 .admin-add-book h3 {
     text-align: center;
     font-family: Vazirmatn500;
     font-size: 1.4rem;
-    margin-bottom: 20px;
+    margin: 20px 0px;
 }
 
 .admin-add-book-container {
     background-color: #f3f4f6;
-    width: 900px;
+    width: 100%;
     border-radius: 12px;
     padding: 40px;
     font-size: 1.1rem;
@@ -1380,6 +1382,12 @@ header .search-box input {
         max-width: 890px;
         padding: 5px 25px;
     }
+
+    /* admin add book page  */
+
+    .admin-add-book {
+        max-width: 890px;
+    }
 }
 @media (max-width: 990px) {
     /* index page  */
@@ -1404,6 +1412,12 @@ header .search-box input {
     .product {
         width: 250px;
         height: 400px;
+    }
+
+    /* admin add book page  */
+
+    .admin-add-book {
+        max-width: 650px;
     }
 }
 @media (max-width: 880px) {
@@ -1447,6 +1461,30 @@ header .search-box input {
         text-align: center;
         left: -20px;
     }
+    /* admin add book page  */
+    .admin-add-book {
+        max-width: 600px;
+    }
+    .admin-add-book tr {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .admin-add-book td{
+        width: 100%;
+        text-align: center;
+    }
+    
+    .add-book-btns-det {
+        display: flex;
+        flex-direction: column;
+    }
+    .add-book-btns-det button {
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
 }
 @media (max-width: 575px) {
     /* index page  */
@@ -1462,5 +1500,9 @@ header .search-box input {
         width: 200px;
         text-align: center;
         left: -20px;
+    }
+    /* admin add book page  */
+    .admin-add-book {
+        max-width: 450px;
     }
 }
