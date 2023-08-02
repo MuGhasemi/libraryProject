@@ -1235,6 +1235,7 @@ header .search-box input {
 #add-book-sumery {
     resize: none;
     width: 100%;
+    height: 130px;
 }
 .table-add-book-admin td {
     /* background-color: aqua; */
