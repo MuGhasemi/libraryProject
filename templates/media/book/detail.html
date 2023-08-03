@@ -1,5 +1,7 @@
 {% extends 'parents/main.html' %}
 {% load static %}
+{% load jalali_tags %}
+
 {% block title %}Detail{% endblock %}
 
 {% block content %}
@@ -54,5 +56,7 @@
         </div>
     </div>
 </main>
+<link rel="stylesheet" href="{% static 'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css' %}">
+<script src="{% static 'admin/js/django_jalali.min.js' %}"></script>
 <script type="module" src="{% static 'asets/JS/bookDetail.js' %}"></script>
 {% endblock %}

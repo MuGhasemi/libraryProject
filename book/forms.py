@@ -1,5 +1,8 @@
 from django import forms
 from .models import Book, BookInstance
+from jalali_date.fields import JalaliDateField
+from jalali_date.widgets import AdminJalaliDateWidget
+from datetime import date
 
 class SearchBoxForm(forms.Form):
     search = forms.CharField(
@@ -38,9 +41,14 @@ class AddBookInstanceForm(forms.ModelForm):
     class Meta:
         model = BookInstance
         fields = ('due_back',)
-        widgets = {
-            'due_back': forms.DateInput(attrs={
-                'id': 'mod-date-return',
-                'type':'date'
-            }),
-        }
+        
+    def __init__(self, *args, **kwargs):
+        super(AddBookInstanceForm, self).__init__(*args, **kwargs)
+        self.fields['due_back'] = JalaliDateField(
+            widget = AdminJalaliDateWidget,
+            initial=date.today()
+            )
+        self.fields['due_back'].widget.attrs.update({
+            'class': 'jalali_date-date',
+            'id': 'mod-date-return'
+        })
