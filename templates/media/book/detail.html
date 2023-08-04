@@ -5,27 +5,23 @@
 {% block title %}Detail{% endblock %}
 
 {% block content %}
-{% if request.user.is_authenticated %}
-    <div class="backdrop-book-det"></div>
-        <div class="modal-book-det">
-            <h4 class="modal-book-name">عنوان</h4>
-            <form action="{% url 'book:detail' pk %}" method="post" novalidate>
+<div class="backdrop-book-det"></div>
+    <div class="modal-book-det">
+        <h4 class="modal-book-name">عنوان</h4>
+        <form action="{% url 'book:detail' pk %}" method="post" novalidate>
+            {% csrf_token %}
+            <label for="mod-date-return-lable" class="mod-date-lable"
+                >تاریخ برگرداندن:</label
+            >
+            {% comment %} <input type="date" name="" id="mod-date-return" /> {% endcomment %}
+            {{ form.due_back }}
+            <div style="margin-top:10px">
                 {% csrf_token %}
-                <label for="mod-date-return-lable" class="mod-date-lable"
-                    >تاریخ برگرداندن:</label
-                >
-                {% comment %} <input type="date" name="" id="mod-date-return" /> {% endcomment %}
-                {{ form.due_back }}
-                <div style="margin-top:10px">
-                    {% csrf_token %}
-                    <button class="confirm-modal-det">قرض گرفتن</button>
-                    <button class="close-modal-det">بازگشت</button>
-                </div>
-            </form>
-    </div>
-{% else %}
-    <p> you are not login </p>
-{% endif %}
+                <button class="confirm-modal-det">قرض گرفتن</button>
+                <button class="close-modal-det">بازگشت</button>
+            </div>
+        </form>
+</div>
 <main class="main-book container">
     <div class="book-img">
         {% if bookDetail.bookImage %}
