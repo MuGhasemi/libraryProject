@@ -1147,8 +1147,10 @@ header .search-box input {
 
 .ins-book {
     display: flex;
+    align-items: center;
+    /* justify-content: center; */
     /* width: 450px; */
-    height: 230px;
+    height: auto;
     padding: 10px;
     border-radius: 15px;
     background-color: #f3f4f6;
@@ -1156,6 +1158,7 @@ header .search-box input {
 }
 .ins-book-img {
     width: 130px;
+    /* height: 100%; */
     margin-left: 10px;
 }
 .ins-book-img > img {
@@ -1582,5 +1585,16 @@ header .search-box input {
     }
     .book-btns-edit a {
         width: 100%;
+    }
+    /* instans page  */
+    .instans-books {
+        width: 100%;
+        padding: 10px 20px;
+        
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 20px;
+    }
+    .ins-book-img{
+        width: 120px !important;
     }
 }
