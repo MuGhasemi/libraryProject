@@ -683,6 +683,7 @@ header .search-box input {
 
 .login-inputs-form input {
     outline: none;
+    /* width: 100%; */
     width: 480px;
     height: 60px;
     border-radius: 15px;
@@ -1402,6 +1403,11 @@ header .search-box input {
     .detail-book {
         margin-right: 0px;
     }
+
+    /*NOTE log-in page  */
+    .login-inputs-form input {
+        width: 100%;
+    }
 }
 @media (max-width: 990px) {
     /* index page  */
@@ -1523,6 +1529,44 @@ header .search-box input {
     .main-book {
         max-width: 500px;
     }
+
+    /* log-in page  */
+    .login-form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .login-content-form {
+        order: 1;
+        height: auto;
+        position: absolute;
+        background-color: #ffffffda;
+        width: calc(100vw - 80px);
+        height: calc(100vh - 100px);
+        border-radius: 15px;
+        filter: var(--shadow-header-filter);
+        /* box-shadow: var(--shadow-product); */
+    }
+    .login-background {
+        order: 0;
+        width: 100vw;
+        height: 100vh !important;
+    }
+
+    .login-content-form h2 {
+        font-size: 1.8rem;
+    }
+    .login-content-form h4 {
+        font-size: 1.3rem;
+    }
+    .login-content-form input,
+    .login-content-form button {
+        background-color: #ffffff9a !important;
+    }
+    .login-content-form a {
+        font-size: 1rem !important;
+    }
 }
 @media (max-width: 575px) {
     /* index page  */
@@ -1590,11 +1634,41 @@ header .search-box input {
     .instans-books {
         width: 100%;
         padding: 10px 20px;
-        
+
         grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
         gap: 20px;
     }
-    .ins-book-img{
+    .ins-book-img {
         width: 120px !important;
     }
+    /* log-in page  */
+    .log-form {
+        /* justify-content: space-between; */
+        padding: 50px 10px;
+    }
+    .login-content-form {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 60px);
+        
+    }
+
+    .login-content-form h2 {
+        font-size: 2.3rem;
+    }
+    .login-content-form h4 {
+        font-size: 1.5rem;
+    }
+    .login-inputs-form input {
+        font-size: 1rem;
+        padding: 5px 40px;
+    }
+    .login-inputs-form svg {
+        width: 25px;
+    }
+    .userName svg,
+    .password svg {
+        top: 18px;
+    }
+      /* font-size: 1.5rem !important; */
+    
 }
