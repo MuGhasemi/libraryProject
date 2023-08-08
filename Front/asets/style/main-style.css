@@ -775,12 +775,15 @@ header .search-box input {
 .singin-content {
     width: 50vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    padding: 70px 10px;
     align-items: center;
 }
 
 .sing-form {
-    height: 90%;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -791,22 +794,22 @@ header .search-box input {
     font-size: 2.3rem;
     font-family: Vazirmatn700;
     color: var(--primary-blue);
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .sing-form > h4 {
     font-size: 1.5rem;
     font-family: Vazirmatn500;
     color: var(--primary-blue);
+    margin-bottom: 10px;
 }
 
 .singin-inputs-form {
     height: 100%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .singin-inputs-form > div {
     display: flex;
@@ -816,23 +819,23 @@ header .search-box input {
 .singin-inputs-form input {
     outline: none;
     width: 480px;
-    height: 60px;
+    /* height: 60px; */
     border-radius: 15px;
     padding: 8px 60px;
     font-family: inherit;
     font-size: 1.2rem;
     border: var(--border-blue);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .singin-inputs-form input:focus {
     border: 2px solid var(--primary-blue);
 }
 
 .singin-inputs-form svg {
-    width: 30px;
+    width: 25px;
     position: absolute;
     right: 10px;
-    top: 15px;
+    top: 10px;
     z-index: 10;
 }
 
@@ -847,14 +850,13 @@ header .search-box input {
     color: var(--hover-blue);
 }
 #sin-btn-form {
-    width: 165px;
-    height: 45px;
+    padding: 5px 55px;
     border-radius: 15px;
     background-color: var(--primary-white);
     outline: none;
     border: var(--border-blue);
     font-family: inherit;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--primary-blue);
     font-family: Vazirmatn500;
     cursor: pointer;
@@ -1408,7 +1410,31 @@ header .search-box input {
     .login-inputs-form input {
         width: 100%;
     }
+    /*NOTE sign in page  */
+
+    .sing-form > h2 {
+        font-size: 1.8rem;
+    }
+    .sing-form > h4 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    .singin-inputs-form input {
+        width: 100%;
+        /* padding: 5px 40px; */
+    }
+    #to-login,
+    #to-home {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    #sin-btn-form {
+        font-size: 1.2rem;
+    }
 }
+
+/*FIXME max height for sign-in page  */
+
 @media (max-width: 990px) {
     /* index page  */
     nav {
@@ -1567,6 +1593,32 @@ header .search-box input {
     .login-content-form a {
         font-size: 1rem !important;
     }
+
+    /*NOTE sign in page  */
+    .singin-form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .singin-content {
+        height: auto;
+        position: absolute;
+        background-color: #ffffffda;
+        width: calc(100vw - 80px);
+        height: calc(100vh - 100px);
+        border-radius: 15px;
+        filter: var(--shadow-header-filter);
+    }
+    .singin-backgroun {
+        width: 100vw;
+        height: 100vh;
+    }
+    .singin-inputs-form input{
+        background-color: #ffffffda !important;
+        
+
+    }
 }
 @media (max-width: 575px) {
     /* index page  */
@@ -1649,7 +1701,6 @@ header .search-box input {
     .login-content-form {
         width: calc(100vw - 40px);
         height: calc(100vh - 60px);
-        
     }
 
     .login-content-form h2 {
@@ -1669,6 +1720,24 @@ header .search-box input {
     .password svg {
         top: 18px;
     }
-      /* font-size: 1.5rem !important; */
-    
+    /* font-size: 1.5rem !important; */
+
+    /*NOTE sign in page  */
+    .singin-inputs-form{
+        justify-content: space-around;
+    }
+    .singin-inputs-form input{
+        font-size: 1.1rem;
+        padding: 8px 40px;
+        margin-bottom: 0;
+    }
+    .singin-inputs-form svg{
+        width: 20px;
+        top: 15px;
+    }
+    .singin-content{
+        width: calc(100vw - 40px);
+        height: calc(100vh - 60px);
+        padding: 20px;
+    }
 }
