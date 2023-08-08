@@ -40,28 +40,32 @@ def detail(request, pk):
     if request.method == 'POST':
         instance = AddBookInstanceForm(request.POST)
         if instance.is_valid():
-            cd = instance.cleaned_data
-            borrower = request.user
-            if bookDetail.status == 'a' and cd['due_back'] > date.today():
-                BookInstance.objects.create(book=bookDetail,
-                                            due_back=cd['due_back'],
-                                            borrower=borrower,
-                                            status= 'o')
-                bookDetail.status = 'o'
-                bookDetail.save()
-                sweetify.success(request, 'Instance add successfully.')
-                return redirect('/book/all-instances/')
+            if request.user.is_authenticated:
+                cd = instance.cleaned_data
+                borrower = request.user
+                if bookDetail.status == 'a' and cd['due_back'] > date.today():
+                    BookInstance.objects.create(book=bookDetail,
+                                                due_back=cd['due_back'],
+                                                borrower=borrower,
+                                                status= 'o')
+                    bookDetail.status = 'o'
+                    bookDetail.save()
+                    sweetify.success(request, 'Instance add successfully.')
+                    return redirect('/book/all-instances/')
+                else:
+                    if cd['due_back'] <= date.today():
+                        sweetify.error(request, 'Your date must be one day older than the current date.')
+                    elif bookDetail.status != 'a':
+                        sweetify.error(request, 'The book is not available.')
             else:
-                sweetify.error(request, 'Instance add failed.')
-                return redirect(f'/book/detail/{pk}')
+                return redirect(settings.LOGIN_URL + '?next=' + request.path)
         else:
             sweetify.error(request, 'Instance add failed.')
             return redirect(f'/book/detail/{pk}')
     else:
         instance = AddBookInstanceForm()
     context = {'bookDetail': bookDetail,
-               'form': instance,
-               'pk': pk}
+               'form': instance,}
     return render(request, 'book/detail.html', context)
 
 @login_required

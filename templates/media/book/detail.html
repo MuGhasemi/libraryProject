@@ -1,29 +1,27 @@
 {% extends 'parents/main.html' %}
 {% load static %}
+{% load jalali_tags %}
+
 {% block title %}Detail{% endblock %}
 
 {% block content %}
-{% if request.user.is_authenticated %}
-    <div class="backdrop-book-det"></div>
-        <div class="modal-book-det">
-            <h4 class="modal-book-name">عنوان</h4>
-            <form action="{% url 'book:detail' pk %}" method="post" novalidate>
+<div class="backdrop-book-det"></div>
+    <div class="modal-book-det">
+        <h4 class="modal-book-name">عنوان</h4>
+        <form action="{% url 'book:detail' bookDetail.pk %}" method="post" novalidate>
+            {% csrf_token %}
+            <label for="mod-date-return-lable" class="mod-date-lable"
+                >تاریخ برگرداندن:</label
+            >
+            {% comment %} <input type="date" name="" id="mod-date-return" /> {% endcomment %}
+            {{ form.due_back }}
+            <div style="margin-top:10px">
                 {% csrf_token %}
-                <label for="mod-date-return-lable" class="mod-date-lable"
-                    >تاریخ برگرداندن:</label
-                >
-                {% comment %} <input type="date" name="" id="mod-date-return" /> {% endcomment %}
-                {{ form.due_back }}
-                <div style="margin-top:10px">
-                    {% csrf_token %}
-                    <button class="confirm-modal-det">قرض گرفتن</button>
-                    <button class="close-modal-det">بازگشت</button>
-                </div>
-            </form>
-    </div>
-{% else %}
-    <p> you are not login </p>
-{% endif %}
+                <button class="confirm-modal-det">قرض گرفتن</button>
+                <button class="close-modal-det">بازگشت</button>
+            </div>
+        </form>
+</div>
 <main class="main-book container">
     <div class="book-img">
         {% if bookDetail.bookImage %}
@@ -45,7 +43,7 @@
             <p>{{ bookDetail.summry }}</p>
         </div>
         <div class="book-btns">
-            <a class="book-borrow-btn">قرض گرفتن</a>
+            <button class="book-borrow-btn">قرض گرفتن</button>
             <a href="{% url 'book:home' %}" class="book-back-btn">بازگشت</a>
             <div class="book-btns-edit">
                 <a href="{% url 'book:editBook' bookDetail.pk %}" class="book-btn-edit">ویرایش</a>
@@ -54,5 +52,7 @@
         </div>
     </div>
 </main>
+<link rel="stylesheet" href="{% static 'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css' %}">
+<script src="{% static 'admin/js/django_jalali.min.js' %}"></script>
 <script type="module" src="{% static 'asets/JS/bookDetail.js' %}"></script>
 {% endblock %}

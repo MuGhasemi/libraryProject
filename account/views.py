@@ -102,6 +102,7 @@ def profileUser(request):
             }
         return render(request, 'account/profileUser.html', context)
 
+@login_required
 def delete_photo(request):
     profile = request.user.profile
     if request.method == 'GET':
