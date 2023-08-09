@@ -1344,6 +1344,229 @@ header .search-box input {
     padding: 10px 30px;
 }
 
+/* about page */
+.about-page {
+    width: 100vw;
+    height: 100vh;
+    background: rgb(37, 34, 89);
+    background: linear-gradient(
+        130deg,
+        rgba(37, 34, 89, 1) 0%,
+        rgba(21, 31, 55, 1) 66%,
+        rgba(17, 24, 39, 1) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.about-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#f00, #f0f);
+    clip-path: circle(30% at right 70%);
+}
+.about-page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#2196f3, #e91e63);
+    clip-path: circle(20% at 10% 10%);
+}
+/* .about-container {
+    width: 100vw;
+    max-width: 70vw;
+    height: 80vh;
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.7px);
+    -webkit-backdrop-filter: blur(13.7px);
+} */
+@keyframes colorful {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.about-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2em;
+}
+.about-card {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    margin: 0.5em;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(40px);
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    box-shadow: 0px 10px 10px rgba(46, 54, 68, 0.03);
+}
+.about-card {
+    margin-bottom: 100px;
+}
+.about-card .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+.about-card .content .img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10px solid rgba(0, 0, 0, 0.25);
+}
+.about-card .content .img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.about-card .content .cardContent h3 {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    margin: 20px 0 10px;
+    line-height: 1.1em;
+}
+
+.about-card .content .cardContent h3 span {
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: initial;
+    color: #fff;
+}
+.about-card .content .cardContent h3 span:last-child {
+    font-size: 12px;
+}
+.about-card .sci {
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.about-card .sci li {
+    margin: 0 10px;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+    padding: 0 !important;
+}
+.about-card .sci li a {
+    font-size: 24px;
+}
+.sci i {
+    color: #fff;
+}
+
+.about-card:hover .content {
+    opacity: 1;
+    transform: translateY(-20px);
+}
+.about-card:hover .sci li {
+    transform: translateY(0px);
+    opacity: 1;
+}
+.fa-github {
+    transition: 0.3s linear;
+}
+.fa-github:hover {
+    color: #26c6da;
+}
+/* 00979C */
+a[href="https://t.me/mughasemi/"]
+{
+    position: relative;
+}
+a[href="https://t.me/mughasemi/"] div , a[href="https://t.me/mughasemi/"] i
+{
+    transition: 0.3s linear;
+}
+a[href="https://t.me/mughasemi/"]:hover .telegram-back
+{
+    display: block;
+}
+a[href="https://t.me/mughasemi/"]:hover .fa-telegram
+{
+    color: #00979c;
+}
+.telegram-back {
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 2px;
+    right: 2px;
+    bottom: 10px;
+    background-color: #fff;
+    display: none;
+}
+
+.fa-telegram {
+    position: relative;
+    /* top: ; */
+}
+.fa-linkedin {
+    transition: 0.3s linear;
+}
+.fa-linkedin:hover {
+    color: #0072b1;
+}
+
+.fa-arrow-left {
+    color: #fff;
+    font-size: 1rem !important;
+    font-weight: 100 !important;
+    cursor: pointer;
+    opacity: 0.5;
+    transform: scale(1.7);
+    transition: 0.3s linear !important;
+}
+.fa-arrow-left:hover {
+    opacity: 1;
+    transform: scale(2);
+}
+
 /* .add-animation { 
     animation : fadeInDown 0.25s forwards ;
 } */
@@ -1493,11 +1716,11 @@ header .search-box input {
         max-width: 600px;
         padding: 40px 0px;
     }
-    .profile-img{
+    .profile-img {
         margin: 0 !important;
         padding: 0 !important;
     }
-    .change-profile-img-input{
+    .change-profile-img-input {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -1641,12 +1864,12 @@ header .search-box input {
         padding: 40px 0px;
         height: 700px;
     }
-    .profile-photo{
+    .profile-photo {
         margin: auto;
         left: 0;
         right: 0;
     }
-    .profile-toshow-form td{
+    .profile-toshow-form td {
         display: flex;
     }
     .delete-img {
@@ -1654,19 +1877,17 @@ header .search-box input {
         font-size: 1rem;
     }
 
-    .profile-toshow-form input{
+    .profile-toshow-form input {
         width: 100%;
     }
-    .profile-edit-btns{
+    .profile-edit-btns {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
-    .profile-edit-btns button{
+    .profile-edit-btns button {
         margin-top: 10px;
     }
-    
-
 }
 @media (max-width: 575px) {
     /* index page  */
@@ -1793,11 +2014,27 @@ header .search-box input {
         max-width: 350px;
         padding: 40px 0px;
         height: 700px;
-        
     }
-    .profile-table label{
+    .profile-table label {
         font-size: 1.2rem;
-        font-family:Vazirmatn300 ;
+        font-family: Vazirmatn300;
         margin-top: 5px;
+    }
+    /* about page  */
+    .about-card {
+        max-width: 300px;
+    }
+    .about-card .content .img {
+        width: 150px;
+        height: 150px;
+    }
+    .about-card .content .cardContent h3 {
+        font-size: 1.6rem;
+    }
+    .about-card .content .cardContent h3 span {
+        font-size: 1.1rem;
+    }
+    .about-card .content .cardContent h3 span:last-child {
+        font-size: 0.9rem;
     }
 }
