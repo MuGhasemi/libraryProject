@@ -22,7 +22,7 @@
             </div>
         </form>
 </div>
-<main class="main-book container">
+<main class="main-book">
     <div class="book-img">
         {% if bookDetail.bookImage %}
             <img src="{{ bookDetail.bookImage.url }}" alt="image/png" />
@@ -43,8 +43,10 @@
             <p>{{ bookDetail.summry }}</p>
         </div>
         <div class="book-btns">
-            <button class="book-borrow-btn">قرض گرفتن</button>
-            <a href="{% url 'book:home' %}" class="book-back-btn">بازگشت</a>
+            <div class="book-btns-bwcan">
+                <button class="book-borrow-btn">قرض گرفتن</button>
+                <a href="{% url 'book:home' %}" class="book-back-btn">بازگشت</a>
+            </div>
             <div class="book-btns-edit">
                 <a href="{% url 'book:editBook' bookDetail.pk %}" class="book-btn-edit">ویرایش</a>
                 <a href="{% url 'book:deleteBook' bookDetail.pk %}" class="book-btn-delete">پاک کردن</a>
