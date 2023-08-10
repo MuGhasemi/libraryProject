@@ -112,6 +112,7 @@ body {
 
 html {
     scale: smooth;
+    /* overflow-x: hidden; */
 }
 
 .container {
@@ -282,22 +283,7 @@ html {
         transform: translateY(20px);
     }
 }
-@media (max-width: 450px) {
-    .four-O-four svg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -250px;
-        margin-left: -190px;
-    }
-    .message-box {
-        top: 50%;
-        left: 50%;
-        margin-top: -100px;
-        margin-left: -190px;
-        text-align: center;
-    }
-}
+
 /*NOTE end of 404 page  */
 
 /* header */
@@ -697,6 +683,7 @@ header .search-box input {
 
 .login-inputs-form input {
     outline: none;
+    /* width: 100%; */
     width: 480px;
     height: 60px;
     border-radius: 15px;
@@ -788,12 +775,15 @@ header .search-box input {
 .singin-content {
     width: 50vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    padding: 70px 10px;
     align-items: center;
 }
 
 .sing-form {
-    height: 90%;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -804,22 +794,22 @@ header .search-box input {
     font-size: 2.3rem;
     font-family: Vazirmatn700;
     color: var(--primary-blue);
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .sing-form > h4 {
     font-size: 1.5rem;
     font-family: Vazirmatn500;
     color: var(--primary-blue);
+    margin-bottom: 10px;
 }
 
 .singin-inputs-form {
     height: 100%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .singin-inputs-form > div {
     display: flex;
@@ -829,23 +819,23 @@ header .search-box input {
 .singin-inputs-form input {
     outline: none;
     width: 480px;
-    height: 60px;
+    /* height: 60px; */
     border-radius: 15px;
     padding: 8px 60px;
     font-family: inherit;
     font-size: 1.2rem;
     border: var(--border-blue);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .singin-inputs-form input:focus {
     border: 2px solid var(--primary-blue);
 }
 
 .singin-inputs-form svg {
-    width: 30px;
+    width: 25px;
     position: absolute;
     right: 10px;
-    top: 15px;
+    top: 10px;
     z-index: 10;
 }
 
@@ -860,14 +850,13 @@ header .search-box input {
     color: var(--hover-blue);
 }
 #sin-btn-form {
-    width: 165px;
-    height: 45px;
+    padding: 5px 55px;
     border-radius: 15px;
     background-color: var(--primary-white);
     outline: none;
     border: var(--border-blue);
     font-family: inherit;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--primary-blue);
     font-family: Vazirmatn500;
     cursor: pointer;
@@ -889,6 +878,7 @@ header .search-box input {
     /* background-color: aqua; */
     display: flex;
     align-items: center;
+    max-width: 1170px;
 }
 
 .main-book .book-img img {
@@ -899,7 +889,7 @@ header .search-box input {
     margin-right: 30px;
     padding: 30px;
     /* background-color: blueviolet; */
-    height: 500px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1031,7 +1021,7 @@ header .search-box input {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 1000px;
+    max-width: 1000px;
     border-radius: 60px;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.055);
 }
@@ -1099,6 +1089,7 @@ header .search-box input {
     color: var(--primary-red);
     padding: 3px 15px;
     border-radius: 8px;
+    background-color: #fff;
 }
 
 .profile-edit-btns {
@@ -1160,8 +1151,10 @@ header .search-box input {
 
 .ins-book {
     display: flex;
+    align-items: center;
+    /* justify-content: center; */
     /* width: 450px; */
-    height: 230px;
+    height: auto;
     padding: 10px;
     border-radius: 15px;
     background-color: #f3f4f6;
@@ -1169,6 +1162,7 @@ header .search-box input {
 }
 .ins-book-img {
     width: 130px;
+    /* height: 100%; */
     margin-left: 10px;
 }
 .ins-book-img > img {
@@ -1221,18 +1215,20 @@ header .search-box input {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 1170px;
+    margin: auto;
 }
 
 .admin-add-book h3 {
     text-align: center;
     font-family: Vazirmatn500;
     font-size: 1.4rem;
-    margin-bottom: 20px;
+    margin: 20px 0px;
 }
 
 .admin-add-book-container {
     background-color: #f3f4f6;
-    width: 900px;
+    width: 100%;
     border-radius: 12px;
     padding: 40px;
     font-size: 1.1rem;
@@ -1248,6 +1244,7 @@ header .search-box input {
 #add-book-sumery {
     resize: none;
     width: 100%;
+    height: 130px;
 }
 .table-add-book-admin td {
     /* background-color: aqua; */
@@ -1347,6 +1344,229 @@ header .search-box input {
     padding: 10px 30px;
 }
 
+/* about page */
+.about-page {
+    width: 100vw;
+    height: 100vh;
+    background: rgb(37, 34, 89);
+    background: linear-gradient(
+        130deg,
+        rgba(37, 34, 89, 1) 0%,
+        rgba(21, 31, 55, 1) 66%,
+        rgba(17, 24, 39, 1) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.about-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#f00, #f0f);
+    clip-path: circle(30% at right 70%);
+}
+.about-page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#2196f3, #e91e63);
+    clip-path: circle(20% at 10% 10%);
+}
+/* .about-container {
+    width: 100vw;
+    max-width: 70vw;
+    height: 80vh;
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.7px);
+    -webkit-backdrop-filter: blur(13.7px);
+} */
+@keyframes colorful {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.about-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2em;
+}
+.about-card {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    margin: 0.5em;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(40px);
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    box-shadow: 0px 10px 10px rgba(46, 54, 68, 0.03);
+}
+.about-card {
+    margin-bottom: 100px;
+}
+.about-card .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+.about-card .content .img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10px solid rgba(0, 0, 0, 0.25);
+}
+.about-card .content .img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.about-card .content .cardContent h3 {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    margin: 20px 0 10px;
+    line-height: 1.1em;
+}
+
+.about-card .content .cardContent h3 span {
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: initial;
+    color: #fff;
+}
+.about-card .content .cardContent h3 span:last-child {
+    font-size: 12px;
+}
+.about-card .sci {
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.about-card .sci li {
+    margin: 0 10px;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+    padding: 0 !important;
+}
+.about-card .sci li a {
+    font-size: 24px;
+}
+.sci i {
+    color: #fff;
+}
+
+.about-card:hover .content {
+    opacity: 1;
+    transform: translateY(-20px);
+}
+.about-card:hover .sci li {
+    transform: translateY(0px);
+    opacity: 1;
+}
+.fa-github {
+    transition: 0.3s linear;
+}
+.fa-github:hover {
+    color: #26c6da;
+}
+/* 00979C */
+a[href="https://t.me/mughasemi/"]
+{
+    position: relative;
+}
+a[href="https://t.me/mughasemi/"] div , a[href="https://t.me/mughasemi/"] i
+{
+    transition: 0.3s linear;
+}
+a[href="https://t.me/mughasemi/"]:hover .telegram-back
+{
+    display: block;
+}
+a[href="https://t.me/mughasemi/"]:hover .fa-telegram
+{
+    color: #00979c;
+}
+.telegram-back {
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 2px;
+    right: 2px;
+    bottom: 10px;
+    background-color: #fff;
+    display: none;
+}
+
+.fa-telegram {
+    position: relative;
+    /* top: ; */
+}
+.fa-linkedin {
+    transition: 0.3s linear;
+}
+.fa-linkedin:hover {
+    color: #0072b1;
+}
+
+.fa-arrow-left {
+    color: #fff;
+    font-size: 1rem !important;
+    font-weight: 100 !important;
+    cursor: pointer;
+    opacity: 0.5;
+    transform: scale(1.7);
+    transition: 0.3s linear !important;
+}
+.fa-arrow-left:hover {
+    opacity: 1;
+    transform: scale(2);
+}
+
 /* .add-animation { 
     animation : fadeInDown 0.25s forwards ;
 } */
@@ -1372,7 +1592,7 @@ header .search-box input {
     }
 }
 
-/* responsive */
+/*NOTE responsive */
 
 @media (max-width: 1200px) {
     /* index page  */
@@ -1395,7 +1615,50 @@ header .search-box input {
         max-width: 890px;
         padding: 5px 25px;
     }
+
+    /* admin add book page  */
+
+    .admin-add-book {
+        max-width: 890px;
+    }
+
+    /* book details  */
+    .main-book {
+        max-width: 890px;
+    }
+    .detail-book {
+        margin-right: 0px;
+    }
+
+    /*NOTE log-in page  */
+    .login-inputs-form input {
+        width: 100%;
+    }
+    /*NOTE sign in page  */
+
+    .sing-form > h2 {
+        font-size: 1.8rem;
+    }
+    .sing-form > h4 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    .singin-inputs-form input {
+        width: 100%;
+        /* padding: 5px 40px; */
+    }
+    #to-login,
+    #to-home {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    #sin-btn-form {
+        font-size: 1.2rem;
+    }
 }
+
+/*FIXME max height for sign-in page  */
+
 @media (max-width: 990px) {
     /* index page  */
     nav {
@@ -1420,10 +1683,68 @@ header .search-box input {
         width: 250px;
         height: 400px;
     }
+
+    /* admin add book page  */
+
+    .admin-add-book {
+        max-width: 650px;
+    }
+    /* book details  */
+    .main-book {
+        max-width: 700px;
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+        height: auto;
+        padding: 30px;
+    }
+    .book-genaut {
+        margin: 30px;
+    }
+
+    .book-btns {
+        margin-top: 20px;
+        /* background-color: #ca8a04; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /*NOTE profile page  */
+    .profile-to-show {
+        max-width: 600px;
+        padding: 40px 0px;
+    }
+    .profile-img {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .change-profile-img-input {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+@media (max-width: 880px) {
+    /* 404 page  */
+    .four-O-four svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -250px;
+        margin-left: -190px;
+    }
+    .message-box {
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -190px;
+        text-align: center;
+    }
 }
 @media (max-width: 768px) {
     /* index page  */
-    /*FIXME ham menu must be add */
     nav {
         max-width: 650px;
         margin: 20px 30px;
@@ -1446,6 +1767,127 @@ header .search-box input {
         text-align: center;
         left: -20px;
     }
+    /* admin add book page  */
+    .admin-add-book {
+        max-width: 600px;
+    }
+    .admin-add-book tr {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .admin-add-book td {
+        width: 100%;
+        text-align: center;
+    }
+
+    .add-book-btns-det {
+        display: flex;
+        flex-direction: column;
+    }
+    .add-book-btns-det button {
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
+    /* book details  */
+    .main-book {
+        max-width: 500px;
+    }
+
+    /* log-in page  */
+    .login-form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .login-content-form {
+        order: 1;
+        height: auto;
+        position: absolute;
+        background-color: #ffffffda;
+        width: calc(100vw - 80px);
+        height: calc(100vh - 100px);
+        border-radius: 15px;
+        filter: var(--shadow-header-filter);
+        /* box-shadow: var(--shadow-product); */
+    }
+    .login-background {
+        order: 0;
+        width: 100vw;
+        height: 100vh !important;
+    }
+
+    .login-content-form h2 {
+        font-size: 1.8rem;
+    }
+    .login-content-form h4 {
+        font-size: 1.3rem;
+    }
+    .login-content-form input,
+    .login-content-form button {
+        background-color: #ffffff9a !important;
+    }
+    .login-content-form a {
+        font-size: 1rem !important;
+    }
+
+    /*NOTE sign in page  */
+    .singin-form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .singin-content {
+        height: auto;
+        position: absolute;
+        background-color: #ffffffda;
+        width: calc(100vw - 80px);
+        height: calc(100vh - 100px);
+        border-radius: 15px;
+        filter: var(--shadow-header-filter);
+    }
+    .singin-backgroun {
+        width: 100vw;
+        height: 100vh;
+    }
+    .singin-inputs-form input {
+        background-color: #ffffffda !important;
+    }
+
+    /*NOTE profile page  */
+
+    .profile-to-show {
+        max-width: 450px;
+        padding: 40px 0px;
+        height: 700px;
+    }
+    .profile-photo {
+        margin: auto;
+        left: 0;
+        right: 0;
+    }
+    .profile-toshow-form td {
+        display: flex;
+    }
+    .delete-img {
+        /* padding: ; */
+        font-size: 1rem;
+    }
+
+    .profile-toshow-form input {
+        width: 100%;
+    }
+    .profile-edit-btns {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .profile-edit-btns button {
+        margin-top: 10px;
+    }
 }
 @media (max-width: 575px) {
     /* index page  */
@@ -1461,5 +1903,138 @@ header .search-box input {
         width: 200px;
         text-align: center;
         left: -20px;
+    }
+    /* admin add book page  */
+    .admin-add-book {
+        max-width: 450px;
+    }
+    /* book details  */
+    .main-book {
+        max-width: 350px;
+    }
+    .book-genaut {
+        display: flex;
+        flex-direction: column;
+    }
+    .book-genaut span {
+        font-size: 1.5rem !important;
+        /* margin-bottom: 10px; */
+    }
+    .book-img img {
+        width: 200px !important;
+    }
+    .detail-book {
+        width: 100% !important;
+    }
+    .book-sum p {
+        line-height: 40px !important;
+        font-size: 1.6rem !important;
+        text-align: justify;
+    }
+    .book-btns-bwcan {
+        display: flex;
+        flex-direction: column;
+        /* background-color: #ca8a04; */
+        width: 100%;
+    }
+    .book-btns-bwcan button,
+    .book-btns-bwcan a {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    .book-btns-edit {
+        display: flex;
+        flex-direction: column;
+        /* background-color: blueviolet; */
+        width: 100%;
+    }
+    .book-btns-edit a {
+        width: 100%;
+    }
+    /* instans page  */
+    .instans-books {
+        width: 100%;
+        padding: 10px 20px;
+
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 20px;
+    }
+    .ins-book-img {
+        width: 120px !important;
+    }
+    /* log-in page  */
+    .log-form {
+        /* justify-content: space-between; */
+        padding: 50px 10px;
+    }
+    .login-content-form {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 60px);
+    }
+
+    .login-content-form h2 {
+        font-size: 2.3rem;
+    }
+    .login-content-form h4 {
+        font-size: 1.5rem;
+    }
+    .login-inputs-form input {
+        font-size: 1rem;
+        padding: 5px 40px;
+    }
+    .login-inputs-form svg {
+        width: 25px;
+    }
+    .userName svg,
+    .password svg {
+        top: 18px;
+    }
+    /* font-size: 1.5rem !important; */
+
+    /*NOTE sign in page  */
+    .singin-inputs-form {
+        justify-content: space-around;
+    }
+    .singin-inputs-form input {
+        font-size: 1.1rem;
+        padding: 8px 40px;
+        margin-bottom: 0;
+    }
+    .singin-inputs-form svg {
+        width: 20px;
+        top: 15px;
+    }
+    .singin-content {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 60px);
+        padding: 20px;
+    }
+    /* profile page  */
+    .profile-to-show {
+        max-width: 350px;
+        padding: 40px 0px;
+        height: 700px;
+    }
+    .profile-table label {
+        font-size: 1.2rem;
+        font-family: Vazirmatn300;
+        margin-top: 5px;
+    }
+    /* about page  */
+    .about-card {
+        max-width: 300px;
+    }
+    .about-card .content .img {
+        width: 150px;
+        height: 150px;
+    }
+    .about-card .content .cardContent h3 {
+        font-size: 1.6rem;
+    }
+    .about-card .content .cardContent h3 span {
+        font-size: 1.1rem;
+    }
+    .about-card .content .cardContent h3 span:last-child {
+        font-size: 0.9rem;
     }
 }
