@@ -299,14 +299,12 @@ header {
 /* navigation */
 nav {
     padding: 5px 15px;
-
     width: 100%;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 10;
     font-size: 1.2rem;
     height: auto;
-
     background-color: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -476,9 +474,8 @@ nav .navBtns .login:active {
 
 header .header-main {
     width: 100%;
-
-    /* margin: 20px 0; */
-    margin: auto;
+    margin: 70px 0 auto;
+    /* margin: auto; */
     height: 400px;
     /* border-radius: 50px; */
     display: flex;
@@ -544,6 +541,7 @@ header .search-box input {
     background-color: #18a0fb;
     height: 100px;
 }
+/* FIXME responsive : flex direction column and font size  */
 .counters ul {
     max-width: 1170px;
     margin: auto;
@@ -557,10 +555,11 @@ header .search-box input {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 30px;
-    margin: 0 30px;
+    padding: 0 10px;
+    /* margin: 0 30px; */
     font-family: Vazirmatn600;
     color: #fff;
+    /* background-color: #00979c */
 }
 .counters ul li span {
     color: #fff;
@@ -841,28 +840,37 @@ header .search-box input {
 }
 
 .singin-backgroun {
-    width: 50vw;
+    width: 55vw;
     background: url(../img/signin.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    box-shadow: -10px 0 10px  rgba(0, 0, 0, 0.25);
 }
 
 .singin-content {
-    width: 50vw;
+    width: 45vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 70px 10px;
     align-items: center;
+    position: relative;
 }
 
 .sing-form {
-    height: 100%;
-    width: 100%;
+    position: absolute;
+    left: 500px;
+    height: 700px;
+    width: 500px;
+    background-color: #fff;
+    border: 1px solid var(--primary-blue);
+    padding: 40px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    filter: var(--shadow-header-filter);
+    border-radius: 20px;
 }
 
 .sing-form > h2 {
@@ -893,7 +901,7 @@ header .search-box input {
 
 .singin-inputs-form input {
     outline: none;
-    width: 480px;
+    /* width: 480px; */
     /* height: 60px; */
     border-radius: 15px;
     padding: 8px 60px;
@@ -912,6 +920,9 @@ header .search-box input {
     right: 10px;
     top: 10px;
     z-index: 10;
+}
+.singin-inputs-form svg path{
+    stroke: var(--primary-blue);
 }
 
 #to-login {
@@ -1671,7 +1682,7 @@ a[href="https://t.me/mughasemi/"]:hover .fa-telegram
 
 @media (max-width: 1200px) {
     /* index page  */
-    nav {
+    .navigation {
         max-width: 890px;
         padding: 5px 25px;
     }
@@ -1735,7 +1746,7 @@ a[href="https://t.me/mughasemi/"]:hover .fa-telegram
 
 @media (max-width: 990px) {
     /* index page  */
-    nav {
+    .navigation {
         max-width: 700px;
     }
     .profile-view {
@@ -1819,9 +1830,9 @@ a[href="https://t.me/mughasemi/"]:hover .fa-telegram
 }
 @media (max-width: 768px) {
     /* index page  */
-    nav {
-        max-width: 650px;
-        margin: 20px 30px;
+    .navigation {
+        max-width: 100%;
+        
     }
     .nav-ul {
         display: none !important;
@@ -1833,7 +1844,7 @@ a[href="https://t.me/mughasemi/"]:hover .fa-telegram
         /* max-width: 650px; */
         /* width: calc(100% - 40px); */
         height: 300px;
-        border-radius: 20px;
+        /* border-radius: 20px; */
         margin: 0px 20px;
     }
     .profile-view-module {
@@ -1964,6 +1975,10 @@ a[href="https://t.me/mughasemi/"]:hover .fa-telegram
     }
 }
 @media (max-width: 575px) {
+    /* .navigation {
+        max-width: 200px ;
+        
+    } */
     /* index page  */
     .main-home {
         grid-template-columns: repeat(1, 1fr);
