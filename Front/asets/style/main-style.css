@@ -206,40 +206,185 @@ html {
 }
 
 /* NOTE 404 page  */
-
-.four-O-four svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -250px;
-    margin-left: -400px;
+.four-O-four {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.message-box {
-    height: 200px;
-    width: 380px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -100px;
-    margin-left: 50px;
-    color: #fff;
-    font-family: Roboto;
-    font-weight: 300;
-}
-.message-box h1 {
-    font-size: 6rem;
-    line-height: 46px;
-    margin-bottom: 40px;
+.four-O-four h1{
+    font-size: 2.3rem;
     font-family: Vazirmatn500;
 }
-.message-box > p {
-    font-family: Vazirmatn400;
-    font-size: 3rem;
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,800");
+.error-container {
+    text-align: center;
+    font-size: 106px;
+    font-family: "Catamaran", sans-serif;
+    font-weight: 800;
+    margin: 70px 15px;
 }
-.buttons-con .action-link-wrap {
-    margin-top: 40px;
+.error-container > span {
+    display: inline-block;
+    position: relative;
 }
-.buttons-con .action-link-wrap a {
+.error-container > span.four {
+    width: 136px;
+    height: 43px;
+    border-radius: 999px;
+    background: linear-gradient(
+            140deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            rgba(0, 0, 0, 0.07) 43%,
+            transparent 44%,
+            transparent 100%
+        ),
+        linear-gradient(
+            105deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(0, 0, 0, 0.06) 41%,
+            rgba(0, 0, 0, 0.07) 76%,
+            transparent 77%,
+            transparent 100%
+        ),
+        linear-gradient(to right, #d89ca4, #e27b7e);
+}
+.error-container > span.four:before,
+.error-container > span.four:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 999px;
+}
+.error-container > span.four:before {
+    width: 43px;
+    height: 156px;
+    left: 60px;
+    bottom: -43px;
+    background: linear-gradient(
+            128deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            rgba(0, 0, 0, 0.07) 40%,
+            transparent 41%,
+            transparent 100%
+        ),
+        linear-gradient(
+            116deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            rgba(0, 0, 0, 0.07) 50%,
+            transparent 51%,
+            transparent 100%
+        ),
+        linear-gradient(to top, #99749d, #b895ab, #cc9aa6, #d7969e, #e0787f);
+}
+.error-container > span.four:after {
+    width: 137px;
+    height: 43px;
+    transform: rotate(-49.5deg);
+    left: -18px;
+    bottom: 36px;
+    background: linear-gradient(
+        to right,
+        #99749d,
+        #b895ab,
+        #cc9aa6,
+        #d7969e,
+        #e0787f
+    );
+}
+
+.error-container > span.zero {
+    vertical-align: text-top;
+    width: 156px;
+    height: 156px;
+    border-radius: 999px;
+    background: linear-gradient(
+            -45deg,
+            transparent 0%,
+            rgba(0, 0, 0, 0.06) 50%,
+            transparent 51%,
+            transparent 100%
+        ),
+        linear-gradient(
+            to top right,
+            #99749d,
+            #99749d,
+            #b895ab,
+            #cc9aa6,
+            #d7969e,
+            #ed8687,
+            #ed8687
+        );
+    overflow: hidden;
+    animation: bgshadow 5s infinite;
+}
+.error-container > span.zero:before {
+    content: "";
+    display: block;
+    position: absolute;
+    transform: rotate(45deg);
+    width: 90px;
+    height: 90px;
+    background-color: transparent;
+    left: 0px;
+    bottom: 0px;
+    background: linear-gradient(
+            95deg,
+            transparent 0%,
+            transparent 8%,
+            rgba(0, 0, 0, 0.07) 9%,
+            transparent 50%,
+            transparent 100%
+        ),
+        linear-gradient(
+            85deg,
+            transparent 0%,
+            transparent 19%,
+            rgba(0, 0, 0, 0.05) 20%,
+            rgba(0, 0, 0, 0.07) 91%,
+            transparent 92%,
+            transparent 100%
+        );
+}
+.error-container > span.zero:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 999px;
+    width: 70px;
+    height: 70px;
+    left: 43px;
+    bottom: 43px;
+    background: #fdfaf5;
+    box-shadow: -2px 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.screen-reader-text {
+    position: absolute;
+    /* top: -9999em;
+    left: -9999em; */
+}
+
+@keyframes bgshadow {
+    0% {
+        box-shadow: inset -160px 160px 0px 5px rgba(0, 0, 0, 0.4);
+    }
+    45% {
+        box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+    }
+    55% {
+        box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        box-shadow: inset 160px -160px 0px 5px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.action-link-wrap a {
     background: var(--primary-blue);
     padding: 8px 25px;
     border-radius: 4px;
@@ -255,33 +400,6 @@ html {
 .buttons-con .action-link-wrap a:hover {
     background: #5a5c6c;
     color: #fff;
-}
-
-#Polygon-1,
-#Polygon-2,
-#Polygon-3,
-#Polygon-4,
-#Polygon-4,
-#Polygon-5 {
-    animation: float 1s infinite ease-in-out alternate;
-}
-#Polygon-2 {
-    animation-delay: 0.2s;
-}
-#Polygon-3 {
-    animation-delay: 0.4s;
-}
-#Polygon-4 {
-    animation-delay: 0.6s;
-}
-#Polygon-5 {
-    animation-delay: 0.8s;
-}
-
-@keyframes float {
-    100% {
-        transform: translateY(20px);
-    }
 }
 
 /*NOTE end of 404 page  */
@@ -608,14 +726,14 @@ header .search-box input {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    transition: 0.2s linear!important;
+    transition: 0.2s linear !important;
     -moz-transition: 0.2s ease-in !important;
     -ms-transition: 0.2s ease-in !important;
     -o-transition: 0.2s ease-in !important;
     -webkit-transition: 0.2s ease-in !important;
     /* color:#fff; */
 }
-.product-link:hover  .product{
+.product-link:hover .product {
     background-size: 120% !important;
 }
 .product-content {
@@ -697,13 +815,12 @@ header .search-box input {
     width: 100vw;
     height: 100vh;
     /* background-color: #2196f3; */
-    
 }
 
 .login-content-form {
     width: 55%;
     height: 100%;
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -717,10 +834,10 @@ header .search-box input {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height:800px;
+    height: 800px;
     width: 600px;
     position: relative;
-    background-color:#fff;
+    background-color: #fff;
     border: 1px solid var(--primary-blue);
     border-radius: 20px;
     left: -350px;
@@ -760,13 +877,11 @@ header .search-box input {
 .login-inputs-form svg {
     width: 30px;
 }
-.login-inputs-form svg path{
+.login-inputs-form svg path {
     stroke: var(--primary-blue);
-    
 }
 .password path {
     fill: var(--primary-blue);
-
 }
 .userName,
 .password {
@@ -826,8 +941,7 @@ header .search-box input {
     background-size: cover;
     background-position: center;
     justify-self: flex-end;
-    box-shadow: 10px 0 8px  rgba(0, 0, 0, 0.25);
-    
+    box-shadow: 10px 0 8px rgba(0, 0, 0, 0.25);
 }
 
 /* sign in form  */
@@ -844,7 +958,7 @@ header .search-box input {
     background: url(../img/signin.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: -10px 0 10px  rgba(0, 0, 0, 0.25);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.25);
 }
 
 .singin-content {
@@ -921,7 +1035,7 @@ header .search-box input {
     top: 10px;
     z-index: 10;
 }
-.singin-inputs-form svg path{
+.singin-inputs-form svg path {
     stroke: var(--primary-blue);
 }
 
@@ -1811,28 +1925,10 @@ a[href="https://t.me/mughasemi/"]:hover .fa-telegram
         align-items: flex-start;
     }
 }
-@media (max-width: 880px) {
-    /* 404 page  */
-    .four-O-four svg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -250px;
-        margin-left: -190px;
-    }
-    .message-box {
-        top: 50%;
-        left: 50%;
-        margin-top: -100px;
-        margin-left: -190px;
-        text-align: center;
-    }
-}
 @media (max-width: 768px) {
     /* index page  */
     .navigation {
         max-width: 100%;
-        
     }
     .nav-ul {
         display: none !important;
