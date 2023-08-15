@@ -10,9 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def about(request):
-    books = Book.objects.all()
-    context = {'books':books}
-    return render(request, 'book/about.html', context)
+    return render(request, 'book/about.html')
 
 # --- All function for Book model ---
 

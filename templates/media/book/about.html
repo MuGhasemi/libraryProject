@@ -3,5 +3,37 @@
 {% block title %}About{% endblock %}
 
 {% block content %}
-    <h1 style="text-align: center; margin-top: 250px;"> ABOUT US.</h1>
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+    <main class="about-page">
+        <div class="card">
+            <div class="cardin">
+                <div class="card-body">
+                    <h1>سپیده شهریاری</h1>
+                    <p>مقطع کارشناسی ناپیوسته کامپیوتر</p>
+
+                    <p>شماره دانشجویی:40025240893030</p>
+                    <h4>درباره پروژه</h4>
+                    <p>
+                        پروژه طراحی یک وب اپلیکیشن برای یک کتابخانه با
+                        استفاده از فریم ورک جنگو که مدل های اون روی پایگاه
+                        داده sqlite پیاده سازی شده است
+                    </p>
+                    <div class="user">
+                        <h5>استاد راهنما : دکتر مهدی جامعی</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-btn">
+            <i
+                class="fa fa-arrow-left"
+                aria-hidden="true"
+                onclick="history.back(-1)"
+            ></i>
+        </div>
+    </main>
 {% endblock %}
