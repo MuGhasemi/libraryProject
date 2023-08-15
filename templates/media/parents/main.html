@@ -8,9 +8,9 @@
    </head>
    <body>
       <header>
-         {% if not request.path == '/account/login/' and not request.path == '/account/sign-up/' %}
-            {% include 'partials/navigations.html' %}
-         {% endif %}
+         {% if not request.path == '/account/login/' and not request.path == '/account/sign-up/' and not request.path == '/book/about/' %}
+         {% include 'partials/navigations.html' %}
+      {% endif %}
       </header>
       {% block content%}{% endblock %}
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
