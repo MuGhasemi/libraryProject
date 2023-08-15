@@ -834,13 +834,13 @@ header .search-box input {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 800px;
-    width: 600px;
+    height: 700px;
+    width: 500px;
     position: relative;
     background-color: #fff;
     border: 1px solid var(--primary-blue);
     border-radius: 20px;
-    left: -350px;
+    left: -50%;
     filter: var(--shadow-header-filter);
 }
 
@@ -864,7 +864,7 @@ header .search-box input {
 .login-inputs-form input {
     outline: none;
     /* width: 100%; */
-    width: 480px;
+    width: 100%;
     height: 60px;
     border-radius: 15px;
     padding: 8px 60px;
@@ -973,7 +973,7 @@ header .search-box input {
 
 .sing-form {
     position: absolute;
-    left: 500px;
+    left: 50%;
     height: 700px;
     width: 500px;
     background-color: #fff;
@@ -1977,6 +1977,12 @@ a[href="https://t.me/mughasemi/"]:hover .fa-telegram
     }
 
     /* log-in page  */
+    .log-form{
+        position: static;
+        width: 100%;
+        height: 100%;
+        
+    }
     .login-form {
         flex-direction: column;
         justify-content: center;
@@ -1987,6 +1993,7 @@ a[href="https://t.me/mughasemi/"]:hover .fa-telegram
         order: 1;
         height: auto;
         position: absolute;
+        /* left: 0; */
         background-color: #ffffffda;
         width: calc(100vw - 80px);
         height: calc(100vh - 100px);
@@ -2020,15 +2027,25 @@ a[href="https://t.me/mughasemi/"]:hover .fa-telegram
         justify-content: center;
         align-items: center;
         position: relative;
+        
+    }
+    .sing-form{
+        position: static;
+        width: 100% !important;
+        height: 100% !important;
+        /* background-color: #ca8a04; */
+        margin: 0;
     }
     .singin-content {
         height: auto;
         position: absolute;
-        background-color: #ffffffda;
+        /* background-color: #ffffffda; */
         width: calc(100vw - 80px);
         height: calc(100vh - 100px);
         border-radius: 15px;
         filter: var(--shadow-header-filter);
+        padding: 0;
+        
     }
     .singin-backgroun {
         width: 100vw;
