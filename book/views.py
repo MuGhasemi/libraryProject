@@ -18,9 +18,9 @@ def home(request):
     search = SearchBoxForm(request.GET)
     if search.is_valid():
         cd = search.cleaned_data['search']
-        books = Book.objects.filter(name__icontains = cd, status = 'a')
+        books = Book.objects.filter(name__icontains=cd, status='a').order_by('id')
         if not books.exists():
-            books = Book.objects.filter(status = 'a')
+            books = Book.objects.filter(status = 'a').order_by('id')
             sweetify.error(request, 'کتاب وجود ندارد')
     else:
         books = Book.objects.filter(status = 'a')
