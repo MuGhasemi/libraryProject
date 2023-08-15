@@ -1222,7 +1222,7 @@ header .search-box input {
 
 .profile-to-show {
     margin-top: 100px;
-    background-color: #eff5fa;
+    background-color: #fff7ed;
     padding: 40px 80px;
     height: auto;
     position: relative;
@@ -1231,7 +1231,7 @@ header .search-box input {
     justify-content: center;
     max-width: 1000px;
     border-radius: 60px;
-    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.055);
+    box-shadow: 4px 4px 4px  rgba(0, 0, 0, 0.15);
 }
 
 .profile-photo {
