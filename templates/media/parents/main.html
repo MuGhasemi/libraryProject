@@ -7,9 +7,11 @@
       <title>{% block title %}{% endblock %}</title>
    </head>
    <body>
-      {% if not request.path == '/account/login/' and not request.path == '/account/sign-up/' %}
-         {% include 'partials/navigations.html' %}
-      {% endif %}
+      <header>
+         {% if not request.path == '/account/login/' and not request.path == '/account/sign-up/' %}
+            {% include 'partials/navigations.html' %}
+         {% endif %}
+      </header>
       {% block content%}{% endblock %}
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       {% load sweetify %}
