@@ -29,8 +29,12 @@ def home(request):
     for book in books:
         genres = book.genre.all()
         book.genres = genres
+    genres = Genre.objects.all()
+    authors = Author.objects.all()
     context = {
         'books': books,
+        'genres':genres,
+        'authors':authors,
         'search': search,
     }
     return render(request, 'book/home.html', context)
