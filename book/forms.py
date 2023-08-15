@@ -6,8 +6,9 @@ from datetime import date
 
 class SearchBoxForm(forms.Form):
     search = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'ّsearch-box', 'placeholder': 'Search'}),
         max_length = 60,
-        required = False,) 
+        required = False,)  
     
 # --- All Class for Book Instance model ---
 
