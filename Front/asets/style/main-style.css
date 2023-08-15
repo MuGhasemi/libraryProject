@@ -1758,7 +1758,7 @@ header .search-box input {
     /* index page  */
     .navigation {
         max-width: 890px;
-        padding: 5px 25px;
+        /* padding: 5px 25px; */
     }
     header .header-main {
         height: 400px;
@@ -1825,6 +1825,7 @@ header .search-box input {
     /* index page  */
     .navigation {
         max-width: 700px;
+        height: 56px;
     }
     .profile-view {
         font-size: 1rem;
@@ -1832,9 +1833,6 @@ header .search-box input {
     .navBtns .profile-view svg {
         width: 25px;
         height: 25px;
-    }
-    header .header-main {
-        /* max-width: 700px; */
     }
     .main-home {
         grid-template-columns: repeat(2, 1fr);
