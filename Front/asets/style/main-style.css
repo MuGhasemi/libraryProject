@@ -973,7 +973,7 @@ header .search-box input {
 
 .sing-form {
     position: absolute;
-    left: 500px;
+    left: 50%;
     height: 700px;
     width: 500px;
     background-color: #fff;
@@ -2027,15 +2027,25 @@ a[href="https://t.me/mughasemi/"]:hover .fa-telegram
         justify-content: center;
         align-items: center;
         position: relative;
+        
+    }
+    .sing-form{
+        position: static;
+        width: 100% !important;
+        height: 100% !important;
+        /* background-color: #ca8a04; */
+        margin: 0;
     }
     .singin-content {
         height: auto;
         position: absolute;
-        background-color: #ffffffda;
+        /* background-color: #ffffffda; */
         width: calc(100vw - 80px);
         height: calc(100vh - 100px);
         border-radius: 15px;
         filter: var(--shadow-header-filter);
+        padding: 0;
+        
     }
     .singin-backgroun {
         width: 100vw;
