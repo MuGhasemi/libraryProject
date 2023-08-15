@@ -22,16 +22,16 @@ def register(request):
                                                 password = cd['password'])
                 user.save()
                 Profile.objects.create(user=user)
-                sweetify.success(request, 'create account successfully')
+                sweetify.success(request, 'حساب با موفقیت ایجاد شد')
                 if request.GET.get('next'):
                     return redirect(request.GET.get('next'))
                 else:
                     return redirect(settings.LOGIN_URL)
             else:
-                sweetify.error(request, 'password not match!')
+                sweetify.error(request, 'رمز عبور مطابقت ندارد!')
                 return redirect(settings.SIGN_UP_URL)
         else:
-            sweetify.error(request, 'create account failed')
+            sweetify.error(request, 'ایجاد حساب ناموفق بود')
             return redirect(settings.SIGN_UP_URL)
     else:
         registerForm = RegisterUserForm()
@@ -48,16 +48,16 @@ def loginUser(request):
                                 password = cd['password'])
             if user is not None:
                 login(request, user)
-                sweetify.success(request, 'login successfully')
+                sweetify.success(request, 'با موفقیت وارد شدید')
                 if request.GET.get('next'):
                     return redirect(request.GET.get('next'))
                 else:
                     return redirect(settings.LOGIN_REDIRECT_URL)
             else:
-                sweetify.error(request, 'username or password incorrect')
+                sweetify.error(request, 'نام کاربری یا رمز عبور اشتباه است')
                 return redirect(settings.LOGIN_URL)
         else:
-            sweetify.error(request, 'login failed')
+            sweetify.error(request, 'ورود ناموفق بود')
             return redirect(settings.LOGIN_URL)    
     else:
         loginForm = LoginUserForm()
@@ -88,9 +88,9 @@ def profileUser(request):
                 editProfile.cleaned_data['profileImage'] = None
             editUser.save()
             editProfile.save()
-            sweetify.success(request, 'Edit successfully')
+            sweetify.success(request, 'ویرایش با موفقیت انجام شد')
         else:
-            sweetify.error(request, 'Edit failed')
+            sweetify.error(request, 'ویرایش انجام نشد')
         return redirect('/account/profile/')
     else:
         editUser = EditUserForm(instance = request.user)
@@ -110,13 +110,13 @@ def delete_photo(request):
             profile.profileImage.delete()
             profile.profileImage = None
             profile.save()
-            sweetify.success(request, 'image profile deleted')
+            sweetify.success(request, 'تصویر پروفایل حذف شد')
             return redirect('/account/profile/')
         else:
-            sweetify.error(request, "don't have image profile")
+            sweetify.error(request, 'نمایه تصویری ندارید')
             return redirect('/account/profile/')
     else:
-        sweetify.error(request, 'image profile failed')
+        sweetify.error(request, 'عملیات ناموفق بود')
         return redirect('/account/profile/')
     
 

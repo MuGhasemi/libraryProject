@@ -21,7 +21,7 @@ def home(request):
         books = Book.objects.filter(name__icontains = cd, status = 'a')
         if not books.exists():
             books = Book.objects.filter(status = 'a')
-            sweetify.error(request, 'Book not exist.')
+            sweetify.error(request, 'کتاب وجود ندارد')
     else:
         books = Book.objects.filter(status = 'a')
     for book in books:
@@ -52,17 +52,17 @@ def detail(request, pk):
                                                 status= 'o')
                     bookDetail.status = 'o'
                     bookDetail.save()
-                    sweetify.success(request, 'Instance add successfully.')
+                    sweetify.success(request, 'نمونه با موفقیت اضافه شد')
                     return redirect('/book/all-instances/')
                 else:
                     if cd['due_back'] <= date.today():
-                        sweetify.error(request, 'Your date must be one day older than the current date.')
+                        sweetify.error(request, 'تاریخ شما باید یک روز بیشتر از تاریخ فعلی باشد')
                     elif bookDetail.status != 'a':
-                        sweetify.error(request, 'The book is not available.')
+                        sweetify.error(request, 'کتاب موجود نیست')
             else:
                 return redirect(settings.LOGIN_URL + '?next=' + request.path)
         else:
-            sweetify.error(request, 'Instance add failed.')
+            sweetify.error(request, 'عملیات ناموفق بود')
             return redirect(f'/book/detail/{pk}')
     else:
         instance = AddBookInstanceForm()
@@ -76,10 +76,10 @@ def addBook(request):
         book = InsertBookForm(request.POST, request.FILES)
         if book.is_valid():
             book.save()
-            sweetify.success(request, 'Book add successfully.')
+            sweetify.success(request, 'کتاب با موفقیت اضافه شد')
             return redirect(settings.LOGIN_REDIRECT_URL)
         else:
-            sweetify.error(request, 'Book add failed.')
+            sweetify.error(request, 'افزودن کتاب ناموفق بود')
             return redirect('/book/insert-book/')
     else:
         book = InsertBookForm()
@@ -106,10 +106,10 @@ def editBook(request, pk):
             else:
                 edit_book.cleaned_data['bookImage'] = None
             edit_book.save()
-            sweetify.success(request, 'Book edit successfully.')
+            sweetify.success(request, 'ویرایش کتاب با موفقیت انجام شد')
             return redirect(f'/book/detail/{pk}')
         else:
-            sweetify.error(request, 'Book edit failed.')
+            sweetify.error(request, 'ویرایش کتاب ناموفق بود')
             return redirect(f'/book/detail/{pk}')
     else:
         edit_book = EditBookForm(instance = book)
@@ -127,7 +127,7 @@ def deleteBook(request, pk):
         bookImage = book.bookImage.path
         os.remove(bookImage)
     book.delete()
-    sweetify.success(request, 'Book deleted successfully.')
+    sweetify.success(request, 'کتاب با موفقیت حذف شد')
     return redirect(settings.LOGIN_REDIRECT_URL)
 
 # --- All function for Genre model---
@@ -155,7 +155,7 @@ def showBookInstance(request):
         if instance.due_back <= today and time <= datetime.now().hour:
             instance.delete()
             book = Book.objects.get(id=instance.book.id)
-            sweetify.warning(request,  f'{ instance.book }, book was deleted due to timeout.', button='Ok', timer=3000)
+            sweetify.warning(request,  f'{ instance.book }, به دلیل پایان مهلت زمانی حذف شد', button='Ok', timer=3000)
             book.status = 'a'
             book.save()
             return redirect('/book/all-instances/')
