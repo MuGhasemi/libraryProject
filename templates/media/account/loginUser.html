@@ -1,5 +1,5 @@
 {% extends 'parents/main.html' %}
-
+{% load static %}
 {% block title %}Login{% endblock %}
 
 {% block content %}
@@ -19,7 +19,7 @@
     </div>   {% endcomment %}
     <div class="login-form">
         <div class="login-content-form">
-            <form class="log-form" method="post">
+            <form class="log-form" method="post" novalidate>
                 {% csrf_token %}
                 <h2>خوش آمدید</h2>
                 <h4>صفحه ورود</h4>
@@ -86,4 +86,5 @@
         </div>
         <div class="login-background"></div>
     </div>
+    <script type="module" src="{% static 'asets/JS/app.js' %}"></script>
 {% endblock %}

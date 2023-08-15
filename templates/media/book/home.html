@@ -30,27 +30,172 @@
               <input type="text" placeholder="جستجو...." />
            </div>
         </div>
+        <div class="counters">
+            <!--FIXME add svg or icon, set background color  -->
+            <ul class="counters-ul">
+                <li>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 178 224"
+                        fill="none"
+                    >
+                        <path
+                            d="M9 197.467V31.8445C9 19.2278 19.2278 9 31.8445 9H162.058C165.843 9 168.911 12.0684 168.911 15.8533V214.6"
+                            stroke="black"
+                            stroke-width="17.1333"
+                            stroke-linecap="round"
+                        />
+                        <path
+                            d="M54.689 54.689H123.222"
+                            stroke="black"
+                            stroke-width="17.1333"
+                            stroke-linecap="round"
+                        />
+                        <path
+                            d="M26.1333 146.067H168.911"
+                            stroke="black"
+                            stroke-width="17.1333"
+                            stroke-linecap="round"
+                        />
+                        <path
+                            d="M26.1333 180.333H168.911"
+                            stroke="black"
+                            stroke-width="17.1333"
+                            stroke-linecap="round"
+                        />
+                        <path
+                            d="M26.1333 214.6H168.911"
+                            stroke="black"
+                            stroke-width="17.1333"
+                            stroke-linecap="round"
+                        />
+                        <path
+                            d="M26.1333 180.333C14.7111 180.333 9 172.662 9 163.2C9 153.738 14.7111 146.067 26.1333 146.067"
+                            stroke="black"
+                            stroke-width="17.1333"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M26.1333 214.6C14.7111 214.6 9 206.929 9 197.467C9 188.005 14.7111 180.333 26.1333 180.333"
+                            stroke="black"
+                            stroke-width="17.1333"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                    تعداد کل کتاب ها :
+                    <span>{{ books.count }}</span>
+                </li>
+                <li>|</li>
+                <li>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 176 196"
+                        fill="none"
+                    >
+                        <path
+                            d="M8 167.911V27.9889C8 16.9493 16.9493 8 27.9889 8H161.915C165.227 8 167.911 10.6848 167.911 13.9967V145.067"
+                            stroke="black"
+                            stroke-width="14.9917"
+                            stroke-linecap="round"
+                        />
+                        <path
+                            d="M47.978 8V87.9556L72.9641 71.9645L97.9503 87.9556V8"
+                            stroke="black"
+                            stroke-width="14.9917"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M27.9888 147.922H167.911"
+                            stroke="black"
+                            stroke-width="14.9917"
+                            stroke-linecap="round"
+                        />
+                        <path
+                            d="M27.9888 187.9H167.911"
+                            stroke="black"
+                            stroke-width="14.9917"
+                            stroke-linecap="round"
+                        />
+                        <path
+                            d="M27.9889 187.9C16.9493 187.9 8 178.951 8 167.911C8 156.871 16.9493 147.922 27.9889 147.922"
+                            stroke="black"
+                            stroke-width="14.9917"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                    تعداد کل نویسندگان :
+                    <span>{{ authors.count }}</span>
+                </li>
+                <li>|</li>
+
+                <li>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 176 196"
+                        fill="none"
+                    >
+                        <path
+                            d="M7.86719 167.787V27.8646C7.86719 16.8251 16.8165 7.87573 27.8561 7.87573H161.782C165.094 7.87573 167.778 10.5605 167.778 13.8724V144.943"
+                            stroke="black"
+                            stroke-width="14.9917"
+                            stroke-linecap="round"
+                        />
+                        <path
+                            d="M127.801 65.641C127.801 71.652 125.427 77.4253 121.187 81.6956C111.429 91.5302 101.965 101.784 91.8418 111.261C89.5221 113.402 85.8411 113.324 83.6203 111.086L54.4565 81.6956C45.6414 72.8121 45.6414 58.47 54.4565 49.5864C63.3584 40.6153 77.8605 40.6153 86.7616 49.5864L87.822 50.6546L88.8814 49.587C93.15 45.2835 98.9628 42.8562 105.034 42.8562C111.107 42.8562 116.92 45.2833 121.187 49.5864C125.427 53.8574 127.801 59.6304 127.801 65.641Z"
+                            stroke="black"
+                            stroke-width="14.9917"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M27.856 147.798H167.778"
+                            stroke="black"
+                            stroke-width="14.9917"
+                            stroke-linecap="round"
+                        />
+                        <path
+                            d="M27.856 187.776H167.778"
+                            stroke="black"
+                            stroke-width="14.9917"
+                            stroke-linecap="round"
+                        />
+                        <path
+                            d="M27.8561 187.776C16.8165 187.776 7.86719 178.827 7.86719 167.787C7.86719 156.747 16.8165 147.798 27.8561 147.798"
+                            stroke="black"
+                            stroke-width="14.9917"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                    تعداد کل ژانر ها :
+                    <span>{{ genres.count }}</span>
+                </li>
+            </ul>
+        </div>
      </header>
         <main class="main-home">
             {% for book in books %}
-                <a href="{% url 'book:detail' book.pk %}">
+                <a class="product-link" href="{% url 'book:detail' book.pk %}">
                     <div class="product" style="background:
                                                 {% if book.bookImage %} 
                                                     url('{{ book.bookImage.url }}');
                                                 {% else %}
                                                     url('{% static 'asets/img/book1.jpg' %}');
                                                 {% endif %}">
-                    <div class="product-content">
-                        <h3>{{ book.name }}</h3>
-                        <div class="gen-aut">
-                            <span class="aut">{{ book.author.first_name|first }}. {{ book.author.last_name }}</span>
-                            <span class="gen">{{ book.genres.first }}</span>
+                        <div class="product-content">
+                            <h3>{{ book.name }}</h3>
+                            <div class="gen-aut">
+                                <span class="aut">{{ book.author.first_name|first }}.{{ book.author.last_name }}</span>
+                                <span class="gen">{{ book.genres.first }}</span>
+                            </div>
+                            <div class="line"></div>
+                            <p class="about-book">
+                                {{ book.summry }}
+                            </p>
                         </div>
-                        <div class="line"></div>
-                        <p class="about-book">
-                            {{ book.summry }}
-                        </p>
-                    </div>
                     </div>
                 </a>
             {% endfor %}
