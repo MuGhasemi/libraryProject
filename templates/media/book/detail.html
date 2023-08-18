@@ -47,10 +47,12 @@
                 <button class="book-borrow-btn">قرض گرفتن</button>
                 <a href="{% url 'book:home' %}" class="book-back-btn">بازگشت</a>
             </div>
-            <div class="book-btns-edit">
-                <a href="{% url 'book:editBook' bookDetail.pk %}" class="book-btn-edit">ویرایش</a>
-                <a href="{% url 'book:deleteBook' bookDetail.pk %}" class="book-btn-delete">پاک کردن</a>
-            </div>
+            {% if request.user.is_authenticated and request.user.is_staff %}
+                <div class="book-btns-edit">
+                    <a href="{% url 'book:editBook' bookDetail.pk %}" class="book-btn-edit">ویرایش</a>
+                    <a href="{% url 'book:deleteBook' bookDetail.pk %}" class="book-btn-delete">پاک کردن</a>
+                </div>
+            {% endif %}
         </div>
     </div>
 </main>
