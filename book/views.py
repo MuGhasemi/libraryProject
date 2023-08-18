@@ -151,14 +151,17 @@ def showBookInstance(request):
     today = date.today()
     time = 23
     bookInstances = BookInstance.objects.filter(borrower = request.user)
-    for instance in bookInstances:
-        if instance.due_back <= today and time <= datetime.now().hour:
-            instance.delete()
-            book = Book.objects.get(id=instance.book.id)
-            sweetify.warning(request,  f'{ instance.book }, به دلیل پایان مهلت زمانی حذف شد', button='Ok', timer=3000)
-            book.status = 'a'
-            book.save()
-            return redirect('/book/all-instances/')
+    if bookInstances :
+        for instance in bookInstances:
+            if instance.due_back <= today and time <= datetime.now().hour:
+                instance.delete()
+                book = Book.objects.get(id=instance.book.id)
+                sweetify.warning(request,  f'{ instance.book }, به دلیل پایان مهلت زمانی حذف شد', button='Ok', timer=3000)
+                book.status = 'a'
+                book.save()
+                return redirect('/book/all-instances/')
+    else:
+        sweetify.warning(request, 'کتابی ثبت نشده است', button='Ok', timer=3000)
     context = {'bookInstances': bookInstances
                 }
     return render(request, 'book/showBookInstance.html', context)
