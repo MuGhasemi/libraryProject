@@ -6,7 +6,7 @@ from datetime import date
 
 class SearchBoxForm(forms.Form):
     search = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'ّsearch-box', 'placeholder': 'Search'}),
+        widget=forms.TextInput(attrs={'class': 'ّsearch-box', 'placeholder': 'جستجو...'}),
         max_length = 60,
         required = False,)  
     
