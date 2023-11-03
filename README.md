@@ -30,7 +30,7 @@ git clone https://github.com/MuGhasemi/libraryProject.git
 2. Navigate to the project directory and activate the virtual environment:
 
 ```
-cd Library
+cd libraryProject
 python -m venv venv
 source venv/bin/activate
 ```
