@@ -72,6 +72,8 @@ def detail(request, pk):
 
 @login_required
 def addBook(request):
+    if not request.user.is_staff:
+        return redirect('book:home')
     if request.method == 'POST':
         book = InsertBookForm(request.POST, request.FILES)
         if book.is_valid():
