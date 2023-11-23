@@ -1,6 +1,7 @@
 from datetime import date ,datetime
 import sweetify
 import os
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from .models import Book, Genre, Author, BookInstance
 from .forms import InsertBookForm, EditBookForm, SearchBoxForm, AddBookInstanceForm
@@ -92,7 +93,9 @@ def addBook(request):
 
 @login_required
 def editBook(request, pk):
-    book = Book.objects.get(id=pk)
+    if not request.user.is_staff:
+        return redirect('book:home')
+    book = get_object_or_404(Book, id=pk)
     if request.method == 'POST':
         old_photo_name = None
         if book.bookImage.name:
