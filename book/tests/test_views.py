@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from django.test import TestCase, Client
 from jalali_date import date2jalali
 from datetime import date, timedelta
@@ -7,7 +8,9 @@ from django.contrib.auth.models import User, AnonymousUser
 from ..models import Author, Genre, Book, BookInstance
 from ..forms import (SearchBoxForm,
                      AddBookInstanceForm,
-                     InsertBookForm)
+                     InsertBookForm,
+                     EditBookForm,
+                     )
 
 
 class TestAboutView(TestCase):
@@ -137,7 +140,7 @@ class TestAddBookView(TestCase):
         self.assertRedirects(response, '/account/login/?next=/book/insert-book/')
         self.assertEqual(response.status_code, 302)
 
-    def test_addBook_view_GET_without_superuser(self):
+    def test_addBook_view_GET_without_staff_user(self):
         self.client.login(username='mmd', password='1234')
         response = self.client.get(reverse('book:addBook'))
         response.user = self.user
@@ -145,7 +148,7 @@ class TestAddBookView(TestCase):
         self.assertRedirects(response, reverse('book:home'))
         self.assertEqual(response.status_code, 302)
 
-    def test_addBook_view_GET_with_superuser(self):
+    def test_addBook_view_GET_with_staff_user(self):
         self.client.login(username='root', password='1234')
         response = self.client.get(reverse('book:addBook'))
         response.user = self.root_user
@@ -180,3 +183,96 @@ class TestAddBookView(TestCase):
         self.assertEqual(book.name, self.form_data['name'])
         self.assertEqual(book.status, 'a')
 
+
+class TestEditBookView(TestCase):
+
+    def setUp(self):
+        self.author = baker.make(Author)
+        self.genre = baker.make(Genre)
+        self.client = Client()
+        self.book1 = Book.objects.create(name='Book 1', author=self.author)
+        self.book2 = Book.objects.create(name='Book 2', author=self.author)
+        self.book1.genre.add(self.genre)
+        self.user = User.objects.create_user(username='mmd', password='1234')
+        self.root_user = User.objects.create_superuser(username='root', password='1234')
+        self.form_data = {
+                        'name': 'new book updated',
+                        'summry': 'summry new book updated',
+                        'author': self.author.id,
+                        'genre': [self.genre.id],
+                        }
+
+    def test_editBook_view_GET_with_AnonymousUser(self):
+        response = self.client.get(reverse('book:editBook', args=[self.book1.id]))
+        response.user = AnonymousUser()
+        self.assertFalse(response.user.is_authenticated)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, f'/account/login/?next=/book/detail/{self.book1.id}/edit/')
+
+    def test_editBook_view_GET_without_staff_user(self):
+        self.client.login(username='mmd', password='1234')
+        response = self.client.get(reverse('book:editBook', args=[self.book1.id]))
+        response.user = self.user
+        self.assertFalse(response.user.is_staff)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('book:home'))
+
+    def test_editBook_view_GET_with_staff_user_and_invalid_id(self):
+        self.client.login(username='root', password='1234')
+        response = self.client.get(reverse('book:editBook', args=[10]))
+        response.user = self.root_user
+        self.assertTrue(response.user.is_staff)
+        self.assertEqual(response.status_code, 404)
+
+    def test_editBook_view_GET_with_staff_user_and_valid_id(self):
+        self.client.login(username='root', password='1234')
+        response = self.client.get(reverse('book:editBook', args=[self.book1.id]))
+        response.user = self.root_user
+        self.assertTrue(response.user.is_staff)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'book/editDetailBook.html')
+        self.failUnless(response.context['editForm'], EditBookForm)
+        self.assertContains(response, self.book1.name)
+        self.assertNotContains(response, self.book2.name)
+
+    def test_editBook_view_POST_without_staff_user(self):
+        self.client.login(username='mmd', password='1234')
+        response = self.client.post(reverse('book:editBook', args=[self.book1.id]), data=self.form_data)
+        response.user = self.user
+        self.assertFalse(response.user.is_staff)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('book:home'))
+
+    def test_editBook_view_POST_with_staff_user_and_invalid_id(self):
+        self.client.login(username='root', password='1234')
+        response = self.client.post(reverse('book:editBook', args=[10]), data=self.form_data)
+        response.user = self.root_user
+        self.assertTrue(response.user.is_staff)
+        self.assertEqual(response.status_code, 404)
+
+    def test_editBook_view_POST_with_staff_user_and_invalid_data(self):
+        invalid_form_data = {
+                            'name':'',
+                            'summry': 'update summary',
+                            'author': self.author.id,
+                            'genre': [self.genre.id],
+                            }
+        self.client.login(username='root', password='1234')
+        response = self.client.post(reverse('book:editBook', args=[self.book1.id]), data=invalid_form_data)
+        response.user = self.root_user
+        edit_book = Book.objects.get(id=self.book1.id)
+        self.assertTrue(response.user.is_staff)
+        self.assertEqual(response.status_code, 302)
+        self.assertNotEqual(edit_book.name, invalid_form_data['name'])
+        self.assertNotEqual(edit_book.name, invalid_form_data['summry'])
+
+    def test_editBook_view_POST_with_staff_user_and_valid_data(self):
+        self.client.login(username='root', password='1234')
+        response = self.client.post(reverse('book:editBook', args=[self.book1.id]), data=self.form_data,)
+        response.user = self.root_user
+        edit_book = get_object_or_404(Book, id=self.book1.id)
+        self.assertTrue(response.user.is_staff)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(edit_book.name, self.form_data['name'])
+        self.assertEqual(edit_book.summry, self.form_data['summry'])
+        self.assertNotEqual(self.book2.name, self.form_data['name'])
