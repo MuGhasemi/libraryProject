@@ -159,22 +159,25 @@ def showAuthors(request):
 
 @login_required
 def showBookInstance(request):
-    today = date.today()
-    bookInstances = BookInstance.objects.filter(borrower = request.user)
-    if bookInstances :
-        for instance in bookInstances:
-            if instance.due_back < today:
-                instance.delete()
-                book = Book.objects.get(id=instance.book.id)
-                sweetify.warning(request,  f'{ instance.book }, به دلیل پایان مهلت زمانی حذف شد', button='Ok', timer=3000)
-                book.status = 'a'
-                book.save()
-                return redirect('/book/all-instances/')
+    if request.method == 'GET':
+        today = date.today()
+        bookInstances = BookInstance.objects.filter(borrower = request.user)
+        if bookInstances :
+            for instance in bookInstances:
+                if instance.due_back < today:
+                    instance.delete()
+                    book = Book.objects.get(id=instance.book.id)
+                    sweetify.warning(request,  f'{ instance.book }, به دلیل پایان مهلت زمانی حذف شد', button='Ok', timer=3000)
+                    book.status = 'a'
+                    book.save()
+                    return redirect('/book/all-instances/')
+        else:
+            sweetify.warning(request, 'کتابی ثبت نشده است', button='Ok', timer=3000)
+        context = {'bookInstances': bookInstances
+                    }
+        return render(request, 'book/showBookInstance.html', context)
     else:
-        sweetify.warning(request, 'کتابی ثبت نشده است', button='Ok', timer=3000)
-    context = {'bookInstances': bookInstances
-                }
-    return render(request, 'book/showBookInstance.html', context)
+        return redirect('book:home')
 
 def notFound2(request, text):
     return render(request, 'partials/404.html', {'exception': text})
