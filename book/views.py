@@ -127,13 +127,19 @@ def editBook(request, pk):
 
 @login_required
 def deleteBook(request, pk):
-    book = Book.objects.get(id=pk)
-    if book.bookImage:
-        bookImage = book.bookImage.path
-        os.remove(bookImage)
-    book.delete()
-    sweetify.success(request, 'کتاب با موفقیت حذف شد')
-    return redirect(settings.LOGIN_REDIRECT_URL)
+    if not request.user.is_staff:
+        return redirect('book:home')
+    if request.method == 'GET':
+        book = get_object_or_404(Book, id=pk)
+        if book.bookImage:
+            bookImage = book.bookImage.path
+            os.remove(bookImage)
+        book.delete()
+        sweetify.success(request, 'کتاب با موفقیت حذف شد')
+        return redirect(settings.LOGIN_REDIRECT_URL)
+    else:
+        sweetify.success(request, 'کتاب حذف نشد')
+        return redirect('book:home')
 
 # --- All function for Genre model---
 
@@ -154,11 +160,10 @@ def showAuthors(request):
 @login_required
 def showBookInstance(request):
     today = date.today()
-    time = 23
     bookInstances = BookInstance.objects.filter(borrower = request.user)
     if bookInstances :
         for instance in bookInstances:
-            if instance.due_back <= today and time <= datetime.now().hour:
+            if instance.due_back < today:
                 instance.delete()
                 book = Book.objects.get(id=instance.book.id)
                 sweetify.warning(request,  f'{ instance.book }, به دلیل پایان مهلت زمانی حذف شد', button='Ok', timer=3000)
