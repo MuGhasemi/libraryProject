@@ -276,3 +276,105 @@ class TestEditBookView(TestCase):
         self.assertEqual(edit_book.name, self.form_data['name'])
         self.assertEqual(edit_book.summry, self.form_data['summry'])
         self.assertNotEqual(self.book2.name, self.form_data['name'])
+
+
+class TestDeleteBookView(TestCase):
+
+    def setUp(self):
+        self.author = baker.make(Author)
+        self.client = Client()
+        self.book1 = Book.objects.create(name='Book1', author=self.author)
+        self.book2 = Book.objects.create(name='Book2', author=self.author)
+        self.user = User.objects.create_user(username='mmd', password='1234')
+        self.root_user = User.objects.create_superuser(username='root', password='1234')
+
+    def test_deleteBook_view_GET_with_AnonymousUser(self):
+        response = self.client.get(reverse('book:deleteBook', args=[self.book1.id]))
+        response.user = AnonymousUser()
+        self.assertFalse(response.user.is_authenticated)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, f'/account/login/?next=/book/detail/{self.book1.id}/delete/')
+        self.assertEqual(Book.objects.count(), 2)
+
+    def test_deleteBook_view_GET_without_staff_user(self):
+        self.client.login(username='mmd', password='1234')
+        response = self.client.get(reverse('book:deleteBook', args=[self.book1.id]))
+        response.user = self.user
+        self.assertFalse(response.user.is_staff)
+        self.assertEqual(Book.objects.count(), 2)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('book:home'))
+
+    def test_deleteBook_view_with_staff_user_and_invalid_method(self):
+        self.client.login(username='root', password='1234')
+        response = self.client.post(reverse('book:deleteBook', args=[self.book1.id]))
+        response.user = self.root_user
+        self.assertTrue(response.user.is_staff)
+        self.assertEqual(Book.objects.count(), 2)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('book:home'))
+
+    def test_deleteBook_view_GET_with_staff_user_and_invalid_id(self):
+        self.client.login(username='root', password='1234')
+        response = self.client.get(reverse('book:deleteBook', args=[10]))
+        response.user = self.root_user
+        self.assertTrue(response.user.is_staff)
+        self.assertEqual(response.status_code, 404)
+        self.assertEqual(Book.objects.count(), 2)
+
+    def test_deleteBook_view_GET_with_staff_user_and_valid_id(self):
+        self.client.login(username='root', password='1234')
+        response = self.client.get(reverse('book:deleteBook', args=[self.book1.id]))
+        response.user = self.root_user
+        self.assertTrue(response.user.is_staff)
+        self.assertEqual(Book.objects.count(), 1)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('book:home'))
+        self.assertFalse(Book.objects.filter(id=self.book1.id).exists())
+        self.assertTrue(Book.objects.filter(id=self.book2.id).exists())
+
+
+class TestShowBookInstanceView(TestCase):
+
+    def setUp(self):
+        self.author = baker.make(Author)
+        self.client = Client()
+        self.book1 = Book.objects.create(name='Book1', author=self.author)
+        self.book2 = Book.objects.create(name='Book2', author=self.author)
+        self.user = User.objects.create_user(username='mmd', password='1234')
+        self.book_instance = BookInstance.objects.create(book=self.book1, borrower=self.user)
+
+    def test_showBookInstance_GET_with_AnonymousUser(self):
+        response = self.client.get(reverse('book:allInstances'))
+        response.user = AnonymousUser()
+        self.assertFalse(response.user.is_authenticated)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/account/login/?next=/book/all-instances/')
+
+    def test_showBookInstance_GET_with_user(self):
+        self.client.login(username='mmd', password='1234')
+        response = self.client.get(reverse('book:allInstances'))
+        response.user = self.user
+        self.assertTrue(response.user.is_authenticated)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'book/showBookInstance.html')
+        self.assertContains(response, self.book_instance.book)
+        self.assertEqual(response.context['bookInstances'].count(), 1)
+        self.assertNotContains(response, self.book2)
+
+    def test_showBookInstance_GET_with_user_and_expired_book_instance(self):
+        self.book_instance.due_back = date.today() - timedelta(days=1)
+        self.book_instance.save()
+        self.client.login(username='mmd', password='1234')
+        response = self.client.get(reverse('book:allInstances'))
+        response.user = self.user
+        self.assertTrue(response.user.is_authenticated)
+        self.assertEqual(BookInstance.objects.count(), 0)
+        self.assertEqual(self.book1.status, 'a')
+
+    def test_showBookInstance_with_user_and_invalid_method(self):
+        self.client.login(username='mmd', password='1234')
+        response = self.client.post(reverse('book:allInstances'))
+        response.user = self.user
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('book:home'))
